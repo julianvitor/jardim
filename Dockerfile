@@ -8,10 +8,10 @@ RUN apt-get update && apt-get install -y git
 WORKDIR /app
 
 # Clone o repositório Git
-RUN git clone https://github.com/julianvitor/playground.git
+RUN git clone https://github.com/julianvitor/jardim.git
 
 # Copie o script de inicialização para o contêiner
-COPY apis/apis-flask/jardim/startup.sh /app/startup.sh
+COPY jardim/startup.sh /app/startup.sh
 
 # Torne o script de inicialização executável
 RUN chmod +x /app/startup.sh
