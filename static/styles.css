@@ -86,7 +86,7 @@ body.dark-mode {
 
 /* Botão de troca de idioma */
 #language-switch-btn {
-    background-color: #007aff;
+    background-color: #004a9c;
     color: white;
     border: none;
     border-radius: 5px;
@@ -101,14 +101,14 @@ body.dark-mode {
 }
 
 #language-switch-btn:hover {
-    background-color: #0055b3;
-    box-shadow: 0 0 15px #0055b3;
+    background-color: #003776;
+    box-shadow: 0 0 15px #003776;
     transition: box-shadow 0.5s ease;
 }
 
 /* Botão de regar a planta */
 .water-button {
-    background-color: #007aff;
+    background-color: #004a9c;
     color: white;
     border: none;
     border-radius: 5px;
@@ -123,8 +123,8 @@ body.dark-mode {
 }
 
 .water-button:hover {
-    background-color: #02438c;
-    box-shadow: 0 0 60px #0055b3;
+    background-color: #003776;
+    box-shadow: 0 0 60px #003776;
     transition: background-color 0.5s ease, box-shadow 0.5s ease;
 }
 

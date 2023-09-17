@@ -47,7 +47,7 @@ def get_sensor_data():
 
 @app.route('/water-plant', methods=['POST'])
 def water_plant():
-    response = {"message": "Regando planta com 300ml"}
+    response = {"message": "Regando"}
     return jsonify(response)
 
 if __name__ == '__main__':
