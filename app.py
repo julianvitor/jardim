@@ -1,7 +1,6 @@
 import random
-from flask import Flask, jsonify, request, render_template
+from flask import Flask, jsonify, request, render_template, send_file
 from flask_minify import Minify
-from flask import send_file
 
 app = Flask(__name__)
 Minify(app=app, html=True, js=True, cssless=True)
