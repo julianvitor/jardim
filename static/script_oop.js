@@ -29,27 +29,27 @@ class GardenApp {
                 co2: "CO2 Level",
                 light: "Light Level",
             },
-            // Traduções para o português
-            portuguese: {
-            sensors:"Sensores",
-            garden: "Jardim",
-            darkMode: "Modo Escuro",
-            lightMode: "Modo Claro",
-            manualWatering: "Regar Manualmente",
-            sensorSection: "Sensores de Ar e Solo",
-            airTemp: "Temperatura do Ar",
-            soilTemp: "Temperatura do Solo",
-            ph: "ph do Solo",
-            airHumidity: "Umidade do Ar",
-            soilMoisture: "Umidade do Solo",
-            electricitySection: "Eletricidade e Reservatórios",
-            electricalConsumption: "Consumo de Eletricidade",
-            reservoirl1: "Nível do Reservatório 1",
-            reservoirl2: "Nível do Reservatório 2",
-            environmentalSensors: "Sensores Ambientais",
-            co2: "Nível de CO2",
-            light: "Nível de Luz",
-            },
+                // Traduções para o português
+                portuguese: {
+                sensors:"Sensores",
+                garden: "Jardim",
+                darkMode: "Modo Escuro",
+                lightMode: "Modo Claro",
+                manualWatering: "Regar Manualmente",
+                sensorSection: "Sensores de Ar e Solo",
+                airTemp: "Temperatura do Ar",
+                soilTemp: "Temperatura do Solo",
+                ph: "ph do Solo",
+                airHumidity: "Umidade do Ar",
+                soilMoisture: "Umidade do Solo",
+                electricitySection: "Eletricidade e Reservatórios",
+                electricalConsumption: "Consumo de Eletricidade",
+                reservoirl1: "Nível do Reservatório 1",
+                reservoirl2: "Nível do Reservatório 2",
+                environmentalSensors: "Sensores Ambientais",
+                co2: "Nível de CO2",
+                light: "Nível de Luz",
+                },
         };
 
         this.init();
@@ -113,52 +113,52 @@ class GardenApp {
         const sensorData = `
             <div class="sensor-item">
                 <i class="material-icons">thermostat</i>
-                <span>${translatedText[preferredLanguage].airTemp}: ${data.air_temp}</span>
+                <span>${this.translatedText[this.preferredLanguage].airTemp}: ${data.air_temp}</span>
             </div>
             <div class="sensor-item">
                 <i class="material-icons">thermostat</i>
-                <span>${translatedText[preferredLanguage].soilTemp}: ${data.soil_temp}</span>
+                <span>${this.translatedText[this.preferredLanguage].soilTemp}: ${data.soil_temp}</span>
             </div>
             <div class="sensor-item">
                 <i class="material-icons">invert_colors</i>
-                <span>${translatedText[preferredLanguage].ph}: ${data.ph}</span>
+                <span>${this.translatedText[this.preferredLanguage].ph}: ${data.ph}</span>
             </div>
             <div class="sensor-item">
                 <i class="material-icons">wb_sunny</i>
-                <span>${translatedText[preferredLanguage].airHumidity}: ${data.air_humidity}</span>
+                <span>${this.translatedText[this.preferredLanguage].airHumidity}: ${data.air_humidity}</span>
             </div>
             <div class="sensor-item">
                 <i class="material-icons">opacity</i>
-                <span>${translatedText[preferredLanguage].soilMoisture}: ${data.soil_moisture}</span>
+                <span>${this.translatedText[this.preferredLanguage].soilMoisture}: ${data.soil_moisture}</span>
             </div>
 
-            <h2>${translatedText[preferredLanguage].electricitySection}</h2>
+            <h2>${this.translatedText[this.preferredLanguage].electricitySection}</h2>
             <div class="sensor-item">
                 <i class="material-icons">power</i>
-                <span>${translatedText[preferredLanguage].electricalConsumption}: ${data.electrical_consumption}</span>
+                <span>${this.translatedText[this.preferredLanguage].electricalConsumption}: ${data.electrical_consumption}</span>
             </div>
             <div class="sensor-item">
                 <i class="material-icons">local_drink</i>
-                <span>${translatedText[preferredLanguage].reservoirl1}: ${data.reservoir_l1}</span>
+                <span>${this.translatedText[this.preferredLanguage].reservoirl1}: ${data.reservoir_l1}</span>
             </div>
             <div class="sensor-item">
                 <i class="material-icons">local_drink</i>
-                <span>${translatedText[preferredLanguage].reservoirl2}: ${data.reservoir_l2}</span>
+                <span>${this.translatedText[this.preferredLanguage].reservoirl2}: ${data.reservoir_l2}</span>
             </div>
 
-            <h2>${translatedText[preferredLanguage].environmentalSensors}</h2>
+            <h2>${this.translatedText[this.preferredLanguage].environmentalSensors}</h2>
             <div class="sensor-item">
                 <i class="material-icons">cloud</i>
-                <span>${translatedText[preferredLanguage].co2}: ${data.co2}</span>
+                <span>${this.translatedText[this.preferredLanguage].co2}: ${data.co2}</span>
             </div>
             
             <div class="sensor-item">
                 <i class="material-icons">wb_incandescent</i>
-                <span>${translatedText[preferredLanguage].light}: ${data.light}</span>
+                <span>${this.translatedText[this.preferredLanguage].light}: ${data.light}</span>
             </div>`
         ;
-        if (!this.sensorContainer.classList.contains("hidden")) {
-            this.sensorContainer.innerHTML = sensorData;
+    if (!this.sensorContainer.classList.contains("hidden")) {
+        this.sensorContainer.innerHTML = sensorData;
         }
     }
 
