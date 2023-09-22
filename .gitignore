@@ -355,3 +355,6 @@ cython_debug/
 playground/
 
 flask-api/
+
+.vscode/
+.vscode
