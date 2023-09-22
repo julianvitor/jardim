@@ -12,6 +12,7 @@ import random
 
 
 app = Flask(__name__, static_folder='static')
+app.static_folder = 'static'
 minify = Minify(app=app, html=True, js=True, cssless=True)
 
 class SensorDataGenerator:
@@ -40,7 +41,7 @@ def index_min():
 
 @app.route('/robots.txt')
 def serve_robots():
-    with open('robots.txt', 'rb') as file:
+    with open('static/robots.txt', 'rb') as file:
         content = file.read()
     
     response = Response(content, content_type='text/plain')
@@ -58,7 +59,8 @@ def water_plant():
 
 @app.errorhandler(404)
 def page_not_found(error):
-    return send_from_directory(app.static_folder + '/error_images', '404.webp'), 404
+    return send_from_directory(app.static_folder + '/error_images', '404.jpg'), 404
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000, debug=True)
+
