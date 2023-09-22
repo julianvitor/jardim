@@ -1,5 +1,5 @@
 import random
-from flask import Flask, jsonify, request, render_template, send_file, send_from_directory
+from flask import Flask, jsonify, request, render_template, send_file, send_from_directory, Response
 from flask_minify import Minify
 
 app = Flask(__name__, static_folder='static')
@@ -31,7 +31,11 @@ def index_min():
 
 @app.route('/robots.txt')
 def serve_robots():
-    return send_file('robots.txt')
+    with open('robots.txt', 'rb') as file:
+        content = file.read()
+    
+    response = Response(content, content_type='text/plain')
+    return response
 
 @app.route('/sensor-data', methods=['GET'])
 def get_sensor_data():
