@@ -1,6 +1,15 @@
-import random
-from flask import Flask, jsonify, request, render_template, send_file, send_from_directory, Response
+from flask import (
+    Flask,
+    jsonify,
+    request,
+    render_template,
+    send_file,
+    send_from_directory,
+    Response,
+)
 from flask_minify import Minify
+import random
+
 
 app = Flask(__name__, static_folder='static')
 minify = Minify(app=app, html=True, js=True, cssless=True)
