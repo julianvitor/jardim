@@ -1,9 +1,9 @@
 import random
-from flask import Flask, jsonify, request, render_template, send_file
+from flask import Flask, jsonify, request, render_template, send_file, send_from_directory
 from flask_minify import Minify
 
-app = Flask(__name__)
-Minify(app=app, html=True, js=True, cssless=True)
+app = Flask(__name__, static_folder='static')
+minify = Minify(app=app, html=True, js=True, cssless=True)
 
 class SensorDataGenerator:
     @staticmethod
@@ -21,36 +21,31 @@ class SensorDataGenerator:
             "light": f"{random.randint(500, 1000)} Lux",
         }
 
-class Routes:
-    @app.route('/pt')
-    def index():
-        return render_template('dashboard.html')
+@app.route('/')
+def index():
+    return render_template('index.html')
 
-    @app.route('/en')
-    def index_en():
-        return render_template('dashboard-english.html')
+@app.route('/min')
+def index_min():
+    return render_template('index_min.html')
 
-    @app.route('/')
-    def index_spa():
-        return render_template('dashboard-spa.html')
+@app.route('/robots.txt')
+def serve_robots():
+    return send_file('robots.txt')
 
-    @app.route('/min')
-    def index_spa_min():
-        return render_template('dashboard-spa-min.html')
+@app.route('/sensor-data', methods=['GET'])
+def get_sensor_data():
+    sensor_data = SensorDataGenerator.generate_sensor_data()
+    return jsonify(sensor_data)
 
-    @app.route('/robots.txt')
-    def serve_robots():
-        return send_file('robots.txt')
+@app.route('/water-plant', methods=['POST'])
+def water_plant():
+    response = {"message": "Regando"}
+    return jsonify(response)
 
-    @app.route('/sensor-data', methods=['GET'])
-    def get_sensor_data():
-        sensor_data = SensorDataGenerator.generate_sensor_data()
-        return jsonify(sensor_data)
-
-    @app.route('/water-plant', methods=['POST'])
-    def water_plant():
-        response = {"message": "Regando"}
-        return jsonify(response)
+@app.errorhandler(404)
+def page_not_found(error):
+    return send_from_directory(app.static_folder + '/error_images', '404.webp'), 404
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000, debug=True)
