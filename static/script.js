@@ -5,18 +5,24 @@ class GardenApp {
 
         this.sensorContainer = document.getElementById("sensor-container");
 
-       // Elementos do DOM para eletricidade e reservatórios
-       this.sensorERContainer = document.getElementById("sensorER-container");
-       this.sensorERList = document.getElementById("sensorER-list");
-       this.sensorsERToggle = document.getElementById("sensorsER");
-       this.sensorERToggleIcon = document.getElementById("sensorER-toggle-icon");
+        // Elementos do DOM para eletricidade e reservatórios
+        this.sensorERContainer = document.getElementById("sensorER-container");
+        this.sensorERList = document.getElementById("sensorER-list");
+        this.sensorsERToggle = document.getElementById("sensorsER");
+        this.sensorERToggleIcon = document.getElementById("sensorER-toggle-icon");
+
+        // Elementos do DOM para sensores ambiente
+        this.sensorESContainer = document.getElementById("sensorES-container");
+        this.sensorESList = document.getElementById("sensorES-list");
+        this.sensorsESToggle = document.getElementById("sensorsES");
+        this.sensorESToggleIcon = document.getElementById("sensorES-toggle-icon");
 
         this.darkModeToggle = document.getElementById("dark-mode-toggle");
         this.container = document.querySelector(".container");
         this.body = document.body;
 
         // Modo preferido
-        this.preferredMode = localStorage.getItem("preferredMode") || "light";
+        this.preferredMode = this.getCookie("preferredMode") || "light";
 
         // Inicialização
         this.init();
@@ -34,7 +40,6 @@ class GardenApp {
         this.darkModeToggle.addEventListener("click", () => this.toggleDarkMode());
         this.waterButton.addEventListener("click", () => this.waterPlant());
         document.getElementById("sensors").addEventListener("click", () => this.toggleSensorList("sensor-list", "sensor-toggle-icon"));
-        
     }
 
     setMode(mode) {
@@ -49,8 +54,8 @@ class GardenApp {
             this.darkModeToggle.innerText = "Dark Mode";
         }
 
-        // Armazenamento local
-        localStorage.setItem("preferredMode", mode);
+        // Armazenamento em cookie
+        this.setCookie("preferredMode", mode);
     }
 
     toggleDarkMode() {
@@ -64,7 +69,8 @@ class GardenApp {
             .then((response) => response.json())
             .then((data) => {
                 this.updateSensorData(data);
-                this.updateElectricityReservoirData(data); // Adiciona essa chamada
+                this.updateElectricityReservoirData(data); // Adiciona essa chamada para os dados de eletricidade e reservatorio
+                this.updateEnvironmentalSensorsData(data); // Adiciona essa chamada para os dados de sensores ambiente
             });
     }
 
@@ -90,17 +96,6 @@ class GardenApp {
             <div class="sensor-item">
                 <i class="material-icons">opacity</i>
                 <span>Soil Moisture: ${data.soil_moisture}</span>
-            </div>
-
-            <h2>Environmental Sensors</h2>
-            <div class="sensor-item">
-                <i class="material-icons">cloud</i>
-                <span>CO2 Level: ${data.co2}</span>
-            </div>
-            
-            <div class="sensor-item">
-                <i class="material-icons">wb_incandescent</i>
-                <span>Light Level: ${data.light}</span>
             </div>
         `;
 
@@ -131,22 +126,57 @@ class GardenApp {
         }
     }
 
+    updateEnvironmentalSensorsData(data) {
+        //atualização dos dados de sensores do ambiente
+        const sensorESData = `
+            <div class="sensor-item">
+                <i class="material-icons">cloud</i>
+                <span>CO2 Level: ${data.co2}</span>
+            </div>
+            <div class="sensor-item">
+                <i class="material-icons">wb_incandescent</i>
+                <span>Light Level: ${data.light}</span>
+            </div>
+        `;
+
+        if (!this.sensorESList.classList.contains("hidden")) {
+            this.sensorESContainer.innerHTML = sensorESData;
+        }
+    }
+
     toggleSensorList(sensorListId, toggleIconId, sensorContainer) {
-        // Alternância de Lista de Sensores
         const sensorList = document.getElementById(sensorListId);
         const toggleIcon = document.getElementById(toggleIconId);
-        const sensorTitle = document.getElementById(sensorListId.replace("-list", ""));
-    
         sensorList.classList.toggle("hidden");
         toggleIcon.classList.toggle("rotate-icon");
-        sensorTitle.classList.toggle("clicked");
-    
-        // Ocultar ou Exibir o Conteúdo do Contêiner de Sensores Específico
         if (sensorContainer && sensorContainer.classList) {
             sensorContainer.classList.toggle("hidden");
         }
     }
 
+    // Funções para manipular cookies
+    setCookie(name, value, days = 365) {
+        const date = new Date();
+        date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);
+        const expires = "expires=" + date.toUTCString();
+        document.cookie = name + "=" + value + ";" + expires + ";path=/";
+    }
+
+    getCookie(name) {
+        const cname = name + "=";
+        const decodedCookie = decodeURIComponent(document.cookie);
+        const ca = decodedCookie.split(';');
+        for (let i = 0; i < ca.length; i++) {
+            let c = ca[i];
+            while (c.charAt(0) == ' ') {
+                c = c.substring(1);
+            }
+            if (c.indexOf(cname) == 0) {
+                return c.substring(cname.length, c.length);
+            }
+        }
+        return "";
+    }
     waterPlant() {
         // Irrigação da Planta
         fetch("/water-plant", {
@@ -160,10 +190,12 @@ class GardenApp {
             console.error("Erro ao enviar a solicitação:", error);
         });
     }
+    
 }
+
 
 document.addEventListener("DOMContentLoaded", () => {
     const app = new GardenApp();
-    app.sensorsERToggle.addEventListener("click", () => app.toggleSensorList("sensorER-list", "sensorER-toggle-icon", app.sensorERContainer));
-    
+    app.sensorsERToggle.addEventListener("click", () => app.toggleSensorList("sensorER-list", "sensorER-toggle-icon" ));
+    app.sensorsESToggle.addEventListener("click", () => app.toggleSensorList("sensorES-list", "sensorES-toggle-icon" ));
 });

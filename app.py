@@ -11,7 +11,7 @@ import random
 
 app = Flask(__name__, static_folder='static')
 app.static_folder = 'static'
-minify = Minify(app=app, html=True, js=True, cssless=True)
+minify = Minify(app=app, html=False, js=True, cssless=True)
 
 def generate_sensor_data():
     return {
@@ -34,6 +34,10 @@ def index():
 @app.route('/login')
 def login():
     return render_template('login.html')
+
+@app.route('/cadastro')
+def cadastro():
+    return render_template('cadastro.html')
 
 @app.route('/robots.txt')
 def serve_robots():
