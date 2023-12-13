@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Bem-vindo ao Painel do Jardim Inteligente de Vegetais. Monitore e controle os sensores de ar e solo, eletricidade, reservatórios e sensores ambientais do seu jardim de forma prática e eficiente. Regue suas plantas manualmente com um clique. Alterne entre os modos claro e escuro para uma experiência personalizada.">
+    <link rel="preload" href="https://fonts.googleapis.com/icon?family=Material+Icons&display=swap" as="style">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons&display=swap">
+    <link rel="icon" href="{{ url_for('static', filename='icon.png') }}" type="image/x-icon">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}"> 
+    <script src="/static/script.js"></script>
+    <title>Cadastro do Jardim</title>
+</head>
+<body>
+    <div class="container center-container">
+        <header>
+            <h1 id="title">Cadastro</h1>
+            <label class="switch">
+                <input type="checkbox" id="dark-mode-toggle">
+                <span class="slider"></span>
+            </label>  
+        </header>
+        <div class="login-container">
+            <form>
+                <div class="input-group">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" name="username" pattern="^[^\s]{1,30}$" title="Por favor, insira de 1 a 30 caracteres sem espaços." required>
+                </div>
+                <div class="input-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" pattern="^[^\s]{1,30}$" title="Por favor, insira de 1 a 30 caracteres sem espaços." required>
+                </div>
+                <div class="input-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" pattern="^[^\s]{1,30}$" title="Por favor, insira de 1 a 30 caracteres sem espaços." required>
+                </div>
+                <button id = login-btn type="submit">Cadastrar</button>
+            </form>
+        </div>
+
+    </div>
+</body>
+</html>

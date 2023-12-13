@@ -62,8 +62,8 @@ body.dark-mode {
     box-shadow: 0 0 100px 2px rgba(0, 122, 255, 0.3);
     border-radius: 16px;
     padding: 30px;
-    width: 70%;
-    max-width: 550px;
+    width: 50%;
+    max-width: 400px;
 }
 
 /* Modo escuro para o container */
@@ -274,7 +274,7 @@ ul#sensor-list.hidden {
 
 /* Estilos gerais para o input */
 input {
-    width: 90%;
+    width: 70%;
     padding: 10px;
     margin: 8px 0;
     box-sizing: border-box;
@@ -282,6 +282,7 @@ input {
     border-radius: 5px;
     background-color: #dddddd;
     color: #000; /* Alterado para uma cor de texto mais visível em fundo claro */
+    text-align: left; /* Adicionado para alinhar à esquerda */
 }
 
 /* Estilos para o modo escuro dentro do container específico */
@@ -292,6 +293,6 @@ input {
 
 .input-group label {
     text-align: left;
-    display: block;
+    display: inline-flex;
     margin-bottom: 2px; 
 }
