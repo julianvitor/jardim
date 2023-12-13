@@ -22,8 +22,8 @@ class TestApp(unittest.TestCase):
         self.assertIn('co2', data)
         self.assertIn('light', data)
         
-    def test_index_min(self):
-        response = self.app.get('/min')
+    def test_login(self):
+        response = self.app.get('/login')
         self.assertEqual(response.status_code, 200)
 
     def test_serve_robots(self):

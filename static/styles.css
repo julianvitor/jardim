@@ -11,6 +11,27 @@ body, h1, h2, span, div {
     font-family: -apple-system, BlinkMacSystemFont, system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Segoe UI Symbol";
 }
 
+/* Cabeçalho */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Título principal */
+h1 {
+    font-family: -apple-system, sans-serif;
+    font-size: 50px;
+    color: #666666;
+    margin: 0px;
+}
+
+.dark-mode h1 {
+    color: #ffffff;
+    transition: background-color 0.7s ease, color 0.7s ease;
+
+}
+
 /* Estilos do corpo da página */
 body {
     background-color: #9f9f9f;
@@ -30,7 +51,10 @@ body.dark-mode {
     color: #ffffff;
     transition: background-color 0.7s ease, color 0.7s ease;
 }
-
+/*padrão de transicoes*/
+.container, .container.dark-mode, .container.dark-mode .login-container {
+    transition: background-color 0.9s ease, color 0.9s ease, box-shadow 1s ease;
+}
 /* Container principal */
 .container {
     background-color: #dddddd;
@@ -39,7 +63,6 @@ body.dark-mode {
     padding: 30px;
     width: 80%;
     max-width: 550px;
-    transition: background-color 0.9s ease, color 0.9s ease, box-shadow 1s ease;
     position: fixed;
 }
 
@@ -69,7 +92,6 @@ body.dark-mode {
     color: #ffffff;
     border: none;
     border-radius: 5px;
-    padding: 10px 20px;
     font-size: 18px;
     cursor: pointer;
     transition: background-color 0.3s ease, color 0.3s ease;
@@ -254,6 +276,7 @@ ul#sensor-list.hidden {
     display: none;
 }
 
+/* Estilos gerais para o input */
 input {
     width: 90%;
     padding: 10px;
@@ -261,6 +284,12 @@ input {
     box-sizing: border-box;
     border: 1px solid #555;
     border-radius: 5px;
-    background-color: #333;
-    color: #fff;
+    background-color: #dddddd;
+    color: #000; /* Alterado para uma cor de texto mais visível em fundo claro */
+}
+
+/* Estilos para o modo escuro dentro do container específico */
+.container.dark-mode input {
+    background-color: #333333;
+    color: #ffffff;
 }
