@@ -16,12 +16,24 @@ class GardenApp {
         this.sensorESList = document.getElementById("sensorES-list");
         this.sensorsESToggle = document.getElementById("sensorsES");
         this.sensorESToggleIcon = document.getElementById("sensorES-toggle-icon");
+        // Elementos do DOM para eletricidade e reservatórios
+        this.sensorERContainer = document.getElementById("sensorER-container");
+        this.sensorERList = document.getElementById("sensorER-list");
+        this.sensorsERToggle = document.getElementById("sensorsER");
+        this.sensorERToggleIcon = document.getElementById("sensorER-toggle-icon");
+
+        // Elementos do DOM para sensores ambiente
+        this.sensorESContainer = document.getElementById("sensorES-container");
+        this.sensorESList = document.getElementById("sensorES-list");
+        this.sensorsESToggle = document.getElementById("sensorsES");
+        this.sensorESToggleIcon = document.getElementById("sensorES-toggle-icon");
 
         this.darkModeToggle = document.getElementById("dark-mode-toggle");
         this.container = document.querySelector(".container");
         this.body = document.body;
 
         // Modo preferido
+        this.preferredMode = this.getCookie("preferredMode") || "light";
         this.preferredMode = this.getCookie("preferredMode") || "light";
 
         // Inicialização
@@ -56,6 +68,8 @@ class GardenApp {
 
         // Armazenamento em cookie
         this.setCookie("preferredMode", mode);
+        // Armazenamento em cookie
+        this.setCookie("preferredMode", mode);
     }
 
     toggleDarkMode() {
@@ -69,6 +83,8 @@ class GardenApp {
             .then((response) => response.json())
             .then((data) => {
                 this.updateSensorData(data);
+                this.updateElectricityReservoirData(data); // Adiciona essa chamada para os dados de eletricidade e reservatorio
+                this.updateEnvironmentalSensorsData(data); // Adiciona essa chamada para os dados de sensores ambiente
                 this.updateElectricityReservoirData(data); // Adiciona essa chamada para os dados de eletricidade e reservatorio
                 this.updateEnvironmentalSensorsData(data); // Adiciona essa chamada para os dados de sensores ambiente
             });
@@ -144,6 +160,24 @@ class GardenApp {
         }
     }
 
+    updateEnvironmentalSensorsData(data) {
+        //atualização dos dados de sensores do ambiente
+        const sensorESData = `
+            <div class="sensor-item">
+                <i class="material-icons">cloud</i>
+                <span>CO2 Level: ${data.co2}</span>
+            </div>
+            <div class="sensor-item">
+                <i class="material-icons">wb_incandescent</i>
+                <span>Light Level: ${data.light}</span>
+            </div>
+        `;
+
+        if (!this.sensorESList.classList.contains("hidden")) {
+            this.sensorESContainer.innerHTML = sensorESData;
+        }
+    }
+
     toggleSensorList(sensorListId, toggleIconId, sensorContainer) {
         const sensorList = document.getElementById(sensorListId);
         const toggleIcon = document.getElementById(toggleIconId);
@@ -154,6 +188,29 @@ class GardenApp {
         }
     }
 
+    // Funções para manipular cookies
+    setCookie(name, value, days = 365) {
+        const date = new Date();
+        date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);
+        const expires = "expires=" + date.toUTCString();
+        document.cookie = name + "=" + value + ";" + expires + ";path=/";
+    }
+
+    getCookie(name) {
+        const cname = name + "=";
+        const decodedCookie = decodeURIComponent(document.cookie);
+        const ca = decodedCookie.split(';');
+        for (let i = 0; i < ca.length; i++) {
+            let c = ca[i];
+            while (c.charAt(0) == ' ') {
+                c = c.substring(1);
+            }
+            if (c.indexOf(cname) == 0) {
+                return c.substring(cname.length, c.length);
+            }
+        }
+        return "";
+    }
     // Funções para manipular cookies
     setCookie(name, value, days = 365) {
         const date = new Date();
@@ -191,7 +248,9 @@ class GardenApp {
         });
     }
     
+    
 }
+
 
 
 document.addEventListener("DOMContentLoaded", () => {
