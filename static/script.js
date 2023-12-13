@@ -5,6 +5,12 @@ class GardenApp {
 
         this.sensorContainer = document.getElementById("sensor-container");
 
+       // Elementos do DOM para eletricidade e reservatórios
+       this.sensorERContainer = document.getElementById("sensorER-container");
+       this.sensorERList = document.getElementById("sensorER-list");
+       this.sensorsERToggle = document.getElementById("sensorsER");
+       this.sensorERToggleIcon = document.getElementById("sensorER-toggle-icon");
+
         this.darkModeToggle = document.getElementById("dark-mode-toggle");
         this.container = document.querySelector(".container");
         this.body = document.body;
@@ -28,6 +34,7 @@ class GardenApp {
         this.darkModeToggle.addEventListener("click", () => this.toggleDarkMode());
         this.waterButton.addEventListener("click", () => this.waterPlant());
         document.getElementById("sensors").addEventListener("click", () => this.toggleSensorList("sensor-list", "sensor-toggle-icon"));
+        
     }
 
     setMode(mode) {
@@ -57,7 +64,7 @@ class GardenApp {
             .then((response) => response.json())
             .then((data) => {
                 this.updateSensorData(data);
-                this.updateSensorERData(data);
+                this.updateElectricityReservoirData(data); // Adiciona essa chamada
             });
     }
 
@@ -85,20 +92,6 @@ class GardenApp {
                 <span>Soil Moisture: ${data.soil_moisture}</span>
             </div>
 
-            <h2>Electricity and Reservoirs</h2>
-            <div class="sensor-item">
-                <i class="material-icons">power</i>
-                <span>Electrical Consumption: ${data.electrical_consumption}</span>
-            </div>
-            <div class="sensor-item">
-                <i class="material-icons">local_drink</i>
-                <span>Reservoir Level 1: ${data.reservoir_l1}</span>
-            </div>
-            <div class="sensor-item">
-                <i class="material-icons">local_drink</i>
-                <span>Reservoir Level 2: ${data.reservoir_l2}</span>
-            </div>
-
             <h2>Environmental Sensors</h2>
             <div class="sensor-item">
                 <i class="material-icons">cloud</i>
@@ -113,6 +106,28 @@ class GardenApp {
 
         if (!this.sensorContainer.classList.contains("hidden")) {
             this.sensorContainer.innerHTML = sensorData;
+        }
+    }
+
+    updateElectricityReservoirData(data) {
+        // Atualização dos Dados de Eletricidade e Reservatórios
+        const sensorERData = `
+            <div class="sensor-item">
+                <i class="material-icons">power</i>
+                <span>Electrical Consumption: ${data.electrical_consumption}</span>
+            </div>
+            <div class="sensor-item">
+                <i class="material-icons">local_drink</i>
+                <span>Reservoir Level 1: ${data.reservoir_l1}</span>
+            </div>
+            <div class="sensor-item">
+                <i class="material-icons">local_drink</i>
+                <span>Reservoir Level 2: ${data.reservoir_l2}</span>
+            </div>
+        `;
+
+        if (!this.sensorERList.classList.contains("hidden")) {
+            this.sensorERContainer.innerHTML = sensorERData;
         }
     }
 
@@ -148,5 +163,7 @@ class GardenApp {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-    new GardenApp();
+    const app = new GardenApp();
+    app.sensorsERToggle.addEventListener("click", () => app.toggleSensorList("sensorER-list", "sensorER-toggle-icon", app.sensorERContainer));
+    
 });
