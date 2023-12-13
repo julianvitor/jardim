@@ -1,11 +1,9 @@
 from flask import (
     Flask,
     jsonify,
-    request,
     render_template,
-    send_file,
     send_from_directory,
-    Response,
+    Response
 )
 from flask_minify import Minify
 import random
@@ -33,9 +31,9 @@ def generate_sensor_data():
 def index():
     return render_template('index.html')
 
-@app.route('/min')
-def index_min():
-    return render_template('index_min.html')
+@app.route('/login')
+def login():
+    return render_template('login.html')
 
 @app.route('/robots.txt')
 def serve_robots():

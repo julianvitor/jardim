@@ -1,11 +1,10 @@
-/* Fontes */
+/* Estilos críticos */
 @font-face {
     font-family: -apple-system, BlinkMacSystemFont, system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Segoe UI Symbol";
     font-weight: normal;
     font-style: normal;
     font-display: swap;
 }
-
 
 /* Estilos de texto comuns */
 body, h1, h2, span, div {
@@ -83,9 +82,7 @@ body.dark-mode {
 }
 
 
-
-/* Botão de troca de idioma */
-#language-switch-btn {
+#login-btn {
     background-color: #004a9c;
     color: white;
     border: none;
@@ -100,12 +97,11 @@ body.dark-mode {
     margin-top: 0px;
 }
 
-#language-switch-btn:hover {
+#login-btn:hover {
     background-color: #003776;
     box-shadow: 0 0 15px #003776;
     transition: box-shadow 0.5s ease;
 }
-
 /* Botão de regar a planta */
 .water-button {
     background-color: #004a9c;
@@ -245,7 +241,9 @@ i#sensor-toggle-icon {
     user-select: none;
 }
 
-/* Aplicar rotação ao ícone quando a classe "rotate-icon" está presente */
+/* Aplicar rotação ao ícone quando a classe "rotate
+
+-icon" está presente */
 i#sensor-toggle-icon.rotate-icon {
     transform: rotate(180deg);
     user-select: none;
@@ -254,4 +252,15 @@ i#sensor-toggle-icon.rotate-icon {
 /* Manter a lista oculta quando necessário */
 ul#sensor-list.hidden {
     display: none;
+}
+
+input {
+    width: 90%;
+    padding: 10px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 1px solid #555;
+    border-radius: 5px;
+    background-color: #333;
+    color: #fff;
 }

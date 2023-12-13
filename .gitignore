@@ -315,6 +315,7 @@ celerybeat.pid
 .env
 .venv
 env/
+jardim_env/
 venv/
 ENV/
 env.bak/

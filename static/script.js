@@ -6,10 +6,7 @@ class GardenApp {
         this.container = document.querySelector(".container");
         this.body = document.body;
         this.preferredMode = localStorage.getItem("preferredMode") || "light";
-        this.preferredLanguage = "portuguese"; // Idioma padrão
-        this.translatedText = {
-            // Traduções para o inglês
-            english: {
+        this.text = {
                 sensors:"Sensors",
                 garden: "Garden",
                 darkMode: "Dark Mode",
@@ -28,28 +25,6 @@ class GardenApp {
                 environmentalSensors: "Environmental Sensors",
                 co2: "CO2 Level",
                 light: "Light Level",
-            },
-                // Traduções para o português
-                portuguese: {
-                sensors:"Sensores",
-                garden: "Jardim",
-                darkMode: "Modo Escuro",
-                lightMode: "Modo Claro",
-                manualWatering: "Regar Manualmente",
-                sensorSection: "Sensores de Ar e Solo",
-                airTemp: "Temperatura do Ar",
-                soilTemp: "Temperatura do Solo",
-                ph: "ph do Solo",
-                airHumidity: "Umidade do Ar",
-                soilMoisture: "Umidade do Solo",
-                electricitySection: "Eletricidade e Reservatórios",
-                electricalConsumption: "Consumo de Eletricidade",
-                reservoirl1: "Nível do Reservatório 1",
-                reservoirl2: "Nível do Reservatório 2",
-                environmentalSensors: "Sensores Ambientais",
-                co2: "Nível de CO2",
-                light: "Nível de Luz",
-                },
         };
 
         this.init();
@@ -64,7 +39,6 @@ class GardenApp {
 
     addEventListeners() {
         this.darkModeToggle.addEventListener("click", () => this.toggleDarkMode());
-        document.getElementById("language-switch-btn").addEventListener("click", () => this.toggleLanguage());
         this.waterButton.addEventListener("click", () => this.waterPlant());
         document.querySelector(".sensor-toggle").addEventListener("click", () => this.toggleSensorList());
     }
@@ -73,11 +47,11 @@ class GardenApp {
         if (mode === "dark") {
             this.container.classList.add("dark-mode");
             this.body.classList.add("dark-mode");
-            this.darkModeToggle.innerText = this.translatedText[this.preferredLanguage].lightMode;
+            this.darkModeToggle.innerText = this.text.lightMode;
         } else {
             this.container.classList.remove("dark-mode");
             this.body.classList.remove("dark-mode");
-            this.darkModeToggle.innerText = this.translatedText[this.preferredLanguage].darkMode;
+            this.darkModeToggle.innerText = this.text.darkMode;
         }
         localStorage.setItem("preferredMode", mode);
     }
@@ -86,19 +60,6 @@ class GardenApp {
         this.setMode(this.body.classList.contains("dark-mode") ? "light" : "dark");
     }
 
-    toggleLanguage() {
-        this.preferredLanguage = this.preferredLanguage === "english" ? "portuguese" : "english";
-        this.updateTexts();
-    }
-
-    updateTexts() {
-        // Atualize os textos na página com base no novo idioma
-        this.darkModeToggle.innerText = this.translatedText[this.preferredLanguage].darkMode;
-        this.waterButton.innerText = this.translatedText[this.preferredLanguage].manualWatering;
-        // ... (atualize outros elementos conforme necessário)
-        document.getElementById("language-switch-btn").innerText =
-            this.preferredLanguage === "english" ? "Português" : "English";
-    }
 
     fetchAndUpdateSensorData() {
         fetch('/sensor-data')
@@ -113,48 +74,48 @@ class GardenApp {
         const sensorData = `
             <div class="sensor-item">
                 <i class="material-icons">thermostat</i>
-                <span>${this.translatedText[this.preferredLanguage].airTemp}: ${data.air_temp}</span>
+                <span>${this.text.airTemp}: ${data.air_temp}</span>
             </div>
             <div class="sensor-item">
                 <i class="material-icons">thermostat</i>
-                <span>${this.translatedText[this.preferredLanguage].soilTemp}: ${data.soil_temp}</span>
+                <span>${this.text.soilTemp}: ${data.soil_temp}</span>
             </div>
             <div class="sensor-item">
                 <i class="material-icons">invert_colors</i>
-                <span>${this.translatedText[this.preferredLanguage].ph}: ${data.ph}</span>
+                <span>${this.text.ph}: ${data.ph}</span>
             </div>
             <div class="sensor-item">
                 <i class="material-icons">wb_sunny</i>
-                <span>${this.translatedText[this.preferredLanguage].airHumidity}: ${data.air_humidity}</span>
+                <span>${this.text.airHumidity}: ${data.air_humidity}</span>
             </div>
             <div class="sensor-item">
                 <i class="material-icons">opacity</i>
-                <span>${this.translatedText[this.preferredLanguage].soilMoisture}: ${data.soil_moisture}</span>
+                <span>${this.text.soilMoisture}: ${data.soil_moisture}</span>
             </div>
 
-            <h2>${this.translatedText[this.preferredLanguage].electricitySection}</h2>
+            <h2>${this.text.electricitySection}</h2>
             <div class="sensor-item">
                 <i class="material-icons">power</i>
-                <span>${this.translatedText[this.preferredLanguage].electricalConsumption}: ${data.electrical_consumption}</span>
+                <span>${this.text.electricalConsumption}: ${data.electrical_consumption}</span>
             </div>
             <div class="sensor-item">
                 <i class="material-icons">local_drink</i>
-                <span>${this.translatedText[this.preferredLanguage].reservoirl1}: ${data.reservoir_l1}</span>
+                <span>${this.text.reservoirl1}: ${data.reservoir_l1}</span>
             </div>
             <div class="sensor-item">
                 <i class="material-icons">local_drink</i>
-                <span>${this.translatedText[this.preferredLanguage].reservoirl2}: ${data.reservoir_l2}</span>
+                <span>${this.text.reservoirl2}: ${data.reservoir_l2}</span>
             </div>
 
-            <h2>${this.translatedText[this.preferredLanguage].environmentalSensors}</h2>
+            <h2>${this.text.environmentalSensors}</h2>
             <div class="sensor-item">
                 <i class="material-icons">cloud</i>
-                <span>${this.translatedText[this.preferredLanguage].co2}: ${data.co2}</span>
+                <span>${this.text.co2}: ${data.co2}</span>
             </div>
             
             <div class="sensor-item">
                 <i class="material-icons">wb_incandescent</i>
-                <span>${this.translatedText[this.preferredLanguage].light}: ${data.light}</span>
+                <span>${this.text.light}: ${data.light}</span>
             </div>`
         ;
     if (!this.sensorContainer.classList.contains("hidden")) {
