@@ -12,4 +12,5 @@ cd app/jardim
 pip install -r requirements.txt
 
 # Inicie o aplicativo Flask
-python app.py
+gunicorn -w 4 -b 0.0.0.0:5001 app:app
+

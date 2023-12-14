@@ -17,7 +17,7 @@ COPY jardim/startup.sh /app/startup.sh
 RUN chmod +x /app/startup.sh
 
 # Exponha a porta em que o aplicativo Flask está sendo executado (se necessário)
-EXPOSE 5000
+EXPOSE 5001
 
 # Comando para executar o script de inicialização
 CMD ["/bin/bash", "/app/startup.sh"]
