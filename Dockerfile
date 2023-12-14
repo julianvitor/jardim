@@ -8,7 +8,7 @@ RUN apt-get update && apt-get install -y git
 WORKDIR /app
 
 # Clone o repositório Git
-RUN git clone https://github.com/julianvitor/jardim.git
+RUN git clone -b master https://github.com/julianvitor/jardim.git
 
 # Copie os scripts de inicialização para o contêiner
 COPY jardim/startup_back.sh /app/startup_back.sh
@@ -19,5 +19,4 @@ RUN chmod +x /app/startup_back.sh
 RUN chmod +x /app/startup_front.sh
 
 # Comando padrão para executar o script definido pela variável de ambiente SCRIPT
-CMD ["/bin/bash", "/app/jardim/$SCRIPT"]
-
+CMD ["/bin/bash", "/app/startup_back.sh"]
