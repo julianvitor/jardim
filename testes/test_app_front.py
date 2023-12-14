@@ -1,4 +1,6 @@
+import sys
 import unittest
+sys.path.append('.') #adiciona a lista de onde o python busca módulos
 from views import app
 
 class TestApp(unittest.TestCase):

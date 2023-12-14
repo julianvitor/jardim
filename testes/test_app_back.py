@@ -1,5 +1,7 @@
+import sys
 import unittest
 from fastapi.testclient import TestClient
+sys.path.append('.')#adiciona a lista de onde o python busca módulos
 from gateway import app
 
 class TestMyAPI(unittest.TestCase):
