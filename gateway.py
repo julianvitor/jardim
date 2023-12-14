@@ -1,18 +1,33 @@
-from fastapi import FastAPI, HTTPException
-from fastapi.responses import Response, FileResponse
+from fastapi import FastAPI, HTTPException, Response
+from fastapi.responses import FileResponse  # Importe FileResponse corretamente
 from fastapi.staticfiles import StaticFiles
-from flask_minify import Minify
-from sensores.gerador_dados import generate_sensor_data
+from fastapi.middleware.cors import CORSMiddleware
+
 from sensores.sensores import router as rota_sensores
+from regar.regar import router as rota_regar
+
+
 
 app = FastAPI()
 
-app.mount("/static", StaticFiles(directory="static"), name="static")
-minify = Minify(app=app, js=True)
+# Configurar middleware CORS
+origins = [
+    "http://127.0.0.1:5000",  # Origem do front-end
+]
 
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
+# Incluindo rotas dos sensores e de regar
 app.include_router(rota_sensores)
+app.include_router(rota_regar)
 
-
+# Rota para servir o arquivo 'robots.txt'
 @app.get('/robots.txt')
 async def serve_robots():
     with open('static/robots.txt', 'rb') as file:
@@ -20,7 +35,19 @@ async def serve_robots():
     
     return Response(content, media_type='text/plain')
 
-# Para lidar com erros 404, você pode usar o manipulador padrão do FastAPI
+# Rota para servir o favicon.ico
+@app.get('/favicon.ico')
+async def serve_favicon():
+    try:
+        with open('static/favicon.ico', 'rb') as file:
+            content = file.read()
+        return Response(content, media_type='image/x-icon')
+    except FileNotFoundError:
+        raise HTTPException(status_code=404, detail="Favicon not found")
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Internal Server Error: {str(e)}")
+
+# Tratamento de erro para a página não encontrada (404)
 @app.exception_handler(404)
 async def page_not_found(request, exc):
     return FileResponse('static/error_images/404.jpg'), 404

@@ -1,8 +1,8 @@
-from fastapi import FastAPI, HTTPException
+from fastapi import APIRouter
 
-app = FastAPI()
+router = APIRouter()
 
-@app.post('/water-plant')
+@router.post('/water-plant')
 async def water_plant():
     response = {"message": "Regando"}
     return response

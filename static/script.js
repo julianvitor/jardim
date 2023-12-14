@@ -1,3 +1,10 @@
+// Defina uma constante para o IP
+const apiIP = "http://127.0.0.1:8000";
+
+// Exporte as constantes
+const apiUrlSensorData = `${apiIP}/sensor-data`;
+const apiUrlWaterPlant = `${apiIP}/water-plant`;
+
 class GardenApp {
     constructor() {
         // Elementos do DOM
@@ -79,7 +86,7 @@ class GardenApp {
 
     fetchAndUpdateSensorData() {
         // Busca e Atualização de Dados do Sensor
-        fetch('/sensor-data')
+        fetch(apiUrlSensorData)
             .then((response) => response.json())
             .then((data) => {
                 this.updateSensorData(data);
@@ -236,7 +243,7 @@ class GardenApp {
     }
     waterPlant() {
         // Irrigação da Planta
-        fetch("/water-plant", {
+        fetch(apiUrlWaterPlant, {
             method: "POST",
         })
         .then((response) => response.json())
