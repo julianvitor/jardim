@@ -19,4 +19,5 @@ RUN chmod +x /app/startup_back.sh
 RUN chmod +x /app/startup_front.sh
 
 # Comando padrão para executar o script definido pela variável de ambiente SCRIPT
-CMD ["/bin/bash", "/app/$SCRIPT"]
+CMD ["/bin/bash", "/app/jardim/$SCRIPT"]
+
