@@ -1,6 +1,8 @@
 from flask import (
     Flask,
-    render_template,Response
+    render_template,
+    Response,
+    send_from_directory
 )
 from flask_minify import Minify
 
@@ -33,6 +35,11 @@ def serve_robots():
     
     response = Response(content, content_type='text/plain')
     return response
+
+@app.errorhandler(404)
+def page_not_found(error):
+    return send_from_directory(app.static_folder + '/error_images', '404.jpg'), 404
+
 
 if __name__ == '__main__':
     app.run()

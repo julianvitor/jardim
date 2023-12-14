@@ -1,6 +1,5 @@
-from fastapi import FastAPI, HTTPException, Response
+from fastapi import FastAPI
 from fastapi.responses import FileResponse  # Importe FileResponse corretamente
-from fastapi.staticfiles import StaticFiles
 from fastapi.middleware.cors import CORSMiddleware
 
 from sensores.sensores import router as rota_sensores

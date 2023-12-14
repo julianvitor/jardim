@@ -10,14 +10,13 @@ WORKDIR /app
 # Clone o repositório Git
 RUN git clone https://github.com/julianvitor/jardim.git
 
-# Copie o script de inicialização para o contêiner
-COPY jardim/startup.sh /app/startup.sh
+# Copie os scripts de inicialização para o contêiner
+COPY jardim/startup_back.sh /app/startup_back.sh
+COPY jardim/startup_front.sh /app/startup_front.sh
 
-# Torne o script de inicialização executável
-RUN chmod +x /app/startup.sh
+# Torne os scripts de inicialização executáveis
+RUN chmod +x /app/startup_back.sh
+RUN chmod +x /app/startup_front.sh
 
-# Exponha a porta em que o aplicativo Flask está sendo executado (se necessário)
-EXPOSE 5001
-
-# Comando para executar o script de inicialização
-CMD ["/bin/bash", "/app/startup.sh"]
+# Comando padrão para executar o script definido pela variável de ambiente SCRIPT
+CMD ["/bin/bash", "/app/$SCRIPT"]
