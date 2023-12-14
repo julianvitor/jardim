@@ -8,4 +8,4 @@
 
 ## License
 
-[MIT](https://choosealicense.com/licenses/mit/)
+[GNU](https://raw.githubusercontent.com/julianvitor/jardim/master/LICENSE.txt)
