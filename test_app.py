@@ -7,8 +7,11 @@ class TestApp(unittest.TestCase):
         with app.app_context():
             app.config['TESTING'] = True
 
+    def teste_serve_robots(self):
+        response = self.app.get('/robots.txt')
+        self.assertEqual(response.status_code, 200)
 
-    def test_get_sensor_data(self):
+    def Teste_get_sensores(self):
         response = self.app.get('/sensor-data')
         self.assertEqual(response.status_code, 200)
         data = response.get_json()
@@ -21,22 +24,28 @@ class TestApp(unittest.TestCase):
         self.assertIn('reservoir_l2', data)
         self.assertIn('co2', data)
         self.assertIn('light', data)
-        
-    def test_login(self):
-        response = self.app.get('/login')
-        self.assertEqual(response.status_code, 200)
-
-    def test_serve_robots(self):
-        response = self.app.get('/robots.txt')
-        self.assertEqual(response.status_code, 200)
-
-    def test_water_plant(self):
+         
+    def teste_water_plant(self):
         response = self.app.post('/water-plant')
         self.assertEqual(response.status_code, 200)
         data = response.get_json()
         self.assertEqual(data['message'], 'Regando')
 
+    def teste_acessar_cadastro(self):
+        response = self.app.get('cadastro')
+        self.assertEqual(response.status_code, 200)
 
+    def teste_acessar_login(self):
+        response = self.app.get('/login')
+        self.assertEqual(response.status_code, 200)
 
+    def test_acessar_dashboard(self):
+        response = self.app.get('/dashboard')
+        self.assertEqual(response.status_code, 200)
+
+    def test_acessar_index(self):
+        response  = self.app.get('/')
+        self.assertEqual(response.status_code, 200)
+        
 if __name__ == '__main__':
     unittest.main()
