@@ -1,6 +1,6 @@
 from flask import (
     Flask,
-    render_template,
+    render_template,Response
 )
 from flask_minify import Minify
 
@@ -25,6 +25,14 @@ def login():
 @app.route('/cadastro')
 def cadastro():
     return render_template('cadastro.html')
+
+@app.route('/robots.txt')
+def serve_robots():
+    with open('static/robots.txt', 'rb') as file:
+        content = file.read()
+    
+    response = Response(content, content_type='text/plain')
+    return response
 
 if __name__ == '__main__':
     app.run()

@@ -27,26 +27,6 @@ app.add_middleware(
 app.include_router(rota_sensores)
 app.include_router(rota_regar)
 
-# Rota para servir o arquivo 'robots.txt'
-@app.get('/robots.txt')
-async def serve_robots():
-    with open('static/robots.txt', 'rb') as file:
-        content = file.read()
-    
-    return Response(content, media_type='text/plain')
-
-# Rota para servir o favicon.ico
-@app.get('/favicon.ico')
-async def serve_favicon():
-    try:
-        with open('static/favicon.ico', 'rb') as file:
-            content = file.read()
-        return Response(content, media_type='image/x-icon')
-    except FileNotFoundError:
-        raise HTTPException(status_code=404, detail="Favicon not found")
-    except Exception as e:
-        raise HTTPException(status_code=500, detail=f"Internal Server Error: {str(e)}")
-
 # Tratamento de erro para a página não encontrada (404)
 @app.exception_handler(404)
 async def page_not_found(request, exc):
