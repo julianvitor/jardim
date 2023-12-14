@@ -9,86 +9,56 @@
     <link rel="icon" href="{{ url_for('static', filename='icon.png') }}" type="image/x-icon">
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}"> 
     <script src="/static/script.js"></script>
-    <title>Painel do Jardim</title>
     <style>
-        /* Estilos críticos */
-        body {
-            background-color: #9f9f9f;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            font-family: -apple-system, BlinkMacSystemFont, system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Segoe UI Symbol";
-            transition: background-color 0.9s ease, color 0.9s ease;
+        /* Add styles for the typing animation */
+        .container {
+            width: 100%;
         }
 
-        .hidden {
-            display: none;
+        #title {
+            overflow: hidden; /* Hide overflow content */
+            border-right: 2px solid #000; /* Create a blinking cursor effect */
+            white-space: nowrap; /* Prevent text from wrapping */
+            margin: 0;
+            display: inline-block; /* Allow container to resize based on content */
         }
-    </style>
+        .container {
+            background-color: #dddddd;
+            box-shadow: 0 0 100px 2px rgba(0, 122, 255, 0.3);
+            border-radius: 16px;
+            padding: 20px;
+            width: 100%;
+            max-width: 200px
+        }
+            </style>
 </head>
 <body>
-    <div class="container center-container">
-        <header>
-            <h1 id="garden">Jardim</h1>
-            <label class="switch">
-                <input type="checkbox" id="dark-mode-toggle">
-                <span class="slider"></span>
-            </label>  
-        </header>
-
-        <!-- Sensors -->
-        <div class="sensor-toggle-container">
-            <h2 class="sensor-toggle" id="sensors">
-                Sensores
-                <i class="material-icons" id="sensor-toggle-icon">keyboard_arrow_down</i>
-            </h2>
+    <div>
+        <div class="container center-container">
+            <header>
+                <h1 id="title">Jardim!</h1>
+            </header>
         </div>
-        <!--Dados dos sensores-->
-        <ul id="sensor-list" class="hidden">
-            <section class="sensor" id="sensor-container">
-                <!-- Os dados do sensor são inseridos aqui usando JavaScript -->
-            </section>
-        </ul>
 
-        <!-- electricity and reservoirs-->
-        <div class="sensor-toggle-container">
-            <h2 class="sensor-toggle" id="sensorsER">
-                Electricity and Reservoirs
-                <i class="material-icons" id="sensorER-toggle-icon">keyboard_arrow_down</i>
-            </h2>
-        </div>
-        <!--Dados de eletricidade e reservatórios-->
-        <ul id="sensorER-list" class="hidden">
-            <section class="sensorER" id="sensorER-container">
-                <!-- Os dados de eletricidade e reservatórios são inseridos aqui usando JavaScript -->
-            </section>
-        </ul>
-
-        <!-- Sensores do Ambiente-->
-        <div class="sensor-toggle-container">
-            <h2 class="sensor-toggle" id="sensorsES">
-                Environmental Sensors
-                <i class="material-icons" id="sensorES-toggle-icon">keyboard_arrow_down</i>
-            </h2>
-        </div>
-        <!--Dados de sensores ambiente-->
-        <ul id="sensorES-list" class="hidden">
-            <section class="sensorES" id="sensorES-container">
-                <!-- Os dados de sensores de ambiente são inseridos aqui usando JavaScript -->
-            </section>
-        </ul>
-
-
-
-
-
-
-        <section class="water-plant">
-            <button id="water-button" class="water-button">Regar Manualmente</button>
-        </section>
+        <button id="login-btn" onclick="window.location.href='/login'"" class="login-btn">iniciar</button>
     </div>
+    <script>
+        // JavaScript for the typing animation
+        const title = document.getElementById('title');
+        const text = title.innerHTML;
+        title.innerText = ''; // Clear the text content
+
+        let i = 0;
+        function typeWriter() {
+            if (i < text.length) {
+                title.innerHTML += text.charAt(i);
+                i++;
+                setTimeout(typeWriter, 300); // Adjust the typing speed (in milliseconds)
+            }
+        }
+
+        // Trigger the typing animation
+        typeWriter();
+    </script>
 </body>
 </html>

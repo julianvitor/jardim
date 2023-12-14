@@ -23,14 +23,15 @@
         <div class="login-container">
             <form>
                 <div class="input-group">
-                    <label for="username">Username</label>
+                    <label for="username">Usuario</label>
                     <input type="text" id="username" name="username" pattern="^[^\s]{1,30}$" title="Por favor, insira de 1 a 30 caracteres sem espaços." required>
                 </div>
                 <div class="input-group">
-                    <label for="password">Password</label>
+                    <label for="password">Senha</label>
                     <input type="password" id="password" name="password" pattern="^[^\s]{1,30}$" title="Por favor, insira de 1 a 30 caracteres sem espaços." required>
                 </div>
                 <button id = login-btn type="submit">Login</button>
+                <button id = cadastro-btn type="button" onclick="window.location.href='/cadastro'">Cadastro</button>
             </form>
         </div>
 

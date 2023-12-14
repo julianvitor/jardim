@@ -21,23 +21,35 @@
             </label>  
         </header>
         <div class="login-container">
-            <form>
+            <form id="signupForm" onsubmit="return validateForm()">
                 <div class="input-group">
-                    <label for="username">Username</label>
+                    <label for="username">Usuario</label>
                     <input type="text" id="username" name="username" pattern="^[^\s]{1,30}$" title="Por favor, insira de 1 a 30 caracteres sem espaços." required>
                 </div>
                 <div class="input-group">
-                    <label for="password">Password</label>
-                    <input type="password" id="password" name="password" pattern="^[^\s]{1,30}$" title="Por favor, insira de 1 a 30 caracteres sem espaços." required>
+                    <label for="password">Senha</label>
+                    <input type="password" id="confirmPassword" name="confirmPassword" pattern="^[^\s]{1,30}$" title="Por favor, insira de 1 a 30 caracteres sem espaços." required>
                 </div>
                 <div class="input-group">
-                    <label for="password">Password</label>
+                    <label for="password">Senha</label>
                     <input type="password" id="password" name="password" pattern="^[^\s]{1,30}$" title="Por favor, insira de 1 a 30 caracteres sem espaços." required>
                 </div>
-                <button id = login-btn type="submit">Cadastrar</button>
+                <button id="cadastrar-btn" type="submit">Cadastrar</button>
+                <button id="login-btn" type="button" onclick="window.location.href='/login'">Login</button>
             </form>
         </div>
-
     </div>
+    <script>
+        function validateForm() {
+            var password = document.getElementById("password").value;
+            var confirmPassword = document.getElementById("confirmPassword").value;
+            
+            if (password !== confirmPassword) {
+                alert("As senhas não coincidem. Por favor, tente novamente.");
+                return false;
+            }
+            return true;
+        }
+    </script>
 </body>
 </html>

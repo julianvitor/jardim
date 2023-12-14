@@ -99,7 +99,9 @@ body.dark-mode {
 }
 
 
-#login-btn {
+#login-btn,
+#cadastro-btn,
+#cadastrar-btn {
     background-color: #004a9c;
     color: white;
     border: none;
@@ -112,6 +114,7 @@ body.dark-mode {
     display: inline-block;
     margin-right: 0%;
     margin-top: 0px;
+
 }
 
 #login-btn:hover {
@@ -189,7 +192,8 @@ span {
     display: inline-block;
     width: 64px;
     height: 34px;
-    margin-right: 50px;
+    margin-right: 12px;
+    text-align: right;
 }
 
 /* Alça do interruptor */

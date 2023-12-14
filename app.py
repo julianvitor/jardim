@@ -27,6 +27,10 @@ def generate_sensor_data():
         "light": f"{random.randint(500, 1000)} Lux",
     }
 
+@app.route('/dashboard')
+def dashboard():
+    return render_template('dashboard.html')
+
 @app.route('/')
 def index():
     return render_template('index.html')
@@ -62,5 +66,5 @@ def page_not_found(error):
     return send_from_directory(app.static_folder + '/error_images', '404.jpg'), 404
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000, debug=True)
+    app.run(host='0.0.0.0', port=5001, debug=True)
 
