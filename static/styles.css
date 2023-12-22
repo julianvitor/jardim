@@ -29,7 +29,6 @@ h1 {
 .dark-mode h1 {
     color: #ffffff;
     transition: background-color 0.7s ease, color 0.7s ease;
-
 }
 
 /* Estilos do corpo da página */
@@ -52,10 +51,12 @@ body.dark-mode {
     color: #ffffff;
     transition: background-color 0.7s ease, color 0.7s ease;
 }
-/*padrão de transicoes*/
+
+/* Padrão de transições */
 .container, .container.dark-mode, .container.dark-mode .login-container {
     transition: background-color 0.9s ease, color 0.9s ease, box-shadow 1s ease;
 }
+
 /* Container principal */
 .container {
     background-color: #dddddd;
@@ -63,7 +64,7 @@ body.dark-mode {
     border-radius: 16px;
     padding: 20px;
     width: 100%;
-    max-width: 320px
+    max-width: 320px;
 }
 
 /* Modo escuro para o container */
@@ -98,7 +99,6 @@ body.dark-mode {
     transition: box-shadow 0.3s ease;
 }
 
-
 #login-btn,
 #cadastro-btn,
 #cadastrar-btn {
@@ -114,7 +114,6 @@ body.dark-mode {
     display: inline-block;
     margin-right: 0%;
     margin-top: 0px;
-
 }
 
 #login-btn:hover {
@@ -122,6 +121,7 @@ body.dark-mode {
     box-shadow: 0 0 15px #003776;
     transition: box-shadow 0.5s ease;
 }
+
 /* Botão de regar a planta */
 .water-button {
     background-color: #004a9c;
@@ -263,9 +263,7 @@ i#sensor-toggle-icon {
     user-select: none;
 }
 
-/* Aplicar rotação ao ícone quando a classe "rotate
-
--icon" está presente */
+/* Aplicar rotação ao ícone quando a classe "rotate-icon" está presente */
 i#sensor-toggle-icon.rotate-icon {
     transform: rotate(180deg);
     user-select: none;
@@ -285,8 +283,8 @@ input {
     border: 1px solid #555;
     border-radius: 5px;
     background-color: #dddddd;
-    color: #000; /* Alterado para uma cor de texto mais visível em fundo claro */
-    text-align: left; /* Adicionado para alinhar à esquerda */
+    color: #000;
+    text-align: left; /* Alterado para alinhar à esquerda */
 }
 
 /* Estilos para o modo escuro dentro do container específico */
@@ -295,8 +293,26 @@ input {
     color: #ffffff;
 }
 
+.input-group {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Alinhar itens à esquerda */
+    margin-bottom: 2px; /* Aumentar o espaço entre grupos de input */
+}
+
 .input-group label {
     text-align: left;
-    display: inline-flex;
-    margin-bottom: 2px; 
+    margin-bottom: 2px; /* Aumentar o espaço entre o rótulo e o campo de input */
+}
+
+.input-group input {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    border: 1px solid #555;
+    border-radius: 5px;
+    background-color: #dddddd;
+    color: #000;
+    text-align: left;
+    margin-bottom: 2px; /* Aumentar o espaço entre campos de input */
 }
