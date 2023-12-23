@@ -1,19 +1,18 @@
 from fastapi import FastAPI
-from fastapi.responses import FileResponse  # Importe FileResponse corretamente
+from fastapi.responses import FileResponse 
 from fastapi.middleware.cors import CORSMiddleware
 
 from sensores.sensores import router as rota_sensores
 from regar.regar import router as rota_regar
 
-
-
 app = FastAPI()
 
 # Configurar middleware CORS
 origins = [
-    "http://127.0.0.1:5000",  # Origem do front-end
+    "http://localhost",
+    "http://localhost:5000",
+    "http://localhost:8000",
 ]
-
 app.add_middleware(
     CORSMiddleware,
     allow_origins=origins,

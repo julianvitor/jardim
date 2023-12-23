@@ -11,12 +11,7 @@ WORKDIR /app
 RUN git clone -b master https://github.com/julianvitor/jardim.git
 
 # Copie os scripts de inicialização para o contêiner
-COPY jardim/startup_back.sh /app/startup_back.sh
-COPY jardim/startup_front.sh /app/startup_front.sh
+COPY jardim/startup/startup.sh /app/startup.sh
 
 # Torne os scripts de inicialização executáveis
-RUN chmod +x /app/startup_back.sh
-RUN chmod +x /app/startup_front.sh
-
-# Comando padrão para executar o script definido pela variável de ambiente SCRIPT
-CMD ["/bin/bash", "/app/startup_back.sh"]
+RUN chmod +x /app/startup.sh

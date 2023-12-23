@@ -6,11 +6,9 @@ from flask import (
 )
 from flask_minify import Minify
 
-
 app = Flask(__name__, static_folder='static')
 app.static_folder = 'static'
 minify = Minify(app=app, html=False, js=True, cssless=True)
-
 
 @app.route('/dashboard')
 def dashboard():
@@ -39,7 +37,6 @@ def serve_robots():
 @app.errorhandler(404)
 def page_not_found(error):
     return send_from_directory(app.static_folder + '/error_images', '404.jpg'), 404
-
 
 if __name__ == '__main__':
     app.run()

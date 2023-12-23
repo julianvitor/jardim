@@ -1,8 +1,8 @@
 #criar imagem
 docker build -t python-jardim .
 
-# Execute o contêiner do front-end na porta 8082 do host
-docker run -p 8082:8082 -e SCRIPT=startup_front.sh python-jardim
+# Execute o contêiner do front-end na porta 5000 do host
+docker run -p 5000:5000 -e SCRIPT=startup_front.sh python-jardim
 # Execute o contêiner do back-end na porta 8000 do host
 docker run -p 8000:8000 -e SCRIPT=startup_back.sh python-jardim
 
