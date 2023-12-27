@@ -1,5 +1,5 @@
 # sensores.py
-from fastapi import APIRouter, HTTPException
+from fastapi import APIRouter
 from sensores.gerador_dados import generate_sensor_data
 
 router = APIRouter()
@@ -8,3 +8,4 @@ router = APIRouter()
 async def get_sensor_data():
     sensor_data = generate_sensor_data()
     return sensor_data
+

@@ -10,8 +10,14 @@ git pull
 # Instala as dependências
 pip install -r requirements.txt
 
-# back
+# gateway
 uvicorn gateway:app --reload --workers 1 --host 0.0.0.0 --port 8000 &
+
+# Aguarda um curto período para garantir que o uvicorn tenha iniciado antes de iniciar o gunicorn
+sleep 5
+
+#serviço sensores
+uvicorn sensores.main:app --reload --workers 1 --host 0.0.0.0 --port 8001 &
 
 # Aguarda um curto período para garantir que o uvicorn tenha iniciado antes de iniciar o gunicorn
 sleep 5

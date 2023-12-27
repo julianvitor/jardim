@@ -2,10 +2,11 @@
 var currentHost = window.location.hostname;
 
 // Constrói a URL do servidor JSON baseando-se no host e na porta da URL atual
-var apiIP = 'http://' + currentHost + ':' + '8000';
+var apiIpSensor = 'http://' + currentHost + ':' + '8001';
+var apiIpRegar = 'http://' + currentHost + ':' + '8000';
 // Exporte as constantes
-const apiUrlSensorData = `${apiIP}/sensor-data`;
-const apiUrlWaterPlant = `${apiIP}/water-plant`;
+const apiUrlSensorData = `${apiIpSensor}/sensor-data`;
+const apiUrlWaterPlant = `${apiIpRegar}/water-plant`;
 
 class GardenApp {
     constructor() {
