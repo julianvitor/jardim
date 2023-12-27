@@ -1,6 +1,8 @@
-// Defina uma constante para o IP
-const apiIP = "http://127.0.0.1:8000";
+// Obtém o host e a porta da URL atual
+var currentHost = window.location.hostname;
 
+// Constrói a URL do servidor JSON baseando-se no host e na porta da URL atual
+var apiIP = 'http://' + currentHost + ':' + '8000';
 // Exporte as constantes
 const apiUrlSensorData = `${apiIP}/sensor-data`;
 const apiUrlWaterPlant = `${apiIP}/water-plant`;
