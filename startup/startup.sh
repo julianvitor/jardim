@@ -35,8 +35,10 @@ kill_process_by_port 5000
 kill_process_by_port 8000
 kill_process_by_port 8001
 kill_process_by_port 8002
+kill_process_by_port 8003
 
 pkill gunicorn
+sleep 1
 pkill uvicorn
 
 #serviço sensores

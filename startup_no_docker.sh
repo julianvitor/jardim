@@ -43,5 +43,5 @@ uvicorn gerenciamento.main:app --reload --workers 1 --host 0.0.0.0 --port 8003 &
 sleep 1
 
 # front
-python3 views.py
+python3.12 views.py
 
