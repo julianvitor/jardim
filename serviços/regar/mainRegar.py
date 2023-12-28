@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 from fastapi.responses import FileResponse 
 from fastapi.middleware.cors import CORSMiddleware
-from regar.regar import router as rota_regar
+from .regar import router as rota_regar
 
 app = FastAPI()
 

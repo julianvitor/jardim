@@ -1,8 +1,7 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import FileResponse
-from sensores.sensores import router as rota_sensores
-
+from .sensores import router as rota_sensores
 app = FastAPI()
 
 # Configurar middleware CORS pois é um atribudo apeas do FastApi e não do router

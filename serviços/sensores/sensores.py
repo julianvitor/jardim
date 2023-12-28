@@ -1,6 +1,6 @@
 # sensores.py
 from fastapi import APIRouter
-from sensores.gerador_dados import generate_sensor_data
+from .gerador_dados import generate_sensor_data
 
 router = APIRouter()
 

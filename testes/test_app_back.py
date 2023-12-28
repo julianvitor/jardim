@@ -1,15 +1,19 @@
 import sys
 import unittest
+import asyncio
 from fastapi.testclient import TestClient
-sys.path.append('.')#adiciona a lista de onde o python busca módulos
-from sensores.main import app
+sys.path.append('.')  # Adiciona a lista de onde o Python busca módulos
 
-class TestMyAPI(unittest.TestCase):
-    def setUp(self):
-        self.client = TestClient(app)
+from serviços.sensores.mainSensores import app as sensores_app
+from serviços.regar.mainRegar import app as regar_app
+
+class TestMyAPI(unittest.IsolatedAsyncioTestCase):
+    async def asyncSetUp(self):
+        self.client_sensores = TestClient(sensores_app)
+        self.client_regar = TestClient(regar_app)
 
     async def test_get_sensores(self):
-        response = await self.client.get('/sensor-data')
+        response = self.client_sensores.get('/sensor-data')
         self.assertEqual(response.status_code, 200)
         data = response.json()
         self.assertIn('air_temp', data)
@@ -23,10 +27,10 @@ class TestMyAPI(unittest.TestCase):
         self.assertIn('light', data)
 
     async def test_water_plant(self):
-        response = await self.client.post('/water-plant')
+        response = self.client_regar.post('/water-plant')
         self.assertEqual(response.status_code, 200)
         data = response.json()
         self.assertEqual(data['message'], 'Regando')
 
 if __name__ == '__main__':
-    unittest.main()
+    asyncio.run(unittest.main())

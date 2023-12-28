@@ -1,6 +1,6 @@
 import sys
 import unittest
-sys.path.append('.') #adiciona a lista de onde o python busca módulos
+sys.path.append('.')  # Adiciona a lista de onde o Python busca módulos
 from views import app
 
 class TestApp(unittest.TestCase):
@@ -14,7 +14,7 @@ class TestApp(unittest.TestCase):
         self.assertEqual(response.status_code, 200)
 
     def teste_acessar_cadastro(self):
-        response = self.app.get('cadastro')
+        response = self.app.get('/cadastro')  # Adiciona uma barra antes de 'cadastro'
         self.assertEqual(response.status_code, 200)
 
     def teste_acessar_login(self):
