@@ -122,6 +122,22 @@ body.dark-mode {
     transition: box-shadow 0.5s ease;
 }
 
+.submit-button {
+    background-color: #ff0000;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.5s ease;
+}
+.submit-button:hover {
+    background-color: #ae0000;
+    box-shadow: 0 0 60px #ae0000;
+    transition: background-color 0.5s ease, box-shadow 0.5s ease;
+}
+
 /* Botão de regar a planta */
 .water-button {
     background-color: #004a9c;
@@ -346,4 +362,10 @@ input {
 .management-section {
     display: block;
     text-align: left;
+}
+
+.botoes-container {
+    display: flex;
+    justify-content: space-between;  /* Para criar espaço entre os botões */
+    margin-top: 5px; 
 }

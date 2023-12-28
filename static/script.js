@@ -111,7 +111,7 @@ class GardenApp {
         const sensorERData = `
             <div class="sensor-item">
                 <i class="material-icons">power</i>
-                <span>Electrical Consumption: ${data.electrical_consumption}</span>
+                <span>Consumption: ${data.electrical_consumption}</span>
             </div>
             <div class="sensor-item">
                 <i class="material-icons">local_drink</i>
