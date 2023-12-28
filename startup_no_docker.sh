@@ -4,9 +4,6 @@
 python3 -m venv jardimEnv
 source jardimEnv/bin/activate
 
-# Atualiza o código do repositório
-git pull
-
 # Instala as dependências
 pip install -r requirements.txt
 
@@ -27,17 +24,24 @@ kill_process_by_port 5000
 kill_process_by_port 8000
 kill_process_by_port 8001
 kill_process_by_port 8002
+kill_process_by_port 8003
 
 pkill gunicorn
+sleep 1
 pkill uvicorn
 
 #serviço sensores
 uvicorn sensores.main:app --reload --workers 1 --host 0.0.0.0 --port 8001 &
-
-sleep 5
+sleep 1
 
 #serviço regar
 uvicorn regar.main:app --reload --workers 1 --host 0.0.0.0 --port 8002 &
+sleep 1
+
+#serviço gerencimento
+uvicorn gerenciamento.main:app --reload --workers 1 --host 0.0.0.0 --port 8003 &
+sleep 1
 
 # front
-gunicorn -w 2 -b 0.0.0.0:5000 views:app
+python3 views.py
+

@@ -166,7 +166,10 @@ h2 {
     color: #666666;
     text-align: left;
 }
-
+.dark-mode h2 {
+    color: #ffffff;
+    transition: background-color 0.7s ease, color 0.7s ease;
+}
 /* Itens do sensor */
 .sensor-item {
     display: flex;
@@ -245,7 +248,7 @@ span {
 }
 
 /* Título do sensor com opção de alternância */
-h2.sensor-toggle {
+h2.sensor-toggle.da {
     font-size: 20px;
     color: #666666;
     cursor: pointer;
@@ -253,6 +256,19 @@ h2.sensor-toggle {
     transition: background-color 0.3s ease;
     user-select: none;
 }
+
+h2.sensor-toggle.dark-mode {
+    font-size: 20px;
+    color: #ffffff;
+    cursor: pointer;
+    position: relative;
+    transition: background-color 0.3s ease;
+    user-select: none;
+}
+
+
+
+
 
 /* Ícone de alternância do sensor */
 i#sensor-toggle-icon {
@@ -315,4 +331,19 @@ input {
     color: #000;
     text-align: left;
     margin-bottom: 2px; /* Aumentar o espaço entre campos de input */
+}
+
+#time-slider {
+    width: 80%;
+
+}
+
+#selected-time {
+    margin-top: 5px;
+
+}
+
+.management-section {
+    display: block;
+    text-align: left;
 }

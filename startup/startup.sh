@@ -40,10 +40,10 @@ pkill gunicorn
 pkill uvicorn
 
 #serviço sensores
-uvicorn sensores.main:app --reload --workers 1 --host 0.0.0.0 --port 8001 &
+uvicorn sensores.main:app --workers 2 --host 0.0.0.0 --port 8001 &
 
 #serviço regar
-uvicorn regar.main:app --reload --workers 1 --host 0.0.0.0 --port 8002 &
+uvicorn regar.main:app --workers 2 --host 0.0.0.0 --port 8002 &
 
 # front
-gunicorn -w 2 -b 0.0.0.0:5000 views:app
+gunicorn -w 2 -b 0.0.0.0:5000 views:app &

@@ -39,6 +39,27 @@
             </label>  
         </header>
 
+        <div class="sensor-toggle-container">
+            <h2 class="sensor-toggle" id="management" onclick="toggleManagement()">
+                Management
+                <i class="material-icons" id="Management-toggle-icon">keyboard_arrow_down</i>
+            </h2>
+        </div>
+        
+        <section class="management-section" id="management-container">
+            <!--gerenciamento-->
+            <h3 id="light-time">Light time</h3>
+            <input type="range" id="time-slider" min="0" max="24" step="1" value="12" oninput="updateTime()">
+            <div id="selected-time">
+                Tempo Selecionado: <span id="time-value">0</span> horas
+            </div>
+
+            <h2>Escolha uma cidade:</h2>
+            <input type="text" id="cityInput" placeholder="Digite o nome da cidade">
+            <div id="suggestions"></div>
+
+        </section>
+
         <!-- Sensors -->
         <div class="sensor-toggle-container">
             <h2 class="sensor-toggle" id="sensors">

@@ -4,6 +4,8 @@ var currentHost = window.location.hostname;
 // Constrói a URL do servidor JSON baseando-se no host e na porta da URL atual
 var apiIpSensor = 'http://' + currentHost + ':' + '8001';
 var apiIpRegar = 'http://' + currentHost + ':' + '8002';
+var apiIpGerenciamento = 'http://' + currentHost + ':' + '8003';
+
 // Exporte as constantes
 const apiUrlSensorData = `${apiIpSensor}/sensor-data`;
 const apiUrlWaterPlant = `${apiIpRegar}/water-plant`;
@@ -12,27 +14,11 @@ class GardenApp {
     constructor() {
         // Elementos do DOM
         this.waterButton = document.getElementById("water-button");
-
         this.sensorContainer = document.getElementById("sensor-container");
-
-        // Elementos do DOM para eletricidade e reservatórios
         this.sensorERContainer = document.getElementById("sensorER-container");
         this.sensorERList = document.getElementById("sensorER-list");
         this.sensorsERToggle = document.getElementById("sensorsER");
         this.sensorERToggleIcon = document.getElementById("sensorER-toggle-icon");
-
-        // Elementos do DOM para sensores ambiente
-        this.sensorESContainer = document.getElementById("sensorES-container");
-        this.sensorESList = document.getElementById("sensorES-list");
-        this.sensorsESToggle = document.getElementById("sensorsES");
-        this.sensorESToggleIcon = document.getElementById("sensorES-toggle-icon");
-        // Elementos do DOM para eletricidade e reservatórios
-        this.sensorERContainer = document.getElementById("sensorER-container");
-        this.sensorERList = document.getElementById("sensorER-list");
-        this.sensorsERToggle = document.getElementById("sensorsER");
-        this.sensorERToggleIcon = document.getElementById("sensorER-toggle-icon");
-
-        // Elementos do DOM para sensores ambiente
         this.sensorESContainer = document.getElementById("sensorES-container");
         this.sensorESList = document.getElementById("sensorES-list");
         this.sensorsESToggle = document.getElementById("sensorsES");
@@ -43,7 +29,6 @@ class GardenApp {
         this.body = document.body;
 
         // Modo preferido
-        this.preferredMode = this.getCookie("preferredMode") || "light";
         this.preferredMode = this.getCookie("preferredMode") || "light";
 
         // Inicialização
@@ -66,18 +51,11 @@ class GardenApp {
 
     setMode(mode) {
         // Configuração do Modo
-        if (mode === "dark") {
-            this.container.classList.add("dark-mode");
-            this.body.classList.add("dark-mode");
-            this.darkModeToggle.innerText = "Light Mode";
-        } else {
-            this.container.classList.remove("dark-mode");
-            this.body.classList.remove("dark-mode");
-            this.darkModeToggle.innerText = "Dark Mode";
-        }
+        const isDarkMode = mode === "dark";
+        this.container.classList.toggle("dark-mode", isDarkMode);
+        this.body.classList.toggle("dark-mode", isDarkMode);
+        this.darkModeToggle.innerText = isDarkMode ? "Light Mode" : "Dark Mode";
 
-        // Armazenamento em cookie
-        this.setCookie("preferredMode", mode);
         // Armazenamento em cookie
         this.setCookie("preferredMode", mode);
     }
@@ -93,10 +71,8 @@ class GardenApp {
             .then((response) => response.json())
             .then((data) => {
                 this.updateSensorData(data);
-                this.updateElectricityReservoirData(data); // Adiciona essa chamada para os dados de eletricidade e reservatorio
-                this.updateEnvironmentalSensorsData(data); // Adiciona essa chamada para os dados de sensores ambiente
-                this.updateElectricityReservoirData(data); // Adiciona essa chamada para os dados de eletricidade e reservatorio
-                this.updateEnvironmentalSensorsData(data); // Adiciona essa chamada para os dados de sensores ambiente
+                this.updateElectricityReservoirData(data);
+                this.updateEnvironmentalSensorsData(data);
             });
     }
 
@@ -153,7 +129,7 @@ class GardenApp {
     }
 
     updateEnvironmentalSensorsData(data) {
-        //atualização dos dados de sensores do ambiente
+        // Atualização dos dados de sensores do ambiente
         const sensorESData = `
             <div class="sensor-item">
                 <i class="material-icons">cloud</i>
@@ -170,32 +146,11 @@ class GardenApp {
         }
     }
 
-    updateEnvironmentalSensorsData(data) {
-        //atualização dos dados de sensores do ambiente
-        const sensorESData = `
-            <div class="sensor-item">
-                <i class="material-icons">cloud</i>
-                <span>CO2 Level: ${data.co2}</span>
-            </div>
-            <div class="sensor-item">
-                <i class="material-icons">wb_incandescent</i>
-                <span>Light Level: ${data.light}</span>
-            </div>
-        `;
-
-        if (!this.sensorESList.classList.contains("hidden")) {
-            this.sensorESContainer.innerHTML = sensorESData;
-        }
-    }
-
-    toggleSensorList(sensorListId, toggleIconId, sensorContainer) {
+    toggleSensorList(sensorListId, toggleIconId) {
         const sensorList = document.getElementById(sensorListId);
         const toggleIcon = document.getElementById(toggleIconId);
         sensorList.classList.toggle("hidden");
         toggleIcon.classList.toggle("rotate-icon");
-        if (sensorContainer && sensorContainer.classList) {
-            sensorContainer.classList.toggle("hidden");
-        }
     }
 
     // Funções para manipular cookies
@@ -221,29 +176,7 @@ class GardenApp {
         }
         return "";
     }
-    // Funções para manipular cookies
-    setCookie(name, value, days = 365) {
-        const date = new Date();
-        date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);
-        const expires = "expires=" + date.toUTCString();
-        document.cookie = name + "=" + value + ";" + expires + ";path=/";
-    }
 
-    getCookie(name) {
-        const cname = name + "=";
-        const decodedCookie = decodeURIComponent(document.cookie);
-        const ca = decodedCookie.split(';');
-        for (let i = 0; i < ca.length; i++) {
-            let c = ca[i];
-            while (c.charAt(0) == ' ') {
-                c = c.substring(1);
-            }
-            if (c.indexOf(cname) == 0) {
-                return c.substring(cname.length, c.length);
-            }
-        }
-        return "";
-    }
     waterPlant() {
         // Irrigação da Planta
         fetch(apiUrlWaterPlant, {
@@ -259,8 +192,88 @@ class GardenApp {
     }
 }
 
+function toggleManagement() {
+    var managementSection = document.getElementById('management-container');
+    var managementToggleIcon = document.getElementById('Management-toggle-icon');
+
+    if (managementSection.classList.contains('hidden')) {
+        managementSection.classList.remove('hidden');
+        managementToggleIcon.innerText = 'keyboard_arrow_up';
+    } else {
+        managementSection.classList.add('hidden');
+        managementToggleIcon.innerText = 'keyboard_arrow_down';
+    }
+}
+
+function updateTime() {
+    var slider = document.getElementById("time-slider");
+    var output = document.getElementById("time-value");
+    output.innerHTML = slider.value;
+}
+
+function configurarCampoAutocomplete() {
+    const cityInput = document.getElementById("cityInput");
+    const suggestionsContainer = document.getElementById("suggestions");
+
+    function fetchCitiesFromOpenStreetMap(query) {
+        // Use a API de busca do OpenStreetMap diretamente no front-end
+        const apiUrl = `${apiIpGerenciamento}/search-city?city=${query}&format=json&limit=1`;
+    
+        return fetch(apiUrl)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`Erro na solicitação: ${response.status} - ${response.statusText}`);
+                }
+                return response.json();
+            })
+            .then(data => {
+                console.log("Dados da resposta:", data);
+                return data.map(item => item.display_name);
+            })
+            .catch(error => {
+                console.error("Erro ao obter cidades do OpenStreetMap:", error);
+                throw error; // Propaga o erro para o próximo bloco catch, se necessário
+            });
+    }
+    
+    function showSuggestions(suggestions) {
+        suggestionsContainer.innerHTML = "";
+    
+        if (!Array.isArray(suggestions)) {
+            console.error("As sugestões não são um array:", suggestions);
+            return;
+        }
+    
+        suggestions.forEach(city => {
+            const suggestion = document.createElement("div");
+            suggestion.classList.add("suggestion");
+            suggestion.textContent = city;
+            suggestion.addEventListener("click", () => {
+                cityInput.value = city;
+                suggestionsContainer.innerHTML = "";
+            });
+            suggestionsContainer.appendChild(suggestion);
+        });
+    }
+    
+    function handleInput() {
+        const query = cityInput.value.trim();
+    
+        if (query.length > 2) {
+            fetchCitiesFromOpenStreetMap(query)
+                .then(suggestions => showSuggestions(suggestions))
+                .catch(error => console.error("Erro ao obter sugestões:", error));
+        } else {
+            suggestionsContainer.innerHTML = "";
+        }
+    }
+    
+    cityInput.addEventListener("input", handleInput);
+}
+
 document.addEventListener("DOMContentLoaded", () => {
     const app = new GardenApp();
     app.sensorsERToggle.addEventListener("click", () => app.toggleSensorList("sensorER-list", "sensorER-toggle-icon" ));
     app.sensorsESToggle.addEventListener("click", () => app.toggleSensorList("sensorES-list", "sensorES-toggle-icon" ));
+    configurarCampoAutocomplete();
 });
