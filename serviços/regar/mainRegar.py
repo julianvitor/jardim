@@ -1,3 +1,5 @@
+import sys
+sys.path.append('.')  # Adiciona a lista de onde o Python busca módulos
 from fastapi import FastAPI
 from fastapi.responses import FileResponse 
 from fastapi.middleware.cors import CORSMiddleware

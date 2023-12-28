@@ -1,6 +1,5 @@
 from fastapi import HTTPException, APIRouter
 import requests
-from pydantic import BaseModel
 router = APIRouter()
 #função proxy para api do openstreetmap
 @router.get("/search-city")

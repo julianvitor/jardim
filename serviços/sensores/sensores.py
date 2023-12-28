@@ -1,4 +1,7 @@
 # sensores.py
+import sys
+sys.path.append('.')  # Adiciona a lista de onde o Python busca módulos
+
 from fastapi import APIRouter
 from .gerador_dados import generate_sensor_data
 

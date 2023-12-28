@@ -27,21 +27,28 @@ kill_process_by_port 8002
 kill_process_by_port 8003
 
 pkill gunicorn
-sleep 1
 pkill uvicorn
 
+sleep 3 
+
+pkill gunicorn
+pkill uvicorn
+
+sudo apt install gunicorn
+sudo apt install uvicorn
+
 #serviço sensores
-uvicorn sensores.main:app --reload --workers 1 --host 0.0.0.0 --port 8001 &
+uvicorn serviços.sensores.mainSensores:app --reload --workers 1 --host 0.0.0.0 --port 8001 &
 sleep 1
 
 #serviço regar
-uvicorn regar.main:app --reload --workers 1 --host 0.0.0.0 --port 8002 &
+uvicorn serviços.regar.mainRegar:app --reload --workers 1 --host 0.0.0.0 --port 8002 &
 sleep 1
 
 #serviço gerencimento
-uvicorn gerenciamento.main:app --reload --workers 1 --host 0.0.0.0 --port 8003 &
+uvicorn serviços.gerenciamento.mainGerenciamento:app --reload --workers 1 --host 0.0.0.0 --port 8003 &
 sleep 1
 
 # front
-python3.12 views.py
+python3 views.py
 
