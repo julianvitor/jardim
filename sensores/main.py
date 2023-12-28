@@ -1,7 +1,7 @@
-# main.py
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from sensores.sensores import router as sensores_router
+from fastapi.responses import FileResponse
+from sensores.sensores import router as rota_sensores
 
 app = FastAPI()
 
@@ -17,9 +17,8 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
-
-# Incluir o roteador na aplicação principal
-app.include_router(sensores_router)
+# Incluir o roteador do sensores
+app.include_router(rota_sensores)
 
 @app.exception_handler(404)
 async def page_not_found(request, exc):

@@ -12,7 +12,7 @@ pip install -r requirements.txt
 
 kill_process_by_port() {
   local port=$1
-  local pid=$(lsof -t -i :$port)
+  local pid=$(netstat -tulpn 2>/dev/null | grep ":$port" | awk '{print $7}' | awk -F'/' '{print $1}')
   
   if [ -n "$pid" ]; then
     echo "Killing process using port $port (PID: $pid)"
@@ -26,18 +26,21 @@ kill_process_by_port() {
 kill_process_by_port 5000
 kill_process_by_port 8000
 kill_process_by_port 8001
+kill_process_by_port 8002
 
-# gateway
-uvicorn gateway:app --reload --workers 2 --host 0.0.0.0 --port 8000 &
+pkill gunicorn
+pkill uvicorn
 
-# Aguarda um curto período para garantir que o uvicorn tenha iniciado antes de iniciar o gunicorn
-sleep 5
 
 #serviço sensores
-uvicorn sensores.main:app --reload --workers 2 --host 0.0.0.0 --port 8001 &
+uvicorn sensores.main:app --reload --workers 1 --host 0.0.0.0 --port 8001 &
 
-# Aguarda um curto período para garantir que o uvicorn tenha iniciado antes de iniciar o gunicorn
+
 sleep 5
+
+#serviço regar
+uvicorn regar.main:app --reload --workers 1 --host 0.0.0.0 --port 8002 &
+
 
 # front
 gunicorn -w 2 -b 0.0.0.0:5000 views:app

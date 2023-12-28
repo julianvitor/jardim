@@ -3,7 +3,7 @@ var currentHost = window.location.hostname;
 
 // Constrói a URL do servidor JSON baseando-se no host e na porta da URL atual
 var apiIpSensor = 'http://' + currentHost + ':' + '8001';
-var apiIpRegar = 'http://' + currentHost + ':' + '8000';
+var apiIpRegar = 'http://' + currentHost + ':' + '8002';
 // Exporte as constantes
 const apiUrlSensorData = `${apiIpSensor}/sensor-data`;
 const apiUrlWaterPlant = `${apiIpRegar}/water-plant`;
