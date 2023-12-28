@@ -1,5 +1,5 @@
 # Use a imagem base Python 3.11
-FROM python:3.11
+FROM python:3.12
 
 # Atualize o sistema e instale o Git
 RUN apt-get update && apt-get install -y git

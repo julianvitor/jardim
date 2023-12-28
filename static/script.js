@@ -257,20 +257,7 @@ class GardenApp {
             console.error("Erro ao enviar a solicitação:", error);
         });
     }
-    
-
-
-
-
-
-
-
-
-
-
 }
-
-
 
 document.addEventListener("DOMContentLoaded", () => {
     const app = new GardenApp();
