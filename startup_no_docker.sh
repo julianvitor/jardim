@@ -25,6 +25,7 @@ kill_process_by_port 8000
 kill_process_by_port 8001
 kill_process_by_port 8002
 kill_process_by_port 8003
+kill_process_by_port 8004
 
 pkill gunicorn
 pkill uvicorn

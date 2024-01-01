@@ -21,17 +21,13 @@
             </label>  
         </header>
         <div class="login-container">
-            <form id="signupForm" onsubmit="return validateForm()">
+            <form id="signupForm" onsubmit="return sendFormData()">
                 <div class="input-group">
                     <label for="username">Usuario</label>
                     <input type="text" id="username" name="username" pattern="^[^\s]{1,30}$" title="Por favor, insira de 1 a 30 caracteres sem espaços." required>
                 </div>
                 <div class="input-group">
                     <label for="password">Senha</label>
-                    <input type="password" id="confirmPassword" name="confirmPassword" pattern="^[^\s]{1,30}$" title="Por favor, insira de 1 a 30 caracteres sem espaços." required>
-                </div>
-                <div class="input-group">
-                    <label for="password">Repita a senha</label>
                     <input type="password" id="password" name="password" pattern="^[^\s]{1,30}$" title="Por favor, insira de 1 a 30 caracteres sem espaços." required>
                 </div>
                 <button id="cadastrar-btn" type="submit">Cadastrar</button>
@@ -40,15 +36,46 @@
         </div>
     </div>
     <script>
-        function validateForm() {
+        function sendFormData() {
+            var username = document.getElementById("username").value;
             var password = document.getElementById("password").value;
-            var confirmPassword = document.getElementById("confirmPassword").value;
-            
-            if (password !== confirmPassword) {
-                alert("As senhas não coincidem. Por favor, tente novamente.");
-                return false;
-            }
-            return true;
+    
+            var data = {
+                "usuario": username,
+                "senha": password
+            };
+    
+            // Ajuste da URL para o seu backend
+            var apiIpCadastro = 'http://' + currentHost + ':' + '8004/cadastro';
+    
+            // Faz a requisição AJAX
+            fetch(apiIpCadastro, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            })
+            .then(response => {
+                if (!response.ok) {
+                    // Se a resposta não estiver no intervalo [200, 299]
+                    return response.json().then(error => Promise.reject(error));
+                }
+                return response.json();
+            })
+            .then(data => {
+                alert(data.message); // Mostra a mensagem do backend
+            })
+            .catch(error => {
+                if (error.detail) {
+                    alert(error.detail); // Exibe a mensagem de detalhe do backend em caso de erro
+                } else {
+                    console.error('Erro:', error);
+                }
+            });
+    
+            // Evita o envio tradicional do formulário
+            return false;
         }
     </script>
 </body>

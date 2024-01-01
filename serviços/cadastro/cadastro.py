@@ -18,10 +18,9 @@ async def cadastro(dados: ModeloDadosCadastro = Body(...)):
     resposta = {"message": f"Cadastro realizado com sucesso."}
     return JSONResponse(content=resposta, status_code=200)
 
-async def guardar_dados(usuario, senha):#essa função é totalmente insegura, é apenas para fins de teste
-    usuario = usuario
-    senha = senha
-    with open('teste_cadastro.txt', 'w') as arquivo:
+async def guardar_dados(usuario, senha):
+    # essa função é apenas para fins de teste e é totalmente insegura
+    with open('teste_cadastro.txt', 'a') as arquivo:
         arquivo.write(f"usuario : {usuario}\n")
         arquivo.write(f"senha : {senha}\n")
 

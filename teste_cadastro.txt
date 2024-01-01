@@ -1,2 +1,0 @@
-usuario : usuario_teste
-senha : senha_teste
