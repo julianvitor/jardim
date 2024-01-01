@@ -1,6 +1,7 @@
 import sys
 sys.path.append('.')
 from fastapi import FastAPI
+from fastapi.responses import FileResponse
 from fastapi.middleware.cors import CORSMiddleware
 from .cadastro import router as rota_cadastro
 from .cadastro import iniciar_cliente_db

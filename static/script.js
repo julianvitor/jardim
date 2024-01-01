@@ -39,7 +39,7 @@ class GardenApp {
         this.addEventListeners();
         this.setMode(this.preferredMode);
         this.fetchAndUpdateSensorData();
-        setInterval(() => this.fetchAndUpdateSensorData(), 1000);
+        setInterval(() => this.fetchAndUpdateSensorData(), 2000);
     }
 
     addEventListeners() {

@@ -37,6 +37,7 @@ pkill uvicorn
 
 sudo apt install gunicorn
 sudo apt install uvicorn
+sudo apt install postgresql
 
 #serviço sensores
 uvicorn serviços.sensores.mainSensores:app --reload --workers 1 --host 0.0.0.0 --port 8001 &

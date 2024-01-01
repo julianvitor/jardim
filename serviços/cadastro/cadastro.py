@@ -17,7 +17,11 @@ async def cadastro(dados: ModeloDadosCadastro = Body(...)):
     dados_sanitizados = await sanitizar_validar(dados)
     usuario, senha = map(str.strip, (dados_sanitizados.usuario, dados_sanitizados.senha))
     usuario = usuario.lower()
-    senha_hash = criar_hash_senha(senha)
+
+    if await verificar_usuario_existente(usuario):
+        raise HTTPException(status_code=400, detail="Usuário já cadastrado")
+    
+    senha_hash = await criar_hash_senha(senha)
     await gravar_dados(usuario, senha_hash)
     resposta = {"message": f"Cadastro realizado com sucesso."}
     return JSONResponse(content=resposta, status_code=200)
@@ -38,6 +42,15 @@ async def criar_tabela():
 async def iniciar_cliente_db():
     await criar_tabela()
 
+async def verificar_usuario_existente(usuario) -> bool:
+    try:
+        conexao = await asyncpg.connect(BANCO_DE_DADOS_URL)
+        query = "SELECT EXISTS(SELECT 1 FROM cadastro WHERE usuario = $1)"
+        result = await conexao.fetchval(query, usuario)
+        return result
+    finally:
+        await conexao.close()
+
 async def gravar_dados(usuario, senha_hash):
     conexao = await asyncpg.connect(BANCO_DE_DADOS_URL)
     try:
@@ -45,7 +58,7 @@ async def gravar_dados(usuario, senha_hash):
     finally:
         await conexao.close()
     
-def criar_hash_senha(senha):
+async def criar_hash_senha(senha):
     salt = bcrypt.gensalt()
     senha_hash = bcrypt.hashpw(senha.encode('utf-8'),salt)
     return senha_hash.decode('utf-8') #traduzir a senha_hash em binario para string utf-8
