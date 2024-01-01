@@ -1,8 +1,11 @@
 from pydantic import BaseModel
 from fastapi import APIRouter, Body, HTTPException
 from fastapi.responses import JSONResponse
+import asyncpg
+import bcrypt
 
 router = APIRouter()
+BANCO_DE_DADOS_URL = "postgresql://user:password@localhost/dbname"
 
 class ModeloDadosCadastro(BaseModel):
     usuario: str
@@ -11,18 +14,37 @@ class ModeloDadosCadastro(BaseModel):
 @router.post('/cadastro')
 async def cadastro(dados: ModeloDadosCadastro = Body(...)):
     dados_sanitizados = await sanitizar_validar(dados)
-    usuario = dados_sanitizados.usuario.strip()
-    senha = dados_sanitizados.senha.strip()
+    usuario, senha = map(str.strip, (dados_sanitizados.usuario, dados_sanitizados.senha))
     usuario = usuario.lower()
-    await guardar_dados(usuario, senha)
+    senha_hash = criar_hash_senha(senha)
+    await gravar_dados(usuario, senha_hash)
     resposta = {"message": f"Cadastro realizado com sucesso."}
     return JSONResponse(content=resposta, status_code=200)
 
-async def guardar_dados(usuario, senha):
-    # essa função é apenas para fins de teste e é totalmente insegura
-    with open('teste_cadastro.txt', 'a') as arquivo:
-        arquivo.write(f"usuario : {usuario}\n")
-        arquivo.write(f"senha : {senha}\n")
+async def criar_tabela():
+    conexao = await asyncpg.connect(BANCO_DE_DADOS_URL)     
+    try:
+        await conexao.execute("""
+            CREATE TABLE IF NOT EXISTS cadastro (
+                id SERIAL PRIMARY KEY,
+                usuario VARCHAR(30) UNIQUE NOT NULL,
+                senha VARCHAR(30) NOT NULL
+            )
+        """)
+    finally:
+        await conexao.close()
+
+async def gravar_dados(usuario, senha_hash):
+    conexao = await asyncpg.connect(BANCO_DE_DADOS_URL)
+    try:
+        await conexao.execute("INSERT INTO usuarios (username, password) VALUES($1, $2)", usuario, senha_hash)
+    finally:
+        await conexao.close()
+    
+def criar_hash_senha(senha):
+    salt = bcrypt.gensalt()
+    senha_hash = bcrypt.hashpw(senha.encode('utf-8'),salt)
+    return senha_hash.decode('utf-8') #traduzir a senha_hash em binario para string utf-8
 
 async def sanitizar_validar(dados: ModeloDadosCadastro) -> str:
     #sanitizar
@@ -31,9 +53,9 @@ async def sanitizar_validar(dados: ModeloDadosCadastro) -> str:
 
     #validar
     SENHA_TAMANHO_MINIMO: int = 8
-    SENHA_TAMANHO_MAXIMO: int = 50
+    SENHA_TAMANHO_MAXIMO: int = 30
     USUARIO_TAMANHO_MINIMO: int = 3
-    USUARIO_TAMANHO_MAXIMO: int = 50
+    USUARIO_TAMANHO_MAXIMO: int = 30
 
     if not usuario or not senha:
         raise HTTPException(status_code=400, detail="Usuário e senha são obrigatórios.")

@@ -10,7 +10,8 @@ app = FastAPI()
 # Configurar middleware CORS pois é um atribudo apeas do FastApi e não do router
 origins = [
     "http://localhost:5000",
-    "http://172.20.87.188:5000"
+    "http://172.20.87.188:5000",
+    "http://localhost"
 ]
 app.add_middleware(
     CORSMiddleware,
