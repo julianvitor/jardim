@@ -36,23 +36,22 @@ async def sanitizar_validar(dados: ModeloDadosCadastro) -> str:
     USUARIO_TAMANHO_MAXIMO: int = 50
 
     if not usuario or not senha:
-        raise HTTPException(status_code=400, detail="Dados inválidos, usuario e senha devem estar presentes")
+        raise HTTPException(status_code=400, detail="Usuário e senha são obrigatórios.")
+    if usuario == "admin" or senha == "admin":
+        raise HTTPException(status_code=400, detail=" ATA MUITO ENGRAÇADINHO VOCÊ NÉ?")
     
     if len(usuario) < USUARIO_TAMANHO_MINIMO or len(senha) < SENHA_TAMANHO_MINIMO:
-        raise HTTPException(status_code=400, detail=f"Dados inválidos, usuario deve ter pelo menos: {USUARIO_TAMANHO_MINIMO} e maximo de: {USUARIO_TAMANHO_MAXIMO} e senha deve ter pelo menos: {SENHA_TAMANHO_MINIMO} e maximo de: {SENHA_TAMANHO_MAXIMO}")
-    
+        raise HTTPException(status_code=400, detail=f"Usuário deve ter entre {USUARIO_TAMANHO_MINIMO} e {USUARIO_TAMANHO_MAXIMO} caracteres, e senha deve ter entre {SENHA_TAMANHO_MINIMO} e {SENHA_TAMANHO_MAXIMO} caracteres.")
+
     if usuario == senha:
-        raise HTTPException(status_code=400, detail="Dados inválidos, usuario e senha devem ser diferentes")
-    
-    if usuario == "admin" or senha == "admin":
-        raise HTTPException(status_code=400, detail="Dados inválidos, MUITO ENGRAÇADINHO VOCE NÉ...")
-    
+        raise HTTPException(status_code=400, detail="Usuário e senha devem ser diferentes.")
+
     if len(usuario) > USUARIO_TAMANHO_MAXIMO or len(senha) > SENHA_TAMANHO_MAXIMO:
-        raise HTTPException(status_code=400, detail=f"Dados inválidos, usuario deve ter pelo menos: {USUARIO_TAMANHO_MINIMO} e maximo de: {USUARIO_TAMANHO_MAXIMO} e senha deve ter pelo menos: {SENHA_TAMANHO_MINIMO} e maximo de: {SENHA_TAMANHO_MAXIMO}")
+        raise HTTPException(status_code=400, detail=f"Usuário deve ter entre {USUARIO_TAMANHO_MINIMO} e {USUARIO_TAMANHO_MAXIMO} caracteres, e senha deve ter entre {SENHA_TAMANHO_MINIMO} e {SENHA_TAMANHO_MAXIMO} caracteres.")
 
     for caractere in ["'", '"', ';', '--', '/*', '%', '=', 'UNION', '--+']:
         if caractere in usuario or caractere in senha:
-            raise HTTPException(status_code=400, detail = f"A presença do caractere '{caractere}' não é permitida.")
-    
+            raise HTTPException(status_code=400, detail=f"A presença do caractere '{caractere}' não é permitida.")
+
     return ModeloDadosCadastro(usuario=usuario, senha=senha)
 

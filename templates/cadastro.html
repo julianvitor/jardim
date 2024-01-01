@@ -30,6 +30,10 @@
                     <label for="password">Senha</label>
                     <input type="password" id="password" name="password" pattern="^[^\s]{1,30}$" title="Por favor, insira de 1 a 30 caracteres sem espaços." required>
                 </div>
+                <div class="input-group">
+                    <label for="confirmPassword">Repita a senha</label>
+                    <input type="password" id="confirmPassword" name="confirmPassword" pattern="^[^\s]{1,30}$" title="Por favor, insira de 1 a 30 caracteres sem espaços." required>
+                </div>
                 <button id="cadastrar-btn" type="submit">Cadastrar</button>
                 <button id="login-btn" type="button" onclick="window.location.href='/login'">Login</button>
             </form>
@@ -39,6 +43,12 @@
         function sendFormData() {
             var username = document.getElementById("username").value;
             var password = document.getElementById("password").value;
+            var confirmPassword = document.getElementById("confirmPassword").value;
+    
+            if (password !== confirmPassword) {
+                alert("As senhas não coincidem. Por favor, tente novamente.");
+                return false;
+            }
     
             var data = {
                 "usuario": username,
