@@ -14,7 +14,7 @@ class TestApp(unittest.TestCase):
         self.assertEqual(response.status_code, 200)
 
     def teste_acessar_cadastro(self):
-        response = self.app.get('/cadastro')  # Adiciona uma barra antes de 'cadastro'
+        response = self.app.get('/cadastro') 
         self.assertEqual(response.status_code, 200)
 
     def teste_acessar_login(self):
