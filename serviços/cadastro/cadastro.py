@@ -5,7 +5,8 @@ import asyncpg
 import bcrypt
 
 router = APIRouter()
-BANCO_DE_DADOS_URL = "postgresql://user:password@localhost/dbname"
+#essa conexão é insegura e apenas para fins de desenvolvimento
+BANCO_DE_DADOS_URL = "postgresql://usuario:senha@localhost:5432/banco_jardim"
 
 class ModeloDadosCadastro(BaseModel):
     usuario: str
@@ -28,16 +29,19 @@ async def criar_tabela():
             CREATE TABLE IF NOT EXISTS cadastro (
                 id SERIAL PRIMARY KEY,
                 usuario VARCHAR(30) UNIQUE NOT NULL,
-                senha VARCHAR(30) NOT NULL
+                senha_hash VARCHAR(60) NOT NULL
             )
         """)
     finally:
         await conexao.close()
 
+async def iniciar_cliente_db():
+    await criar_tabela()
+
 async def gravar_dados(usuario, senha_hash):
     conexao = await asyncpg.connect(BANCO_DE_DADOS_URL)
     try:
-        await conexao.execute("INSERT INTO usuarios (username, password) VALUES($1, $2)", usuario, senha_hash)
+        await conexao.execute("INSERT INTO cadastro (usuario, senha_hash) VALUES($1, $2)", usuario, senha_hash)
     finally:
         await conexao.close()
     

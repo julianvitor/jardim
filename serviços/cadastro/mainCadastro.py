@@ -1,3 +1,5 @@
+import sys
+sys.path.append('.')
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from .cadastro import router as rota_cadastro
@@ -21,8 +23,6 @@ app.add_middleware(
 
 #incluir o roteador do cadastro
 app.include_router(rota_cadastro)
-
-
 
 @app.exception_handler(404)
 async def page_not_found(request, exc):
