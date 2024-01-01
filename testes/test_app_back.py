@@ -39,7 +39,7 @@ class TestMyAPI(unittest.IsolatedAsyncioTestCase):
         response = self.client_cadastro.post('/cadastro', json=dados_usuario)
         self.assertEqual(response.status_code, 200)
         data = response.json()
-        self.assertEqual(data['message'], 'Cadastro realizado com sucesso')
+        self.assertEqual(data['message'], 'Cadastro realizado com sucesso.')
 
 
 if __name__ == '__main__':
