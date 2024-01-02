@@ -35,10 +35,24 @@ sleep 3
 pkill gunicorn
 pkill uvicorn
 
-sudo apt install gunicorn
-sudo apt install uvicorn
-sudo apt install postgresql
+# List of applications to check and install
+applications=("gunicorn" "uvicorn" "postgresql")
 
+# Function to check and install an application
+check_and_install() {
+    app=$1
+    if ! command -v $app &> /dev/null; then
+        echo "$app is not installed. Installing..."
+        sudo apt install $app
+    else
+        echo "$app is already installed."
+    fi
+}
+
+# Loop through the applications and check/install them
+for app in "${applications[@]}"; do
+    check_and_install $app
+done
 #serviço sensores
 uvicorn serviços.sensores.mainSensores:app --reload --workers 1 --host 0.0.0.0 --port 8001 &
 sleep 1
