@@ -5,12 +5,25 @@ import asyncpg
 import bcrypt
 
 router = APIRouter()
-#essa conexão é insegura e apenas para fins de desenvolvimento
-BANCO_DE_DADOS_URL = "postgresql://usuario:senha@localhost:5432/banco_jardim"
+
+# Configuração para o pool de conexões
+DATABASE_URL = "postgresql://usuario:senha@localhost:5432/banco_jardim"
+
+# Configuração do pool de conexões
+database_pool = None
 
 class ModeloDadosCadastro(BaseModel):
     usuario: str
     senha: str
+
+@router.on_event("startup")
+async def startup_db_client():
+    global database_pool
+    database_pool = await asyncpg.create_pool(DATABASE_URL)
+
+@router.on_event("shutdown")
+async def shutdown_db_client():
+    await database_pool.close()
 
 @router.post('/cadastro')
 async def cadastro(dados: ModeloDadosCadastro = Body(...)):
@@ -27,8 +40,7 @@ async def cadastro(dados: ModeloDadosCadastro = Body(...)):
     return JSONResponse(content=resposta, status_code=200)
 
 async def criar_tabela():
-    conexao = await asyncpg.connect(BANCO_DE_DADOS_URL)     
-    try:
+    async with database_pool.acquire() as conexao:
         await conexao.execute("""
             CREATE TABLE IF NOT EXISTS cadastro (
                 id SERIAL PRIMARY KEY,
@@ -36,31 +48,20 @@ async def criar_tabela():
                 senha_hash VARCHAR(60) NOT NULL
             )
         """)
-    finally:
-        await conexao.close()
-
-async def iniciar_cliente_db():
-    await criar_tabela()
 
 async def verificar_usuario_existente(usuario) -> bool:
-    try:
-        conexao = await asyncpg.connect(BANCO_DE_DADOS_URL)
+    async with database_pool.acquire() as conexao:
         query = "SELECT EXISTS(SELECT 1 FROM cadastro WHERE usuario = $1)"
         result = await conexao.fetchval(query, usuario)
         return result
-    finally:
-        await conexao.close()
 
 async def gravar_dados(usuario, senha_hash):
-    conexao = await asyncpg.connect(BANCO_DE_DADOS_URL)
-    try:
+    async with database_pool.acquire() as conexao:
         await conexao.execute("INSERT INTO cadastro (usuario, senha_hash) VALUES($1, $2)", usuario, senha_hash)
-    finally:
-        await conexao.close()
-    
+
 async def criar_hash_senha(senha):
     salt = bcrypt.gensalt()
-    senha_hash = bcrypt.hashpw(senha.encode('utf-8'),salt)
+    senha_hash = bcrypt.hashpw(senha.encode('utf-8'), salt)
     return senha_hash.decode('utf-8') #traduzir a senha_hash em binario para string utf-8
 
 async def sanitizar_validar(dados: ModeloDadosCadastro) -> str:

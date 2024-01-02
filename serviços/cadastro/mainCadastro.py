@@ -4,10 +4,8 @@ from fastapi import FastAPI
 from fastapi.responses import FileResponse
 from fastapi.middleware.cors import CORSMiddleware
 from .cadastro import router as rota_cadastro
-from .cadastro import iniciar_cliente_db
 
 app = FastAPI()
-app.add_event_handler("startup", iniciar_cliente_db)#iniciar banco ao iniciar serviço
 
 origins = [
     "http://localhost:5000",
