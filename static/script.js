@@ -24,12 +24,8 @@ class GardenApp {
         this.sensorsESToggle = document.getElementById("sensorsES");
         this.sensorESToggleIcon = document.getElementById("sensorES-toggle-icon");
 
-        this.darkModeToggle = document.getElementById("dark-mode-toggle");
         this.container = document.querySelector(".container");
         this.body = document.body;
-
-        // Modo preferido
-        this.preferredMode = this.getCookie("preferredMode") || "dark";
 
         // Inicialização
         this.init();
@@ -43,25 +39,8 @@ class GardenApp {
 
     addEventListeners() {
         // Event Listeners
-        this.darkModeToggle.addEventListener("click", () => this.toggleDarkMode());
         this.waterButton.addEventListener("click", () => this.waterPlant());
         document.getElementById("sensors").addEventListener("click", () => this.toggleSensorList("sensor-list", "sensor-toggle-icon"));
-    }
-
-    setMode(mode) {
-        // Configuração do Modo
-        const isDarkMode = mode === "dark";
-        this.container.classList.toggle("dark-mode", isDarkMode);
-        this.body.classList.toggle("dark-mode", isDarkMode);
-        this.darkModeToggle.innerText = isDarkMode ? "Light Mode" : "Dark Mode";
-
-        // Armazenamento em cookie
-        this.setCookie("preferredMode", mode);
-    }
-
-    toggleDarkMode() {
-        // Alternância de Modo Escuro
-        this.setMode(this.body.classList.contains("dark-mode") ? "light" : "dark");
     }
 
     fetchAndUpdateSensorData() {
@@ -150,30 +129,6 @@ class GardenApp {
         const toggleIcon = document.getElementById(toggleIconId);
         sensorList.classList.toggle("hidden");
         toggleIcon.classList.toggle("rotate-icon");
-    }
-
-    // Funções para manipular cookies
-    setCookie(name, value, days = 365) {
-        const date = new Date();
-        date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);
-        const expires = "expires=" + date.toUTCString();
-        document.cookie = name + "=" + value + ";" + expires + ";path=/";
-    }
-
-    getCookie(name) {
-        const cname = name + "=";
-        const decodedCookie = decodeURIComponent(document.cookie);
-        const ca = decodedCookie.split(';');
-        for (let i = 0; i < ca.length; i++) {
-            let c = ca[i];
-            while (c.charAt(0) == ' ') {
-                c = c.substring(1);
-            }
-            if (c.indexOf(cname) == 0) {
-                return c.substring(cname.length, c.length);
-            }
-        }
-        return "";
     }
 
     waterPlant() {

@@ -23,7 +23,7 @@ async def cadastro(dados: ModeloDadosCadastro = Body(...)):
     
     senha_hash = await criar_hash_senha(senha)
     await gravar_dados(usuario, senha_hash)
-    resposta = {"message": f"Cadastro realizado com sucesso."}
+    resposta = {"detail": f"Cadastro realizado com sucesso."}
     return JSONResponse(content=resposta, status_code=200)
 
 async def criar_tabela():
@@ -71,7 +71,7 @@ async def sanitizar_validar(dados: ModeloDadosCadastro) -> str:
     #validar
     SENHA_TAMANHO_MINIMO: int = 8
     SENHA_TAMANHO_MAXIMO: int = 30
-    USUARIO_TAMANHO_MINIMO: int = 3
+    USUARIO_TAMANHO_MINIMO: int = 1
     USUARIO_TAMANHO_MAXIMO: int = 30
 
     if not usuario or not senha:

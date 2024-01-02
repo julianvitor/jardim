@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Bem-vindo ao Painel do Jardim Inteligente de Vegetais. Monitore e controle os sensores de ar e solo, eletricidade, reservatórios e sensores ambientais do seu jardim de forma prática e eficiente. Regue suas plantas manualmente com um clique. Alterne entre os modos claro e escuro para uma experiência personalizada.">
-    <link rel="preload" href="https://fonts.googleapis.com/icon?family=Material+Icons&display=swap" as="style">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons&display=swap">
     <link rel="icon" href="{{ url_for('static', filename='icon.png') }}" type="image/x-icon">
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}"> 
@@ -41,23 +40,22 @@
 
         <button id="login-btn" onclick="window.location.href='/login'"" class="login-btn">iniciar</button>
     </div>
-    <script>
-        // JavaScript for the typing animation
-        const title = document.getElementById('title');
-        const text = title.innerHTML;
-        title.innerText = ''; // Clear the text content
-
-        let i = 0;
-        function typeWriter() {
-            if (i < text.length) {
-                title.innerHTML += text.charAt(i);
-                i++;
-                setTimeout(typeWriter, 300); // Adjust the typing speed (in milliseconds)
-            }
-        }
-
-        // Trigger the typing animation
-        typeWriter();
-    </script>
 </body>
 </html>
+<script>
+    // JavaScript for the typing animation
+    const title = document.getElementById('title');
+    const text = title.innerHTML;
+    title.innerText = ''; // Clear the text content
+
+    let i = 0;
+    function typeWriter() {
+        if (i < text.length) {
+            title.innerHTML += text.charAt(i);
+            i++;
+            setTimeout(typeWriter, 300); // Adjust the typing speed (in milliseconds)
+        }
+    }
+    // Trigger the typing animation
+    typeWriter();
+</script>

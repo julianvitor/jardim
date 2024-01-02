@@ -8,7 +8,8 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons&display=swap">
     <link rel="icon" href="{{ url_for('static', filename='icon.png') }}" type="image/x-icon">
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}"> 
-    <script src="/static/script.js"></script>
+    <script src="/static/darkmode.js"></script>
+    <script src ="/static/cadastro.js"></script>
     <title>Cadastro do Jardim</title>
 </head>
 <body>
@@ -32,61 +33,13 @@
                 </div>
                 <div class="input-group">
                     <label for="confirmPassword">Repita a senha</label>
-                    <input type="password" id="confirmPassword" name="confirmPassword" pattern="^[^\s]{1,30}$" title="Por favor, insira de 1 a 30 caracteres sem espaços." required>
+                    <input type="password" id="confirmPassword" name="confirmPassword" pattern="^[^\s]{8,30}$" title="Por favor, insira de 8 a 30 caracteres sem espaços." required>
                 </div>
                 <button id="cadastrar-btn" type="submit">Cadastrar</button>
                 <button id="login-btn" type="button" onclick="window.location.href='/login'">Login</button>
             </form>
         </div>
     </div>
-    <script>
-        function sendFormData() {
-            var username = document.getElementById("username").value;
-            var password = document.getElementById("password").value;
-            var confirmPassword = document.getElementById("confirmPassword").value;
-    
-            if (password !== confirmPassword) {
-                alert("As senhas não coincidem. Por favor, tente novamente.");
-                return false;
-            }
-    
-            var data = {
-                "usuario": username,
-                "senha": password
-            };
-    
-            // Ajuste da URL para o seu backend
-            var apiIpCadastro = 'http://' + currentHost + ':' + '8004/cadastro';
-    
-            // Faz a requisição AJAX
-            fetch(apiIpCadastro, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(data)
-            })
-            .then(response => {
-                if (!response.ok) {
-                    // Se a resposta não estiver no intervalo [200, 299]
-                    return response.json().then(error => Promise.reject(error));
-                }
-                return response.json();
-            })
-            .then(data => {
-                alert(data.message); // Mostra a mensagem do backend
-            })
-            .catch(error => {
-                if (error.detail) {
-                    alert(error.detail); // Exibe a mensagem de detalhe do backend em caso de erro
-                } else {
-                    console.error('Erro:', error);
-                }
-            });
-    
-            // Evita o envio tradicional do formulário
-            return false;
-        }
-    </script>
+
 </body>
 </html>

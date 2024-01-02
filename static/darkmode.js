@@ -1,4 +1,4 @@
-class MyUniqueApp {
+class DarkModeApp {
     constructor() {
         this.initializeDOMElements();
         this.preferredMode = this.getPreferredMode();
@@ -67,5 +67,5 @@ class MyUniqueApp {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-    const app = new MyUniqueApp();
+    const app = new DarkModeApp();
 });
