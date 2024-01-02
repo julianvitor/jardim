@@ -1,22 +1,11 @@
 #!/bin/bash
 
-# Navegue até o diretório do repositório
-cd /app/jardim
+# Cria e ativa o ambiente virtual
+python3 -m venv jardimEnv
+source jardimEnv/bin/activate
 
-# Atualize o código do repositório com git pull
-git pull
-
-cd app/jardim
-
-# Instale as dependências do Flask
+# Instala as dependências
 pip install -r requirements.txt
-
-# Inicie o front flask
-gunicorn -w 1 -b 0.0.0.0:5000 views:app
-
-# Inicie os serviç
-uvicorn gateway:app --reload --workers 1 --host 0.0.0.0 --port 8000
-
 
 kill_process_by_port() {
   local port=$1
@@ -36,16 +25,36 @@ kill_process_by_port 8000
 kill_process_by_port 8001
 kill_process_by_port 8002
 kill_process_by_port 8003
+kill_process_by_port 8004
 
 pkill gunicorn
-sleep 1
 pkill uvicorn
 
+sleep 3 
+
+pkill gunicorn
+pkill uvicorn
+
+sudo apt install gunicorn
+sudo apt install uvicorn
+sudo apt install postgresql
+
 #serviço sensores
-uvicorn sensores.main:app --workers 2 --host 0.0.0.0 --port 8001 &
+uvicorn serviços.sensores.mainSensores:app --reload --workers 1 --host 0.0.0.0 --port 8001 &
+sleep 1
 
 #serviço regar
-uvicorn regar.main:app --workers 2 --host 0.0.0.0 --port 8002 &
+uvicorn serviços.regar.mainRegar:app --reload --workers 1 --host 0.0.0.0 --port 8002 &
+sleep 1
+
+#serviço gerencimento
+uvicorn serviços.gerenciamento.mainGerenciamento:app --reload --workers 1 --host 0.0.0.0 --port 8003 &
+sleep 1
+
+#serviço gerencimento
+uvicorn serviços.cadastro.mainCadastro:app --reload --workers 1 --host 0.0.0.0 --port 8004 &
+sleep 1
 
 # front
-gunicorn -w 2 -b 0.0.0.0:5000 views:app &
+python3 views.py
+
