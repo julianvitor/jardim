@@ -29,7 +29,7 @@ class GardenApp {
         this.body = document.body;
 
         // Modo preferido
-        this.preferredMode = this.getCookie("preferredMode") || "light";
+        this.preferredMode = this.getCookie("preferredMode") || "dark";
 
         // Inicialização
         this.init();
@@ -37,7 +37,6 @@ class GardenApp {
 
     init() {
         this.addEventListeners();
-        this.setMode(this.preferredMode);
         this.fetchAndUpdateSensorData();
         setInterval(() => this.fetchAndUpdateSensorData(), 2000);
     }

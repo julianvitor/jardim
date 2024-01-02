@@ -3,7 +3,7 @@ from flask_minify import Minify
 
 app = Flask(__name__, static_folder='static')
 app.static_folder = 'static'
-minify = Minify(app=app, html=False, js=True, cssless=True)
+minify = Minify(app=app, html=False, js=False, cssless=True)
 
 @app.route('/dashboard')
 def dashboard():

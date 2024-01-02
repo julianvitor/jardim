@@ -5,7 +5,6 @@ import unittest
 import asyncio
 from fastapi.testclient import TestClient
 sys.path.append('.')  # Adiciona a lista de onde o Python busca módulos
-
 from serviços.sensores.mainSensores import app as sensores_app
 from serviços.regar.mainRegar import app as regar_app
 from serviços.cadastro.mainCadastro import app as cadastro_app
@@ -61,5 +60,6 @@ class TestMyAPI(unittest.IsolatedAsyncioTestCase):
     async def test_gerenciamento_cidade(self):
         response = self.client_gerencimento.get('/search-city', params={"city":"carbonita"}) #parametros na url da solicitação
         self.assertEqual(response.status_code, 200)
+        
 if __name__ == '__main__':
     asyncio.run(unittest.main())
