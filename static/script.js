@@ -7,8 +7,8 @@ var apiIpRegar = 'http://' + currentHost + ':' + '8002';
 var apiIpGerenciamento = 'http://' + currentHost + ':' + '8003';
 
 // Exporte as constantes
-const apiUrlSensorData = `${apiIpSensor}/sensor-data`;
-const apiUrlWaterPlant = `${apiIpRegar}/water-plant`;
+const apiUrlSensorData = `${apiIpSensor}/api-sensor-data`;
+const apiUrlWaterPlant = `${apiIpRegar}/api-water-plant`;
 
 class GardenApp {
     constructor() {
@@ -171,7 +171,7 @@ function configurarCampoAutocomplete() {
 
     function fetchCitiesFromOpenStreetMap(query) {
         // Use a API de busca do OpenStreetMap diretamente no front-end
-        const apiUrl = `${apiIpGerenciamento}/search-city?city=${query}&format=json&limit=1`;
+        const apiUrl = `${apiIpGerenciamento}/api-search-city?city=${query}&format=json&limit=1`;
     
         return fetch(apiUrl)
             .then(response => {

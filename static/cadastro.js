@@ -17,7 +17,7 @@ function sendFormData() {
     };
 
     // Construa o endereço completo com o protocolo, host e porta
-    var url = window.location.protocol + "//" + window.location.hostname + ":8004/cadastro";
+    var url = window.location.protocol + "//" + window.location.hostname + ":8004/api-cadastro";
 
     // Envie a requisição POST
     fetch(url, {

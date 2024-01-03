@@ -25,7 +25,7 @@ async def startup_db_client():
 async def shutdown_db_client():
     await database_pool.close()
 
-@router.post('/cadastro')
+@router.post('/api-cadastro')
 async def cadastro(dados: ModeloDadosCadastro = Body(...)):
     dados_sanitizados = await sanitizar_validar(dados)
     usuario, senha = map(str.strip, (dados_sanitizados.usuario, dados_sanitizados.senha))
