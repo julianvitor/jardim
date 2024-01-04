@@ -16,13 +16,12 @@ class ModeloDadosCadastro(BaseModel):
     usuario: str
     senha: str
 
-@router.on_event("startup")
-async def startup_db_client():
+async def iniciar_cliente_db():
     global database_pool
     database_pool = await asyncpg.create_pool(DATABASE_URL)
 
-@router.on_event("shutdown")
-async def shutdown_db_client():
+
+async def desligar_cliente_db():
     await database_pool.close()
 
 @router.post('/api-cadastro')
