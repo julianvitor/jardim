@@ -9,8 +9,8 @@ router = APIRouter()
 # Configuração para o pool de conexões
 DATABASE_URL = "postgresql://usuario:senha@localhost:5432/banco_jardim"
 
-# Configuração do pool de conexões
-database_pool = None
+database_pool = None # Variavel de estado do pool db
+payload = Body(...)
 
 class ModeloDadosCadastro(BaseModel):
     usuario: str
@@ -18,14 +18,14 @@ class ModeloDadosCadastro(BaseModel):
 
 async def iniciar_cliente_db():
     global database_pool
-    database_pool = await asyncpg.create_pool(DATABASE_URL)
-
+    if database_pool == None:
+        database_pool = await asyncpg.create_pool(DATABASE_URL)
 
 async def desligar_cliente_db():
     await database_pool.close()
 
 @router.post('/api-cadastro')
-async def cadastro(dados: ModeloDadosCadastro = Body(...)):
+async def cadastro(dados: ModeloDadosCadastro = Body(...)):# o fastapi vai entender que body deve ser do tipo ModeloDadosCadastro sozinho
     dados_sanitizados = await sanitizar_validar(dados)
     usuario, senha = map(str.strip, (dados_sanitizados.usuario, dados_sanitizados.senha))
     usuario = usuario.lower()
@@ -88,9 +88,9 @@ async def sanitizar_validar(dados: ModeloDadosCadastro) -> str:
     if len(usuario) > USUARIO_TAMANHO_MAXIMO or len(senha) > SENHA_TAMANHO_MAXIMO:
         raise HTTPException(status_code=400, detail=f"Usuário deve ter entre {USUARIO_TAMANHO_MINIMO} e {USUARIO_TAMANHO_MAXIMO} caracteres, e senha deve ter entre {SENHA_TAMANHO_MINIMO} e {SENHA_TAMANHO_MAXIMO} caracteres.")
 
-    for caractere in ["'", '"', ';', '--', '/*', '%', '=', 'UNION', '--+']:
-        if caractere in usuario or caractere in senha:
-            raise HTTPException(status_code=400, detail=f"A presença do caractere '{caractere}' não é permitida.")
+    for caractere_perigoso in ["'", '"', ';', '--', '/*', '%', '=', 'UNION', '--+']:
+        if caractere_perigoso in usuario or caractere_perigoso in senha:
+            raise HTTPException(status_code=400, detail=f"A presença do caractere '{caractere_perigoso}' não é permitida.")
 
     return ModeloDadosCadastro(usuario=usuario, senha=senha)
 
