@@ -4,8 +4,10 @@ from pydantic import BaseModel
 import bcrypt
 import asyncpg
 
-router = APIRouter
+router = APIRouter()
+
 DATABASE_URL = "postgresql://usuario:senha@localhost:5432/banco_jardim"
+database_pool = None
 payload = Body(...)
 
 class ModeloDadosLogin(BaseModel):
@@ -14,15 +16,19 @@ class ModeloDadosLogin(BaseModel):
 @router.post("/api-login")
 async def login(dados: ModeloDadosLogin = payload) -> None: #parametro dado do tipo modelopydantic recebendo o objeto payload
     dados_sanitizados = await sanitizar_validar(dados)
-    usuario, senha = dados_sanitizados.usuario, dados_sanitizados_senha
-    usuario = usuario.lower()
-    senha_hash = bcrypt.hashpw(se)
-    if await verificar_usuario_existente(usuario):
-        if senha_hash == senha_cadastrada_hash:
-            resposta = {"detail": f"Login realizado com sucesso."}
-            return JSONResponse(content=resposta, status_code=200)
-
-
+    usuario, senha = dados_sanitizados.usuario, dados_sanitizados.senha
+    
+    validar_login = ValidarLogin(usuario)
+    usuario_existe, senha_hash = await validar_login.consultar_senha_hash()
+    
+    if usuario_existe:
+        senha_esta_correta = bcrypt.checkpw(senha.encode('utf-8'), senha_hash.encode('utf-8'))
+        if senha_esta_correta:
+            raise HTTPException(status_code=200, detail="Login realizado com sucesso.")
+        else:
+            raise HTTPException(status_code=400, detail="Senha incorreta.")
+    else:
+        raise HTTPException(status_code=400, detail="Usuário não cadastrado.")
 async def sanitizar_validar(dados: ModeloDadosLogin = payload)-> ModeloDadosLogin:
     #sanitizar
     usuario = dados.usuario.strip().lower()
@@ -40,7 +46,7 @@ async def sanitizar_validar(dados: ModeloDadosLogin = payload)-> ModeloDadosLogi
     if usuario == "admin" or senha == "admin":
         raise HTTPException(status_code=200, detail= "Continue tentando...")
     
-    if len(usuario) < SENHA_TAMANHO_MINIMO or len(senha) < SENHA_TAMANHO_MINIMO:
+    if len(usuario) < USUARIO_TAMANHO_MINIMO or len(senha) < SENHA_TAMANHO_MINIMO:
         raise HTTPException(status_code=400, detail=f"Usuário deve ter entre {USUARIO_TAMANHO_MINIMO} e {USUARIO_TAMANHO_MAXIMO} caracteres e senha deve ter entre {SENHA_TAMANHO_MINIMO} e {SENHA_TAMANHO_MAXIMO} caracteres.")
     
     if len(usuario) > USUARIO_TAMANHO_MAXIMO or len(senha) > SENHA_TAMANHO_MAXIMO:
@@ -54,3 +60,27 @@ async def sanitizar_validar(dados: ModeloDadosLogin = payload)-> ModeloDadosLogi
             raise HTTPException(status_code=400, detail=f"A presença do caractere '{caractere_perigoso}' não é permitida.")
         
     return ModeloDadosLogin(usuario=usuario, senha=senha)
+
+class ValidarLogin:
+    def __init__(self, usuario):
+        self.usuario = usuario
+
+    async def consultar_senha_hash(self):
+        async with database_pool.acquire() as conexao:
+            query = "SELECT senha_hash FROM cadastro WHERE usuario = $1"
+            senha_hash = await conexao.fetchval(query, self.usuario)
+            if senha_hash:
+                usuario_existe = True
+                return usuario_existe, senha_hash
+            else:
+                usuario_existe = False
+                senha_hash = None
+                return usuario_existe, senha_hash
+
+async def iniciar_cliente_db():
+    global database_pool
+    if database_pool == None:
+        database_pool = await asyncpg.create_pool(DATABASE_URL)
+
+async def desligar_cliente_db():
+    await database_pool.close()

@@ -26,6 +26,7 @@ kill_process_by_port 8001
 kill_process_by_port 8002
 kill_process_by_port 8003
 kill_process_by_port 8004
+kill_process_by_port 8005
 
 pkill gunicorn
 pkill uvicorn
@@ -68,6 +69,9 @@ sleep 1
 #serviço gerencimento
 uvicorn serviços.cadastro.mainCadastro:app --reload --workers 1 --host 0.0.0.0 --port 8004 &
 sleep 1
+
+uvicorn serviços.login.mainLogin:app --reload --workers 1 --host 0.0.0.0 --port 8005 &
+
 
 # front
 python3 views.py

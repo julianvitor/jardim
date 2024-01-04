@@ -30,7 +30,7 @@ async def cadastro(dados: ModeloDadosCadastro = Body(...)):# o fastapi vai enten
     usuario, senha = map(str.strip, (dados_sanitizados.usuario, dados_sanitizados.senha))
     usuario = usuario.lower()
 
-    if await verificar_usuario_existente(usuario):
+    if await verificar_usuario_existe(usuario):
         raise HTTPException(status_code=400, detail="Usuário já cadastrado")
     
     senha_hash = await criar_hash_senha(senha)
@@ -48,7 +48,7 @@ async def criar_tabela():
             )
         """)
 
-async def verificar_usuario_existente(usuario) -> bool:
+async def verificar_usuario_existe(usuario) -> bool:
     async with database_pool.acquire() as conexao:
         query = "SELECT EXISTS(SELECT 1 FROM cadastro WHERE usuario = $1)"
         result = await conexao.fetchval(query, usuario)
