@@ -26,9 +26,9 @@ async def login(dados: ModeloDadosLogin = payload) -> None: #parametro dado do t
         if senha_esta_correta:
             raise HTTPException(status_code=200, detail="Login realizado com sucesso.")
         else:
-            raise HTTPException(status_code=400, detail="Senha incorreta.")
+            raise HTTPException(status_code=401, detail="Senha incorreta.")
     else:
-        raise HTTPException(status_code=400, detail="Usuário não cadastrado.")
+        raise HTTPException(status_code=401, detail="Usuário não cadastrado.")
 async def sanitizar_validar(dados: ModeloDadosLogin = payload)-> ModeloDadosLogin:
     #sanitizar
     usuario = dados.usuario.strip().lower()

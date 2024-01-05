@@ -9,6 +9,7 @@ from serviços.sensores.mainSensores import app as sensores_app
 from serviços.regar.mainRegar import app as regar_app
 from serviços.cadastro.mainCadastro import app as cadastro_app
 from serviços.gerenciamento.mainGerenciamento import app as gerenciamento_app
+from serviços.login.mainLogin import app as login_app
 class TestMyAPI(unittest.IsolatedAsyncioTestCase):
     async def asyncSetUp(self):
         self.client_sensores = TestClient(sensores_app)
@@ -60,6 +61,17 @@ class TestMyAPI(unittest.IsolatedAsyncioTestCase):
     async def test_gerenciamento_cidade(self):
         response = self.client_gerencimento.get('/search-city', params={"city":"carbonita"}) #parametros na url da solicitação
         self.assertEqual(response.status_code, 200)
+
+    async def test_login_existente(self):
+        usuario = "batata"
+        senha = "12345678"
+        dados_usuario = {"usuario": usuario, "senha": senha}
+        response = self.client_login.post('/api-login', json=dados_usuario)
+        self.assertEqual(response.status_code, 200)
+        data = response.json()
+        self.assertEqual(data['message'], 'Login realizado com sucesso.')
         
+    async def test_login_inexistente(self):
+        usuario = str(random)
 if __name__ == '__main__':
     asyncio.run(unittest.main())
