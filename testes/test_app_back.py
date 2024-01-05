@@ -5,11 +5,11 @@ import unittest
 import asyncio
 from fastapi.testclient import TestClient
 sys.path.append('.')  # Adiciona a lista de onde o Python busca módulos
-from serviços.sensores.mainSensores import app as sensores_app
-from serviços.regar.mainRegar import app as regar_app
-from serviços.cadastro.mainCadastro import app as cadastro_app
-from serviços.gerenciamento.mainGerenciamento import app as gerenciamento_app
-from serviços.login.mainLogin import app as login_app
+from servicos.sensores.mainSensores import app as sensores_app
+from servicos.regar.mainRegar import app as regar_app
+from servicos.cadastro.mainCadastro import app as cadastro_app
+from servicos.gerenciamento.mainGerenciamento import app as gerenciamento_app
+from servicos.login.mainLogin import app as login_app
 class TestMyAPI(unittest.IsolatedAsyncioTestCase):
     async def asyncSetUp(self):
         self.client_sensores = TestClient(sensores_app)

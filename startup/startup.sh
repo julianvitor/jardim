@@ -55,22 +55,22 @@ for app in "${applications[@]}"; do
     check_and_install $app
 done
 #serviço sensores
-uvicorn serviços.sensores.mainSensores:app --reload --workers 1 --host 0.0.0.0 --port 8001 &
+uvicorn servicos.sensores.mainSensores:app --reload --workers 1 --host 0.0.0.0 --port 8001 &
 sleep 1
 
 #serviço regar
-uvicorn serviços.regar.mainRegar:app --reload --workers 1 --host 0.0.0.0 --port 8002 &
+uvicorn servicos.regar.mainRegar:app --reload --workers 1 --host 0.0.0.0 --port 8002 &
 sleep 1
 
 #serviço gerencimento
-uvicorn serviços.gerenciamento.mainGerenciamento:app --reload --workers 1 --host 0.0.0.0 --port 8003 &
+uvicorn servicos.gerenciamento.mainGerenciamento:app --reload --workers 1 --host 0.0.0.0 --port 8003 &
 sleep 1
 
 #serviço gerencimento
-uvicorn serviços.cadastro.mainCadastro:app --reload --workers 1 --host 0.0.0.0 --port 8004 &
+uvicorn servicos.cadastro.mainCadastro:app --reload --workers 1 --host 0.0.0.0 --port 8004 &
 sleep 1
 
-uvicorn serviços.login.mainLogin:app --reload --workers 1 --host 0.0.0.0 --port 8005 &
+uvicorn servicos.login.mainLogin:app --reload --workers 1 --host 0.0.0.0 --port 8005 &
 
 # front
 python3 views.py
