@@ -23,15 +23,29 @@ document.addEventListener('DOMContentLoaded', function() {
             },
             body: JSON.stringify(formData)
         })
-        .then(response => response.json())
-        .then(data => {
-            alert(data.detail);
-        })
-        .catch(error => {
-            alert("Erro ao cadastrar. Detalhes: " + error.message);
-            console.error("Erro:", error.message);
-        });
-
+            .then(response => {
+                if (!response.ok) {
+                    // Se o status não for bem-sucedido, lançar um erro
+                    return response.json().then(errorData => {
+                        throw new Error(`Erro no servidor: ${errorData.detail}`);
+                    });
+                }
+                return response.json();
+            })
+            .then(data => {
+                // Se chegou aqui, significa que a resposta foi bem-sucedida
+                console.log(data.detail);
+                // Redirecionar para a página desejada
+                window.location.href = window.location.protocol + "//" + window.location.hostname + ':5000/dashboard';
+            })
+            .catch(error => {
+                // Se ocorreu um erro, exibir um alerta com os detalhes da mensagem de erro
+                alert("Erro ao logar: " + error.message);
+                console.error("Erro:", error.message);
+            });
+        
+        // Retornar false para evitar que o formulário seja enviado normalmente
         return false;
+        
     });
 });

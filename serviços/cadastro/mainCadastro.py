@@ -4,8 +4,8 @@ from fastapi import FastAPI
 from fastapi.responses import FileResponse
 from fastapi.middleware.cors import CORSMiddleware
 from .cadastro import router as rota_cadastro
-from .cadastro import iniciar_cliente_db
-from .cadastro import desligar_cliente_db
+from .cadastro import HandlerDb
+
 
 app = FastAPI()
 
@@ -25,8 +25,9 @@ app.add_middleware(
 #incluir o roteador do cadastro
 app.include_router(rota_cadastro)
 
-app.add_event_handler("startup", iniciar_cliente_db)
-app.add_event_handler("shutdown", desligar_cliente_db)
+app.add_event_handler("startup", HandlerDb.iniciar_cliente_db)
+app.add_event_handler("startup", HandlerDb.criar_tabela)
+app.add_event_handler("shutdown", HandlerDb.desligar_cliente_db)
 
 @app.exception_handler(404)
 async def page_not_found(request, exc):

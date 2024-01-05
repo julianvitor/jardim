@@ -72,7 +72,6 @@ sleep 1
 
 uvicorn serviços.login.mainLogin:app --reload --workers 1 --host 0.0.0.0 --port 8005 &
 
-
 # front
 python3 views.py
 

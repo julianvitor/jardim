@@ -2,9 +2,9 @@ import sys
 sys.path.append('.')
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from .login import router as rota_login
 from fastapi.responses import FileResponse
-from .login import iniciar_cliente_db, desligar_cliente_db
+from .login import router as rota_login
+from .login import HandlerDb
 
 app = FastAPI()
 
@@ -22,8 +22,8 @@ app.add_middleware(
 
 app.include_router(rota_login)
 
-app.add_event_handler("startup", iniciar_cliente_db)
-app.add_event_handler("shutdown", desligar_cliente_db)
+app.add_event_handler("startup", HandlerDb.iniciar_cliente_db)
+app.add_event_handler("shutdown", HandlerDb.desligar_cliente_db)
 
 @app.exception_handler(404)
 async def page_not_found(request, exc):

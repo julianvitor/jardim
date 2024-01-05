@@ -1,8 +1,9 @@
+import bcrypt
+import asyncpg
 from fastapi import APIRouter, Body, HTTPException
 from fastapi.responses import JSONResponse
 from pydantic import BaseModel
-import bcrypt
-import asyncpg
+
 
 router = APIRouter()
 
@@ -13,23 +14,33 @@ payload = Body(...)
 class ModeloDadosLogin(BaseModel):
     usuario: str
     senha: str
-@router.post("/api-login")
-async def login(dados: ModeloDadosLogin = payload) -> None: #parametro dado do tipo modelopydantic recebendo o objeto payload
-    dados_sanitizados = await sanitizar_validar(dados)
-    usuario, senha = dados_sanitizados.usuario, dados_sanitizados.senha
-    
-    validar_login = ValidarLogin(usuario)
-    usuario_existe, senha_hash = await validar_login.consultar_senha_hash()
-    
-    if usuario_existe:
-        senha_esta_correta = bcrypt.checkpw(senha.encode('utf-8'), senha_hash.encode('utf-8'))
-        if senha_esta_correta:
-            raise HTTPException(status_code=200, detail="Login realizado com sucesso.")
-        else:
-            raise HTTPException(status_code=401, detail="Senha incorreta.")
-    else:
-        raise HTTPException(status_code=401, detail="Usuário não cadastrado.")
-async def sanitizar_validar(dados: ModeloDadosLogin = payload)-> ModeloDadosLogin:
+
+class ValidarLogin:
+    def __init__(self, usuario):
+        self.usuario = usuario
+
+    async def consultar_senha_hash(self):
+        async with database_pool.acquire() as conexao:
+            query = "SELECT senha_hash FROM cadastro WHERE usuario = $1"
+            senha_hash = await conexao.fetchval(query, self.usuario)
+            if senha_hash:
+                usuario_existe = True
+                return usuario_existe, senha_hash
+            else:
+                usuario_existe = False
+                senha_hash = None
+                return usuario_existe, senha_hash
+            
+class HandlerDb:
+    async def iniciar_cliente_db():
+        global database_pool
+        if database_pool == None:
+            database_pool = await asyncpg.create_pool(DATABASE_URL)
+
+    async def desligar_cliente_db():
+        await database_pool.close()
+
+async def sanitizar_validar_entrada(dados: ModeloDadosLogin = payload)-> ModeloDadosLogin:
     #sanitizar
     usuario = dados.usuario.strip().lower()
     senha = dados.senha.strip()
@@ -61,26 +72,19 @@ async def sanitizar_validar(dados: ModeloDadosLogin = payload)-> ModeloDadosLogi
         
     return ModeloDadosLogin(usuario=usuario, senha=senha)
 
-class ValidarLogin:
-    def __init__(self, usuario):
-        self.usuario = usuario
-
-    async def consultar_senha_hash(self):
-        async with database_pool.acquire() as conexao:
-            query = "SELECT senha_hash FROM cadastro WHERE usuario = $1"
-            senha_hash = await conexao.fetchval(query, self.usuario)
-            if senha_hash:
-                usuario_existe = True
-                return usuario_existe, senha_hash
-            else:
-                usuario_existe = False
-                senha_hash = None
-                return usuario_existe, senha_hash
-
-async def iniciar_cliente_db():
-    global database_pool
-    if database_pool == None:
-        database_pool = await asyncpg.create_pool(DATABASE_URL)
-
-async def desligar_cliente_db():
-    await database_pool.close()
+@router.post("/api-login")
+async def login(dados: ModeloDadosLogin = payload) -> None: #parametro dado do tipo modelopydantic recebendo o objeto payload
+    dados_sanitizados = await sanitizar_validar_entrada(dados)
+    usuario, senha = dados_sanitizados.usuario, dados_sanitizados.senha
+    
+    validar_login = ValidarLogin(usuario)
+    usuario_existe, senha_hash = await validar_login.consultar_senha_hash()
+    
+    if usuario_existe:
+        senha_esta_correta = bcrypt.checkpw(senha.encode('utf-8'), senha_hash.encode('utf-8'))
+        if senha_esta_correta:
+            raise HTTPException(status_code=200, detail="Login realizado com sucesso.")
+        else:
+            raise HTTPException(status_code=401, detail="Senha incorreta.")
+    else:
+        raise HTTPException(status_code=401, detail="Usuário não cadastrado.")

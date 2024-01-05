@@ -1,81 +1,61 @@
+import asyncpg
+import bcrypt
 from pydantic import BaseModel
 from fastapi import APIRouter, Body, HTTPException
 from fastapi.responses import JSONResponse
-import asyncpg
-import bcrypt
 
 router = APIRouter()
 
-# Configuração para o pool de conexões
-DATABASE_URL = "postgresql://usuario:senha@localhost:5432/banco_jardim"
-
+DATABASE_URL: str = "postgresql://usuario:senha@localhost:5432/banco_jardim" # Configuração para o pool de conexões
 database_pool = None # Variavel de estado do pool db
 payload = Body(...)
+#constantes para validação das entradas
+SENHA_TAMANHO_MINIMO: int = 8
+SENHA_TAMANHO_MAXIMO: int = 30
+USUARIO_TAMANHO_MINIMO: int = 1
+USUARIO_TAMANHO_MAXIMO: int = 30
 
 class ModeloDadosCadastro(BaseModel):
     usuario: str
     senha: str
 
-async def iniciar_cliente_db():
-    global database_pool
-    if database_pool == None:
-        database_pool = await asyncpg.create_pool(DATABASE_URL)
+class HandlerDb:
+    async def criar_tabela():
+        async with database_pool.acquire() as conexao:
+            await conexao.execute("""
+                CREATE TABLE IF NOT EXISTS cadastro (
+                    id SERIAL PRIMARY KEY,
+                    usuario VARCHAR(30) UNIQUE NOT NULL,
+                    senha_hash VARCHAR(60) NOT NULL
+                )
+            """)
+    async def iniciar_cliente_db():
+        global database_pool
+        if database_pool == None:
+            database_pool = await asyncpg.create_pool(DATABASE_URL)
 
-async def desligar_cliente_db():
-    await database_pool.close()
+    async def desligar_cliente_db():
+        await database_pool.close()
 
-@router.post('/api-cadastro')
-async def cadastro(dados: ModeloDadosCadastro = Body(...)):# o fastapi vai entender que body deve ser do tipo ModeloDadosCadastro sozinho
-    dados_sanitizados = await sanitizar_validar(dados)
-    usuario, senha = map(str.strip, (dados_sanitizados.usuario, dados_sanitizados.senha))
-    usuario = usuario.lower()
+class AcessarDb:
+    async def verificar_usuario_existe(usuario) -> bool:
+        async with database_pool.acquire() as conexao:
+            query = "SELECT EXISTS(SELECT 1 FROM cadastro WHERE usuario = $1)"
+            result = await conexao.fetchval(query, usuario)
+            return result
 
-    if await verificar_usuario_existe(usuario):
-        raise HTTPException(status_code=400, detail="Usuário já cadastrado")
-    
-    senha_hash = await criar_hash_senha(senha)
-    await gravar_dados(usuario, senha_hash)
-    resposta = {"detail": f"Cadastro realizado com sucesso."}
-    return JSONResponse(content=resposta, status_code=200)
+    async def gravar_dados(usuario, senha_hash):
+        async with database_pool.acquire() as conexao:
+            await conexao.execute("INSERT INTO cadastro (usuario, senha_hash) VALUES($1, $2)", usuario, senha_hash)
 
-async def criar_tabela():
-    async with database_pool.acquire() as conexao:
-        await conexao.execute("""
-            CREATE TABLE IF NOT EXISTS cadastro (
-                id SERIAL PRIMARY KEY,
-                usuario VARCHAR(30) UNIQUE NOT NULL,
-                senha_hash VARCHAR(60) NOT NULL
-            )
-        """)
-
-async def verificar_usuario_existe(usuario) -> bool:
-    async with database_pool.acquire() as conexao:
-        query = "SELECT EXISTS(SELECT 1 FROM cadastro WHERE usuario = $1)"
-        result = await conexao.fetchval(query, usuario)
-        return result
-
-async def gravar_dados(usuario, senha_hash):
-    async with database_pool.acquire() as conexao:
-        await conexao.execute("INSERT INTO cadastro (usuario, senha_hash) VALUES($1, $2)", usuario, senha_hash)
-
-async def criar_hash_senha(senha):
-    salt = bcrypt.gensalt()
-    senha_hash = bcrypt.hashpw(senha.encode('utf-8'), salt)
-    return senha_hash.decode('utf-8') #traduzir a senha_hash em binario para string utf-8
-
-async def sanitizar_validar(dados: ModeloDadosCadastro) -> str:
+async def sanitizar_validar(dados: ModeloDadosCadastro) -> ModeloDadosCadastro:
     #sanitizar
     usuario = dados.usuario.strip().lower()
     senha = dados.senha.strip()
-
     #validar
-    SENHA_TAMANHO_MINIMO: int = 8
-    SENHA_TAMANHO_MAXIMO: int = 30
-    USUARIO_TAMANHO_MINIMO: int = 1
-    USUARIO_TAMANHO_MAXIMO: int = 30
-
     if not usuario or not senha:
         raise HTTPException(status_code=400, detail="Usuário e senha são obrigatórios.")
+    
     if usuario == "admin" or senha == "admin":
         raise HTTPException(status_code=400, detail=" ATA MUITO ENGRAÇADINHO VOCÊ NÉ?")
     
@@ -94,3 +74,21 @@ async def sanitizar_validar(dados: ModeloDadosCadastro) -> str:
 
     return ModeloDadosCadastro(usuario=usuario, senha=senha)
 
+async def criar_hash_senha(senha):
+    salt = bcrypt.gensalt()
+    senha_hash = bcrypt.hashpw(senha.encode('utf-8'), salt)
+    return senha_hash.decode('utf-8') #traduzir a senha_hash em binario para string utf-8
+
+@router.post('/api-cadastro')
+async def cadastro(dados: ModeloDadosCadastro = Body(...)):# o fastapi vai entender que body deve ser do tipo ModeloDadosCadastro sozinho
+    dados_sanitizados = await sanitizar_validar(dados)
+    usuario, senha = map(str.strip, (dados_sanitizados.usuario, dados_sanitizados.senha))
+    usuario = usuario.lower()
+
+    if await AcessarDb.verificar_usuario_existe(usuario):
+        raise HTTPException(status_code=400, detail="Usuário já cadastrado")
+    
+    senha_hash = await criar_hash_senha(senha)
+    await AcessarDb.gravar_dados(usuario, senha_hash)
+    resposta = {"detail": f"Cadastro realizado com sucesso."}
+    return JSONResponse(content=resposta, status_code=201)
