@@ -23,6 +23,7 @@ class GardenApp {
         this.sensorESList = document.getElementById("sensorES-list");
         this.sensorsESToggle = document.getElementById("sensorsES");
         this.sensorESToggleIcon = document.getElementById("sensorES-toggle-icon");
+        this.managementToggleIcon = document.getElementById("Management-toggle-icon")
 
         this.container = document.querySelector(".container");
         this.body = document.body;
@@ -41,6 +42,7 @@ class GardenApp {
         // Event Listeners
         this.waterButton.addEventListener("click", () => this.waterPlant());
         document.getElementById("sensors").addEventListener("click", () => this.toggleSensorList("sensor-list", "sensor-toggle-icon"));
+        document.getElementById("management").addEventListener("click", () => this.toggleManagement());
     }
 
     fetchAndUpdateSensorData() {
@@ -130,7 +132,19 @@ class GardenApp {
         sensorList.classList.toggle("hidden");
         toggleIcon.classList.toggle("rotate-icon");
     }
-
+    toggleManagement() {
+        var managementSection = document.getElementById('management-container');
+        var managementToggleIcon = document.getElementById('Management-toggle-icon');
+    
+        if (managementSection.classList.contains('hidden')) {
+            managementSection.classList.remove('hidden');
+            managementToggleIcon.innerText = 'keyboard_arrow_up';
+        } else {
+            managementSection.classList.add('hidden');
+            managementToggleIcon.innerText = 'keyboard_arrow_down';
+        }
+    }
+    
     waterPlant() {
         // Irrigação da Planta
         fetch(apiUrlWaterPlant, {
@@ -143,19 +157,6 @@ class GardenApp {
         .catch((error) => {
             console.error("Erro ao enviar a solicitação:", error);
         });
-    }
-}
-
-function toggleManagement() {
-    var managementSection = document.getElementById('management-container');
-    var managementToggleIcon = document.getElementById('Management-toggle-icon');
-
-    if (managementSection.classList.contains('hidden')) {
-        managementSection.classList.remove('hidden');
-        managementToggleIcon.innerText = 'keyboard_arrow_up';
-    } else {
-        managementSection.classList.add('hidden');
-        managementToggleIcon.innerText = 'keyboard_arrow_down';
     }
 }
 

@@ -37,7 +37,7 @@ pkill gunicorn
 pkill uvicorn
 
 # List of applications to check and install
-applications=("gunicorn" "uvicorn" "postgresql")
+applications=("gunicorn" "uvicorn")
 
 # Function to check and install an application
 check_and_install() {
