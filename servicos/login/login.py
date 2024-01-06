@@ -1,15 +1,22 @@
+import jwt
 import bcrypt
 import asyncpg
 from fastapi import APIRouter, Body, HTTPException
 from fastapi.responses import JSONResponse
 from pydantic import BaseModel
-
+from datetime import datetime, timedelta, timezone
 
 router = APIRouter()
 
+#declarações inseguras apenas para o desenvolviemento, use variaveis de ambiente.
+CHAVE_SECRETA_JTW = "batata"
+ALGORITMO_ASSINATURA_JTW = "HS256"  # Algoritmo assinatura jwt
+
 DATABASE_URL = "postgresql://usuario:senha@localhost:5432/banco_jardim"
 database_pool = None
+
 payload = Body(...)
+expiracao_minutos = 60
 
 class ModeloDadosLogin(BaseModel):
     usuario: str
@@ -18,8 +25,7 @@ class ModeloDadosLogin(BaseModel):
 class ValidarLogin:
     def __init__(self, usuario):
         self.usuario = usuario
-
-    async def consultar_senha_hash(self):
+    async def consultar_senha_hash(self)-> tuple[bool, str]:
         async with database_pool.acquire() as conexao:
             query = "SELECT senha_hash FROM cadastro WHERE usuario = $1"
             senha_hash = await conexao.fetchval(query, self.usuario)
@@ -72,19 +78,30 @@ async def sanitizar_validar_entrada(dados: ModeloDadosLogin = payload)-> ModeloD
         
     return ModeloDadosLogin(usuario=usuario, senha=senha)
 
+async def gerar_token(usuario:str, expiracao_minutos : int) -> str:
+    expiracao = datetime.now(timezone.utc) + timedelta(minutes=expiracao_minutos) #timedelta é um tipo de objeto que representa duração, vai adicionar a data atual.
+    payload_token = {
+        "sub": usuario,
+        "exp": expiracao,
+    }
+    token = jwt.encode(payload_token, CHAVE_SECRETA_JTW, algorithm = ALGORITMO_ASSINATURA_JTW )
+    return token
+
 @router.post("/api-login")
 async def login(dados: ModeloDadosLogin = payload) -> None: #parametro dado do tipo modelopydantic recebendo o objeto payload
     dados_sanitizados = await sanitizar_validar_entrada(dados)
     usuario, senha = dados_sanitizados.usuario, dados_sanitizados.senha
     
-    validar_login = ValidarLogin(usuario)
+    validar_login = ValidarLogin(usuario) #cria objeto do tipo ValidarLogin para obter a confiramação de usuario e a hash da senha no DB
     usuario_existe, senha_hash = await validar_login.consultar_senha_hash()
     
     if usuario_existe:
-        senha_esta_correta = bcrypt.checkpw(senha.encode('utf-8'), senha_hash.encode('utf-8'))
+        senha_esta_correta = bcrypt.checkpw(senha.encode('utf-8'), senha_hash.encode('utf-8'))#comparar hash da senha fornecida com hash armazenada
         if senha_esta_correta:
-            raise HTTPException(status_code=200, detail="Login realizado com sucesso.")
+            token = await gerar_token(usuario = usuario, expiracao_minutos = expiracao_minutos)
+            payload_resposta = {"access_token":token, "detail":"Login realizado com sucesso." }
+            return JSONResponse(content = payload_resposta, status_code = 200)
         else:
-            raise HTTPException(status_code=401, detail="Senha incorreta.")
+            raise HTTPException(status_code = 401, detail = "Senha incorreta.")
     else:
-        raise HTTPException(status_code=401, detail="Usuário não cadastrado.")
+        raise HTTPException(status_code = 401, detail = "Usuário não cadastrado.")
