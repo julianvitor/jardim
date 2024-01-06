@@ -41,8 +41,10 @@ class GardenApp {
     addEventListeners() {
         // Event Listeners
         this.waterButton.addEventListener("click", () => this.waterPlant());
-        document.getElementById("sensors").addEventListener("click", () => this.toggleSensorList("sensor-list", "sensor-toggle-icon"));
-        document.getElementById("management").addEventListener("click", () => this.toggleManagement());
+        document.getElementById("sensors").addEventListener("click", () => this.toggleVisibility("sensor-list", "sensor-toggle-icon"));
+        document.getElementById("management").addEventListener("click", () => this.toggleVisibility("management-container", "Management-toggle-icon"));
+        document.getElementById("sensorsER").addEventListener("click", () => this.toggleVisibility("sensorER-list", "sensorER-toggle-icon"));
+        document.getElementById("sensorsES").addEventListener("click", () => this.toggleVisibility("sensorES-list", "sensorES-toggle-icon"));
     }
 
     fetchAndUpdateSensorData() {
@@ -126,22 +128,13 @@ class GardenApp {
         }
     }
 
-    toggleSensorList(sensorListId, toggleIconId) {
-        const sensorList = document.getElementById(sensorListId);
+    toggleVisibility(elementId, toggleIconId) {
+        const element = document.getElementById(elementId);
         const toggleIcon = document.getElementById(toggleIconId);
-        sensorList.classList.toggle("hidden");
-        toggleIcon.classList.toggle("rotate-icon");
-    }
-    toggleManagement() {
-        var managementSection = document.getElementById('management-container');
-        var managementToggleIcon = document.getElementById('Management-toggle-icon');
     
-        if (managementSection.classList.contains('hidden')) {
-            managementSection.classList.remove('hidden');
-            managementToggleIcon.innerText = 'keyboard_arrow_up';
-        } else {
-            managementSection.classList.add('hidden');
-            managementToggleIcon.innerText = 'keyboard_arrow_down';
+        if (element && toggleIcon) {
+            element.classList.toggle("hidden");
+            toggleIcon.classList.toggle("rotate-icon");
         }
     }
     
@@ -228,7 +221,5 @@ function configurarCampoAutocomplete() {
 
 document.addEventListener("DOMContentLoaded", () => {
     const app = new GardenApp();
-    app.sensorsERToggle.addEventListener("click", () => app.toggleSensorList("sensorER-list", "sensorER-toggle-icon" ));
-    app.sensorsESToggle.addEventListener("click", () => app.toggleSensorList("sensorES-list", "sensorES-toggle-icon" ));
     configurarCampoAutocomplete();
 });
