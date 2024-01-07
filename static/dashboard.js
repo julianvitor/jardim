@@ -204,18 +204,24 @@ function configurarCampoAutocomplete() {
         });
     }
     
+    let timeoutId;
+
     function handleInput() {
         const query = cityInput.value.trim();
-    
+
         if (query.length > 2) {
-            fetchCitiesFromOpenStreetMap(query)
-                .then(suggestions => showSuggestions(suggestions))
-                .catch(error => console.error("Erro ao obter sugestões:", error));
+            clearTimeout(timeoutId); // Limpa o timeout anterior, se existir
+
+            timeoutId = setTimeout(() => {
+                fetchCitiesFromOpenStreetMap(query)
+                    .then(suggestions => showSuggestions(suggestions))
+                    .catch(error => console.error("Erro ao obter sugestões:", error));
+            }, 500); // Aguarda 500 milissegundos após a última tecla ser pressionada
         } else {
             suggestionsContainer.innerHTML = "";
         }
     }
-    
+
     cityInput.addEventListener("input", handleInput);
 }
 

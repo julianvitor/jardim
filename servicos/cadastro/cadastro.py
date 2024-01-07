@@ -6,7 +6,6 @@ from fastapi.responses import JSONResponse
 
 router = APIRouter()
 
-DATABASE_URL: str = "postgresql://usuario:senha@localhost:5432/banco_jardim" # Configuração para o pool de conexões
 database_pool = None # Variavel de estado do pool db
 payload = Body(...)
 #constantes para validação das entradas
@@ -20,7 +19,7 @@ class ModeloDadosCadastro(BaseModel):
     senha: str
 
 class HandlerDb:
-    async def criar_tabela():
+    async def criar_tabela()-> None:
         async with database_pool.acquire() as conexao:
             await conexao.execute("""
                 CREATE TABLE IF NOT EXISTS cadastro (
@@ -29,12 +28,12 @@ class HandlerDb:
                     senha_hash VARCHAR(60) NOT NULL
                 )
             """)
-    async def iniciar_cliente_db():
+    async def iniciar_cliente_db(DATABASE_URL: str)-> None:
         global database_pool
         if database_pool == None:
             database_pool = await asyncpg.create_pool(DATABASE_URL)
 
-    async def desligar_cliente_db():
+    async def desligar_cliente_db()-> None:
         await database_pool.close()
 
 class AcessarDb:
@@ -44,7 +43,7 @@ class AcessarDb:
             result = await conexao.fetchval(query, usuario)
             return result
 
-    async def gravar_dados(usuario, senha_hash):
+    async def gravar_dados(usuario, senha_hash)-> None:
         async with database_pool.acquire() as conexao:
             await conexao.execute("INSERT INTO cadastro (usuario, senha_hash) VALUES($1, $2)", usuario, senha_hash)
 
@@ -74,7 +73,7 @@ async def sanitizar_validar(dados: ModeloDadosCadastro) -> ModeloDadosCadastro:
 
     return ModeloDadosCadastro(usuario=usuario, senha=senha)
 
-async def criar_hash_senha(senha):
+async def criar_hash_senha(senha)-> str:
     salt = bcrypt.gensalt()
     senha_hash = bcrypt.hashpw(senha.encode('utf-8'), salt)
     return senha_hash.decode('utf-8') #traduzir a senha_hash em binario para string utf-8
@@ -86,7 +85,7 @@ async def cadastro(dados: ModeloDadosCadastro = Body(...)):# o fastapi vai enten
     usuario = usuario.lower()
 
     if await AcessarDb.verificar_usuario_existe(usuario):
-        raise HTTPException(status_code=400, detail="Usuário já cadastrado")
+        raise HTTPException(status_code=409, detail="Usuário já cadastrado")
     
     senha_hash = await criar_hash_senha(senha)
     await AcessarDb.gravar_dados(usuario, senha_hash)
