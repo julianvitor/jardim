@@ -29,8 +29,11 @@ async def ao_ligar():
     await HandlerDb.iniciar_cliente_db(DATABASE_URL)
     await HandlerDb.criar_tabela()
 
+async def ao_desligar():
+    await HandlerDb.desligar_cliente_db()
+
 app.add_event_handler("startup", ao_ligar)
-app.add_event_handler("shutdown", HandlerDb.desligar_cliente_db)
+app.add_event_handler("shutdown", ao_desligar)
 
 @app.exception_handler(404)
 async def page_not_found(request, exc):

@@ -6,6 +6,8 @@ from fastapi.responses import FileResponse
 from .login import router as rota_login
 from .login import HandlerDb
 
+DATABASE_URL = "postgresql://usuario:senha@localhost:5432/banco_jardim"
+
 app = FastAPI()
 
 origins = [
@@ -21,9 +23,14 @@ app.add_middleware(
 )
 
 app.include_router(rota_login)
+async def ao_ligar():
+    await HandlerDb.iniciar_cliente_db(DATABASE_URL)
 
-app.add_event_handler("startup", HandlerDb.iniciar_cliente_db)
-app.add_event_handler("shutdown", HandlerDb.desligar_cliente_db)
+async def ao_desligar():
+    await HandlerDb.desligar_cliente_db()
+
+app.add_event_handler("startup", ao_ligar)
+app.add_event_handler("shutdown", ao_desligar)
 
 @app.exception_handler(404)
 async def page_not_found(request, exc):

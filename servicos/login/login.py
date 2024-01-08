@@ -12,7 +12,6 @@ router = APIRouter()
 CHAVE_SECRETA_JTW = "batata"
 ALGORITMO_ASSINATURA_JTW = "HS256"  # Algoritmo assinatura jwt
 
-DATABASE_URL = "postgresql://usuario:senha@localhost:5432/banco_jardim"
 database_pool = None
 
 payload = Body(...)
@@ -38,13 +37,18 @@ class ValidarLogin:
                 return usuario_existe, senha_hash
             
 class HandlerDb:
-    async def iniciar_cliente_db():
+    async def iniciar_cliente_db(DATABASE_URL):
         global database_pool
         if database_pool == None:
-            database_pool = await asyncpg.create_pool(DATABASE_URL)
+            try:
+                database_pool = await asyncpg.create_pool(DATABASE_URL)
+            except Exception as e:
+                print(f"Erro ao criar pool do banco de dados: {e}")
+                raise e
 
     async def desligar_cliente_db():
-        await database_pool.close()
+        if database_pool is not None:
+            await database_pool.close()
 
 async def sanitizar_validar_entrada(dados: ModeloDadosLogin = payload)-> ModeloDadosLogin:
     #sanitizar

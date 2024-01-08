@@ -19,6 +19,11 @@ class ModeloDadosCadastro(BaseModel):
     senha: str
 
 class HandlerDb:
+    async def iniciar_cliente_db(DATABASE_URL: str)-> None:
+        global database_pool
+        if database_pool == None:
+            database_pool = await asyncpg.create_pool(DATABASE_URL)
+
     async def criar_tabela()-> None:
         async with database_pool.acquire() as conexao:
             await conexao.execute("""
@@ -28,10 +33,6 @@ class HandlerDb:
                     senha_hash VARCHAR(60) NOT NULL
                 )
             """)
-    async def iniciar_cliente_db(DATABASE_URL: str)-> None:
-        global database_pool
-        if database_pool == None:
-            database_pool = await asyncpg.create_pool(DATABASE_URL)
 
     async def desligar_cliente_db()-> None:
         await database_pool.close()
