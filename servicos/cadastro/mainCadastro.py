@@ -6,7 +6,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from .cadastro import router as rota_cadastro
 from .cadastro import HandlerDb
 
-DATABASE_URL: str = "postgresql://usuario:senha@localhost:5432/banco_jardim" 
+DATABASE_URL_CONF: str = "postgresql://usuario:senha@localhost:5432/banco_jardim" 
 
 app = FastAPI()
 
@@ -25,7 +25,7 @@ app.add_middleware(
 
 #incluir o roteador do cadastro
 app.include_router(rota_cadastro)
-async def ao_ligar():
+async def ao_ligar(DATABASE_URL = DATABASE_URL_CONF):
     await HandlerDb.iniciar_cliente_db(DATABASE_URL)
     await HandlerDb.criar_tabela()
 

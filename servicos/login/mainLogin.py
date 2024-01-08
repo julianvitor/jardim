@@ -6,7 +6,7 @@ from fastapi.responses import FileResponse
 from .login import router as rota_login
 from .login import HandlerDb
 
-DATABASE_URL = "postgresql://usuario:senha@localhost:5432/banco_jardim"
+DATABASE_URL_CONF = "postgresql://usuario:senha@localhost:5432/banco_jardim_teste"
 
 app = FastAPI()
 
@@ -23,7 +23,7 @@ app.add_middleware(
 )
 
 app.include_router(rota_login)
-async def ao_ligar():
+async def ao_ligar(DATABASE_URL = DATABASE_URL_CONF):#a pré atribuição a database_url permite retutilizar essa função no teste
     await HandlerDb.iniciar_cliente_db(DATABASE_URL)
 
 async def ao_desligar():

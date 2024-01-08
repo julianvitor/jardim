@@ -41,7 +41,7 @@ class HandlerDb:
         global database_pool
         if database_pool == None:
             try:
-                database_pool = await asyncpg.create_pool(DATABASE_URL)
+                database_pool =  await asyncpg.create_pool(DATABASE_URL)
             except Exception as e:
                 print(f"Erro ao criar pool do banco de dados: {e}")
                 raise e
