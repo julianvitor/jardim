@@ -61,7 +61,7 @@ def test_water_plant():
     assert response.status_code == 200
     data = response.json()
     assert data['message'] == 'Regando'
-
+@pytest.mark.anyio
 def test_cadastro_positivo():
     usuario = ''.join(random.choices(string.ascii_letters, k=20))
     senha = ''.join(random.choices(string.ascii_letters, k=20))
@@ -70,7 +70,7 @@ def test_cadastro_positivo():
     assert response.status_code == 200
     data = response.json()
     assert data['detail'] == 'Cadastro realizado com sucesso.'
-
+@pytest.mark.anyio
 def test_cadastro_existente():
     usuario = "batata"
     senha = "12345678"
@@ -86,7 +86,7 @@ def test_cadastro_existente():
 def test_gerenciamento_cidade():
     response = client_gerenciamento.get('/api-search-city', params={"city": "carbonita"})
     assert response.status_code == 200
-
+@pytest.mark.anyio
 def test_login_existente():
     usuario = "batata"
     senha = "12345678"
@@ -95,12 +95,10 @@ def test_login_existente():
     assert response.status_code == 200
     data = response.json()
     assert data['detail'] == 'Login realizado com sucesso.'
-
+@pytest.mark.anyio
 def test_login_inexistente():
     usuario = ''.join(random.choices(string.ascii_letters, k=20))
     senha = ''.join(random.choices(string.ascii_letters, k=20))
     dados_usuario = {"usuario": usuario, "senha": senha}
     response = client_login.post('/api-login', json=dados_usuario)
     assert response.status_code == 401
-
-# Adicione mais testes conforme necessário
