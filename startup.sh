@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Cria e ativa o ambiente virtual
-python3 -m venv jardimEnv
+python3.12 -m venv jardimEnv
 source jardimEnv/bin/activate
 
 # Instala as dependências
@@ -55,23 +55,23 @@ for app in "${applications[@]}"; do
     check_and_install $app
 done
 #serviço sensores
-uvicorn servicos.sensores.mainSensores:app --reload --workers 1 --host 0.0.0.0 --port 8001 &
+python3.12 -m uvicorn servicos.sensores.mainSensores:app --reload --workers 1 --host 0.0.0.0 --port 8001 &
 sleep 1
 
 #serviço regar
-uvicorn servicos.regar.mainRegar:app --reload --workers 1 --host 0.0.0.0 --port 8002 &
+python3.12 -m uvicorn servicos.regar.mainRegar:app --reload --workers 1 --host 0.0.0.0 --port 8002 &
 sleep 1
 
 #serviço gerencimento
-uvicorn servicos.gerenciamento.mainGerenciamento:app --reload --workers 1 --host 0.0.0.0 --port 8003 &
+python3.12 -m uvicorn servicos.gerenciamento.mainGerenciamento:app --reload --workers 1 --host 0.0.0.0 --port 8003 &
 sleep 1
 
 #serviço gerencimento
-uvicorn servicos.cadastro.mainCadastro:app --reload --workers 1 --host 0.0.0.0 --port 8004 &
+python3.12 -m uvicorn servicos.cadastro.mainCadastro:app --reload --workers 1 --host 0.0.0.0 --port 8004 &
 sleep 1
 
-uvicorn servicos.login.mainLogin:app --reload --workers 1 --host 0.0.0.0 --port 8005 &
+python3.12 -m uvicorn servicos.login.mainLogin:app --reload --workers 1 --host 0.0.0.0 --port 8005 &
 
 # front
-python3 views.py
+python3.12 views.py
 
