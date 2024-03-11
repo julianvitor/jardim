@@ -7,8 +7,8 @@ var apiIpRegar = 'http://' + currentHost + ':' + '8002';
 var apiIpGerenciamento = 'http://' + currentHost + ':' + '8003';
 
 // Exporte as constantes
-const apiUrlSensorData = `${apiIpSensor}/sensor-data`;
-const apiUrlWaterPlant = `${apiIpRegar}/water-plant`;
+const apiUrlSensorData = `${apiIpSensor}/api-sensor-data`;
+const apiUrlWaterPlant = `${apiIpRegar}/api-water-plant`;
 
 class GardenApp {
     constructor() {
@@ -23,13 +23,10 @@ class GardenApp {
         this.sensorESList = document.getElementById("sensorES-list");
         this.sensorsESToggle = document.getElementById("sensorsES");
         this.sensorESToggleIcon = document.getElementById("sensorES-toggle-icon");
+        this.managementToggleIcon = document.getElementById("Management-toggle-icon")
 
-        this.darkModeToggle = document.getElementById("dark-mode-toggle");
         this.container = document.querySelector(".container");
         this.body = document.body;
-
-        // Modo preferido
-        this.preferredMode = this.getCookie("preferredMode") || "light";
 
         // Inicialização
         this.init();
@@ -37,32 +34,17 @@ class GardenApp {
 
     init() {
         this.addEventListeners();
-        this.setMode(this.preferredMode);
         this.fetchAndUpdateSensorData();
-        setInterval(() => this.fetchAndUpdateSensorData(), 1000);
+        setInterval(() => this.fetchAndUpdateSensorData(), 2000);
     }
 
     addEventListeners() {
         // Event Listeners
-        this.darkModeToggle.addEventListener("click", () => this.toggleDarkMode());
         this.waterButton.addEventListener("click", () => this.waterPlant());
-        document.getElementById("sensors").addEventListener("click", () => this.toggleSensorList("sensor-list", "sensor-toggle-icon"));
-    }
-
-    setMode(mode) {
-        // Configuração do Modo
-        const isDarkMode = mode === "dark";
-        this.container.classList.toggle("dark-mode", isDarkMode);
-        this.body.classList.toggle("dark-mode", isDarkMode);
-        this.darkModeToggle.innerText = isDarkMode ? "Light Mode" : "Dark Mode";
-
-        // Armazenamento em cookie
-        this.setCookie("preferredMode", mode);
-    }
-
-    toggleDarkMode() {
-        // Alternância de Modo Escuro
-        this.setMode(this.body.classList.contains("dark-mode") ? "light" : "dark");
+        document.getElementById("sensors").addEventListener("click", () => this.toggleVisibility("sensor-list", "sensor-toggle-icon"));
+        document.getElementById("management").addEventListener("click", () => this.toggleVisibility("management-container", "Management-toggle-icon"));
+        document.getElementById("sensorsER").addEventListener("click", () => this.toggleVisibility("sensorER-list", "sensorER-toggle-icon"));
+        document.getElementById("sensorsES").addEventListener("click", () => this.toggleVisibility("sensorES-list", "sensorES-toggle-icon"));
     }
 
     fetchAndUpdateSensorData() {
@@ -146,37 +128,16 @@ class GardenApp {
         }
     }
 
-    toggleSensorList(sensorListId, toggleIconId) {
-        const sensorList = document.getElementById(sensorListId);
+    toggleVisibility(elementId, toggleIconId) {
+        const element = document.getElementById(elementId);
         const toggleIcon = document.getElementById(toggleIconId);
-        sensorList.classList.toggle("hidden");
-        toggleIcon.classList.toggle("rotate-icon");
-    }
-
-    // Funções para manipular cookies
-    setCookie(name, value, days = 365) {
-        const date = new Date();
-        date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);
-        const expires = "expires=" + date.toUTCString();
-        document.cookie = name + "=" + value + ";" + expires + ";path=/";
-    }
-
-    getCookie(name) {
-        const cname = name + "=";
-        const decodedCookie = decodeURIComponent(document.cookie);
-        const ca = decodedCookie.split(';');
-        for (let i = 0; i < ca.length; i++) {
-            let c = ca[i];
-            while (c.charAt(0) == ' ') {
-                c = c.substring(1);
-            }
-            if (c.indexOf(cname) == 0) {
-                return c.substring(cname.length, c.length);
-            }
+    
+        if (element && toggleIcon) {
+            element.classList.toggle("hidden");
+            toggleIcon.classList.toggle("rotate-icon");
         }
-        return "";
     }
-
+    
     waterPlant() {
         // Irrigação da Planta
         fetch(apiUrlWaterPlant, {
@@ -192,19 +153,6 @@ class GardenApp {
     }
 }
 
-function toggleManagement() {
-    var managementSection = document.getElementById('management-container');
-    var managementToggleIcon = document.getElementById('Management-toggle-icon');
-
-    if (managementSection.classList.contains('hidden')) {
-        managementSection.classList.remove('hidden');
-        managementToggleIcon.innerText = 'keyboard_arrow_up';
-    } else {
-        managementSection.classList.add('hidden');
-        managementToggleIcon.innerText = 'keyboard_arrow_down';
-    }
-}
-
 function updateTime() {
     var slider = document.getElementById("time-slider");
     var output = document.getElementById("time-value");
@@ -217,7 +165,7 @@ function configurarCampoAutocomplete() {
 
     function fetchCitiesFromOpenStreetMap(query) {
         // Use a API de busca do OpenStreetMap diretamente no front-end
-        const apiUrl = `${apiIpGerenciamento}/search-city?city=${query}&format=json&limit=1`;
+        const apiUrl = `${apiIpGerenciamento}/api-search-city?city=${query}&format=json&limit=1`;
     
         return fetch(apiUrl)
             .then(response => {
@@ -256,24 +204,28 @@ function configurarCampoAutocomplete() {
         });
     }
     
+    let timeoutId;
+
     function handleInput() {
         const query = cityInput.value.trim();
-    
+
         if (query.length > 2) {
-            fetchCitiesFromOpenStreetMap(query)
-                .then(suggestions => showSuggestions(suggestions))
-                .catch(error => console.error("Erro ao obter sugestões:", error));
+            clearTimeout(timeoutId); // Limpa o timeout anterior, se existir
+
+            timeoutId = setTimeout(() => {
+                fetchCitiesFromOpenStreetMap(query)
+                    .then(suggestions => showSuggestions(suggestions))
+                    .catch(error => console.error("Erro ao obter sugestões:", error));
+            }, 500); // Aguarda 500 milissegundos após a última tecla ser pressionada
         } else {
             suggestionsContainer.innerHTML = "";
         }
     }
-    
+
     cityInput.addEventListener("input", handleInput);
 }
 
 document.addEventListener("DOMContentLoaded", () => {
     const app = new GardenApp();
-    app.sensorsERToggle.addEventListener("click", () => app.toggleSensorList("sensorER-list", "sensorER-toggle-icon" ));
-    app.sensorsESToggle.addEventListener("click", () => app.toggleSensorList("sensorES-list", "sensorES-toggle-icon" ));
     configurarCampoAutocomplete();
 });

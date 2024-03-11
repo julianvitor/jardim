@@ -8,7 +8,8 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons&display=swap">
     <link rel="icon" href="{{ url_for('static', filename='icon.png') }}" type="image/x-icon">
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}"> 
-    <script src="/static/script.js"></script>
+    <script src="/static/dashboard.js"></script>
+    <script src="/static/darkmode.js"></script>
     <title>Painel do Jardim</title>
     <style>
         /* Estilos críticos */
@@ -40,13 +41,13 @@
         </header>
 
         <div class="sensor-toggle-container">
-            <h2 class="sensor-toggle" id="management" onclick="toggleManagement()">
+            <h2 class="sensor-toggle" id="management">
                 Management
                 <i class="material-icons" id="Management-toggle-icon">keyboard_arrow_down</i>
             </h2>
         </div>
         
-        <section class="management-section" id="management-container">
+        <section class="management-section" id="management-container" class="hidden">
             <!--gerenciamento-->
             <h3 id="light-time">Light time</h3>
             <input type="range" id="time-slider" min="0" max="24" step="1" value="12" oninput="updateTime()">

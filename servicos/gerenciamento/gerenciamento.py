@@ -2,7 +2,7 @@ from fastapi import HTTPException, APIRouter
 import requests
 router = APIRouter()
 #função proxy para api do openstreetmap
-@router.get("/search-city")
+@router.get("/api-search-city")
 async def search(city: str):
     api_url = f'https://nominatim.openstreetmap.org/search?city={city}&format=json&limit=2'
     

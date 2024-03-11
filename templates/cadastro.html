@@ -8,7 +8,8 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons&display=swap">
     <link rel="icon" href="{{ url_for('static', filename='icon.png') }}" type="image/x-icon">
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}"> 
-    <script src="/static/script.js"></script>
+    <script src="/static/darkmode.js"></script>
+    <script src ="/static/cadastro.js"></script>
     <title>Cadastro do Jardim</title>
 </head>
 <body>
@@ -21,35 +22,24 @@
             </label>  
         </header>
         <div class="login-container">
-            <form id="signupForm" onsubmit="return validateForm()">
+            <form id="signupForm" onsubmit="return sendFormData()">
                 <div class="input-group">
                     <label for="username">Usuario</label>
                     <input type="text" id="username" name="username" pattern="^[^\s]{1,30}$" title="Por favor, insira de 1 a 30 caracteres sem espaços." required>
                 </div>
                 <div class="input-group">
                     <label for="password">Senha</label>
-                    <input type="password" id="confirmPassword" name="confirmPassword" pattern="^[^\s]{1,30}$" title="Por favor, insira de 1 a 30 caracteres sem espaços." required>
+                    <input type="password" id="password" name="password" pattern="^[^\s]{8,30}$" title="Por favor, insira de 8 a 30 caracteres sem espaços." required>
                 </div>
                 <div class="input-group">
-                    <label for="password">Repita a senha</label>
-                    <input type="password" id="password" name="password" pattern="^[^\s]{1,30}$" title="Por favor, insira de 1 a 30 caracteres sem espaços." required>
+                    <label for="confirmPassword">Repita a senha</label>
+                    <input type="password" id="confirmPassword" name="confirmPassword" pattern="^[^\s]{8,30}$" title="Por favor, insira de 8 a 30 caracteres sem espaços." required>
                 </div>
                 <button id="cadastrar-btn" type="submit">Cadastrar</button>
                 <button id="login-btn" type="button" onclick="window.location.href='/login'">Login</button>
             </form>
         </div>
     </div>
-    <script>
-        function validateForm() {
-            var password = document.getElementById("password").value;
-            var confirmPassword = document.getElementById("confirmPassword").value;
-            
-            if (password !== confirmPassword) {
-                alert("As senhas não coincidem. Por favor, tente novamente.");
-                return false;
-            }
-            return true;
-        }
-    </script>
+
 </body>
 </html>
