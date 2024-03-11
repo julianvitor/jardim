@@ -1,9 +1,13 @@
 from flask import Flask, render_template, Response, send_from_directory
 from flask_minify import Minify
+from flask_cors import CORS  # Importe o Flask-CORS
 
 app = Flask(__name__, static_folder='static')
 app.static_folder = 'static'
 minify = Minify(app=app, html=False, js=False, cssless=True)
+
+# Configure o CORS para permitir solicitações de todas as origens
+CORS(app)
 
 @app.route('/dashboard')
 def dashboard():
@@ -35,4 +39,3 @@ def page_not_found(error):
 
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0', port=5000)
-

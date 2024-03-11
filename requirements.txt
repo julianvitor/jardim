@@ -10,6 +10,7 @@ click==8.1.7
 cryptography==42.0.5
 fastapi==0.110.0
 Flask==3.0.2
+Flask-Cors==4.0.0
 Flask-Minify==0.42
 h11==0.14.0
 htmlmin==0.1.12
@@ -17,13 +18,13 @@ idna==3.6
 itsdangerous==2.1.2
 Jinja2==3.1.3
 jsmin==3.0.1
-jwt==1.3.1
 lesscpy==0.15.1
 MarkupSafe==2.1.5
 ply==3.11
 pycparser==2.21
 pydantic==2.6.3
 pydantic_core==2.16.3
+PyJWT==2.8.0
 rcssmin==1.1.2
 requests==2.31.0
 six==1.16.0
