@@ -6,7 +6,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from .cadastro import router as rota_cadastro
 from .cadastro import HandlerDb
 
-DATABASE_URL_CONF: str = "postgresql://usuario:senha@localhost:5432/banco_jardim" 
+DATABASE_URL_CONF: str = "postgresql://teste:senha@localhost:5432/jardim" 
 
 app = FastAPI()
 
