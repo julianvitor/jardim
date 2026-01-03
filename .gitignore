@@ -84,7 +84,6 @@ pnpm-debug.log*
 *~
 
 # Emacs
-*~
 \#*\#
 .\#*
 
@@ -93,7 +92,7 @@ pnpm-debug.log*
 .DS_Store
 .AppleDouble
 .LSOverride
-Icon
+Icon?
 ._*
 
 # Windows
