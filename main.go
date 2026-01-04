@@ -6,13 +6,13 @@ import(
 )
 
 func main(){
-	mux := http.NewServeMux()
-	mux.HandleFunc("/", home)
+	app := http.NewServeMux()
+	app.HandleFunc("/", HomeHandler)
 	fmt.Println("servidor iniciado em http://localhost:8080")
-	log.Fatal(http.ListenAndServe(":8080",mux))
+	log.Fatal(http.ListenAndServe(":8080",app))
 }
 
-func home(w http.ResponseWriter, r *http.Request){
+func HomeHandler(w http.ResponseWriter, r *http.Request){
 	http.ServeFile(w,r, "./static/index.html")
 }
 
