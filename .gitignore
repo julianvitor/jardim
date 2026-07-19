@@ -128,3 +128,6 @@ $RECYCLE.BIN/
 # Hot reload / live reload
 .air.toml
 tmp/
+
+#kicad
+.history/

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post Instagram 3D - PCB</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- X3DOM para carregar o arquivo .wrl -->
+    <script type='text/javascript' src='https://www.x3dom.org/download/x3dom.js'></script>
+    <link rel='stylesheet' type='text/css' href='https://www.x3dom.org/download/x3dom.css'>
+    
+    <style>
+        /* Remove bordas nativas do canvas do X3DOM */
+        x3d { border: none; outline: none; }
+    </style>
+</head>
+<body class="bg-gray-50 flex items-center justify-center min-h-screen font-sans text-gray-900">
+
+    <!-- Container do Post -->
+    <div class="bg-white border border-gray-200 rounded-md max-w-md w-full shadow-sm">
+        
+        <!-- Header (Avatar + User) -->
+        <div class="flex items-center p-3 border-b border-gray-100">
+            <div class="w-8 h-8 bg-gradient-to-tr from-yellow-400 via-red-500 to-purple-600 p-[2px] rounded-full">
+                <div class="bg-white w-full h-full rounded-full border border-white overflow-hidden">
+                    <!-- Placeholder de Avatar -->
+                    <div class="w-full h-full bg-gray-300"></div>
+                </div>
+            </div>
+            <span class="ml-3 font-semibold text-sm">julian_vitor</span>
+            <svg class="ml-auto w-5 h-5 text-gray-500 cursor-pointer" fill="currentColor" viewBox="0 0 24 24"><path d="M12 14a2 2 0 100-4 2 2 0 000 4zm-7 0a2 2 0 100-4 2 2 0 000 4zm14 0a2 2 0 100-4 2 2 0 000 4z"></path></svg>
+        </div>
+
+        <!-- Área do Viewer 3D (Formato Quadrado) -->
+        <div class="w-full aspect-square bg-gray-900 flex items-center justify-center relative">
+            <X3D id="viewer" class="w-full h-full">
+                <Scene>
+                    <Viewpoint position="0 0 10"></Viewpoint>
+                    <!-- Transform para aplicar a rotação -->
+                    <Transform id="board-transform" rotation="0 1 0 0">
+                        <!-- Referência ao seu arquivo WRL -->
+                        <Inline url="placa.wrl"></Inline>
+                    </Transform>
+                </Scene>
+            </X3D>
+        </div>
+
+        <!-- Botões de Ação -->
+        <div class="p-3">
+            <div class="flex gap-4 mb-2">
+                <!-- Curtir -->
+                <svg class="w-6 h-6 cursor-pointer hover:text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg>
+                <!-- Comentar -->
+                <svg class="w-6 h-6 cursor-pointer hover:text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path></svg>
+                <!-- Compartilhar -->
+                <svg class="w-6 h-6 cursor-pointer hover:text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path></svg>
+            </div>
+            
+            <p class="text-sm font-semibold mb-1">1.024 curtidas</p>
+            
+            <!-- Legenda -->
+            <p class="text-sm">
+                <span class="font-semibold mr-1">julian_vitor</span>
+                Review do layout da PCB. Reguladores DC-DC e drivers prontos. ⚡️🔧 #kicad #pcbdesign #hardware
+            </p>
+        </div>
+    </div>
+
+    <!-- Script de Rotação Automática -->
+    <script>
+        let angle = 0;
+        const transform = document.getElementById('board-transform');
+        
+        function animate() {
+            angle += 0.01; // Velocidade de rotação
+            
+            // Aplica a rotação no eixo Y (formato: x y z angulo_radianos)
+            if(transform) {
+                transform.setAttribute('rotation', `0 1 0 ${angle}`);
+            }
+            
+            requestAnimationFrame(animate);
+        }
+
+        // Inicia a animação assim que a página carregar
+        window.onload = animate;
+    </script>
+
+</body>
+</html>
