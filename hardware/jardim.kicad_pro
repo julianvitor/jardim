@@ -526,7 +526,7 @@
       "netlist": "",
       "plot": "",
       "specctra_dsn": "",
-      "vrml": "jardim.wrl"
+      "vrml": "../../../KiCad/jardim/jardim_2.wrl"
     },
     "page_layout_descr_file": ""
   },
