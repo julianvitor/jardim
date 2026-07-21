@@ -72,8 +72,8 @@
       "diff_pair_dimensions": [],
       "drc_exclusions": [
         [
-          "lib_footprint_mismatch|129540000|121827500|4f5f709b-7b13-4442-a808-374ba1499cee|00000000-0000-0000-0000-000000000000",
-          "alterei de proprosito"
+          "lib_footprint_issues|129540000|121827500|4f5f709b-7b13-4442-a808-374ba1499cee|00000000-0000-0000-0000-000000000000",
+          ""
         ]
       ],
       "meta": {
@@ -665,7 +665,7 @@
         "uuid": "be2a7050-4dcf-40a5-a221-48a7948dc32a"
       }
     ],
-    "used_designators": "J1-18,D1-9,#PWR1-61,U1-2,J_OUT3-6,C1-8,J_IN3-6,F1,Q1-6,R1-19,SW1-3",
+    "used_designators": "J1-18,D1-9,#PWR1-61,#PWR65-70,U1-2,J_OUT3-6,C1-8,J_IN3-6,F1,Q1-6,R1-19,SW1-3",
     "variants": []
   },
   "sheets": [
