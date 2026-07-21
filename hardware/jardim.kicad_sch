@@ -5174,8 +5174,8 @@
 		(uuid "2cec7657-683d-41a5-92b8-9efc10ca0f06")
 	)
 	(rectangle
-		(start 217.17 54.61)
-		(end 251.46 76.2)
+		(start 220.98 55.88)
+		(end 255.27 77.47)
 		(stroke
 			(width 0)
 			(type default)
@@ -5343,7 +5343,7 @@
 	)
 	(text "DHT22"
 		(exclude_from_sim no)
-		(at 246.634 61.468 0)
+		(at 250.444 62.738 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -5542,7 +5542,7 @@
 		(uuid "ce69f923-4f9f-4dc1-94a3-166b6603c8f3")
 	)
 	(junction
-		(at 238.76 67.31)
+		(at 242.57 68.58)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "ec1a4051-f262-4bc3-b6a2-2893b3014840")
@@ -5615,7 +5615,7 @@
 	)
 	(wire
 		(pts
-			(xy 220.98 67.31) (xy 219.71 67.31)
+			(xy 224.79 68.58) (xy 223.52 68.58)
 		)
 		(stroke
 			(width 0)
@@ -6465,7 +6465,7 @@
 	)
 	(wire
 		(pts
-			(xy 219.71 67.31) (xy 219.71 68.58)
+			(xy 223.52 68.58) (xy 223.52 69.85)
 		)
 		(stroke
 			(width 0)
@@ -6735,7 +6735,7 @@
 	)
 	(wire
 		(pts
-			(xy 238.76 62.23) (xy 238.76 67.31)
+			(xy 242.57 63.5) (xy 242.57 68.58)
 		)
 		(stroke
 			(width 0)
@@ -6785,7 +6785,7 @@
 	)
 	(wire
 		(pts
-			(xy 228.6 74.93) (xy 243.84 74.93)
+			(xy 232.41 76.2) (xy 247.65 76.2)
 		)
 		(stroke
 			(width 0)
@@ -7385,7 +7385,7 @@
 	)
 	(wire
 		(pts
-			(xy 236.22 67.31) (xy 238.76 67.31)
+			(xy 240.03 68.58) (xy 242.57 68.58)
 		)
 		(stroke
 			(width 0)
@@ -7625,7 +7625,7 @@
 	)
 	(wire
 		(pts
-			(xy 238.76 67.31) (xy 243.84 67.31)
+			(xy 242.57 68.58) (xy 247.65 68.58)
 		)
 		(stroke
 			(width 0)
@@ -7807,7 +7807,7 @@
 		(uuid "44e4eb47-f22e-4813-9fde-11cce150f1c2")
 	)
 	(label "IO16"
-		(at 228.6 74.93 0)
+		(at 232.41 76.2 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -10421,7 +10421,7 @@
 	)
 	(symbol
 		(lib_id "Sensor:AM2302")
-		(at 228.6 67.31 270)
+		(at 232.41 68.58 270)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -10432,7 +10432,7 @@
 		(fields_autoplaced yes)
 		(uuid "389d14e2-c702-45e7-a303-d7db1889c0d0")
 		(property "Reference" "U1"
-			(at 228.6 57.15 90)
+			(at 232.41 58.42 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -10442,7 +10442,7 @@
 			)
 		)
 		(property "Value" "AM2302"
-			(at 228.6 59.69 90)
+			(at 232.41 60.96 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -10452,7 +10452,7 @@
 			)
 		)
 		(property "Footprint" "Sensor:ASAIR_AM2302_P2.54mm_Vertical"
-			(at 218.44 67.31 0)
+			(at 222.25 68.58 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10463,7 +10463,7 @@
 			)
 		)
 		(property "Datasheet" "http://akizukidenshi.com/download/ds/aosong/AM2302.pdf"
-			(at 234.95 71.12 0)
+			(at 238.76 72.39 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10474,7 +10474,7 @@
 			)
 		)
 		(property "Description" "3.3 to 5.0V, Temperature and humidity module,  DHT22, AM2302"
-			(at 228.6 67.31 0)
+			(at 232.41 68.58 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10507,7 +10507,7 @@
 	)
 	(symbol
 		(lib_id "power:+5V")
-		(at 238.76 62.23 0)
+		(at 242.57 63.5 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -10518,7 +10518,7 @@
 		(fields_autoplaced yes)
 		(uuid "3d33387a-3b9c-402b-89ea-571b102b098d")
 		(property "Reference" "#PWR039"
-			(at 238.76 66.04 0)
+			(at 242.57 67.31 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10529,7 +10529,7 @@
 			)
 		)
 		(property "Value" "+5V"
-			(at 238.76 57.15 0)
+			(at 242.57 58.42 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -10539,7 +10539,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 238.76 62.23 0)
+			(at 242.57 63.5 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10550,7 +10550,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 238.76 62.23 0)
+			(at 242.57 63.5 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10561,7 +10561,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"+5V\""
-			(at 238.76 62.23 0)
+			(at 242.57 63.5 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11934,7 +11934,7 @@
 	)
 	(symbol
 		(lib_id "Device:R")
-		(at 243.84 71.12 0)
+		(at 247.65 72.39 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -11945,7 +11945,7 @@
 		(fields_autoplaced yes)
 		(uuid "59499f3a-e20e-4a6e-9e90-4668ca3eae84")
 		(property "Reference" "R19"
-			(at 246.38 69.8499 0)
+			(at 250.19 71.1199 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -11956,7 +11956,7 @@
 			)
 		)
 		(property "Value" "10k"
-			(at 246.38 72.3899 0)
+			(at 250.19 73.6599 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -11967,7 +11967,7 @@
 			)
 		)
 		(property "Footprint" "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P7.62mm_Horizontal"
-			(at 242.062 71.12 90)
+			(at 245.872 72.39 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11978,7 +11978,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 243.84 71.12 0)
+			(at 247.65 72.39 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11989,7 +11989,7 @@
 			)
 		)
 		(property "Description" "Resistor"
-			(at 243.84 71.12 0)
+			(at 247.65 72.39 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -15574,7 +15574,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 219.71 68.58 0)
+		(at 223.52 69.85 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -15585,7 +15585,7 @@
 		(fields_autoplaced yes)
 		(uuid "abbbea51-ddcd-42df-a7b5-113fb5300f6f")
 		(property "Reference" "#PWR038"
-			(at 219.71 74.93 0)
+			(at 223.52 76.2 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -15596,7 +15596,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 219.71 73.66 0)
+			(at 223.52 74.93 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -15606,7 +15606,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 219.71 68.58 0)
+			(at 223.52 69.85 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -15617,7 +15617,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 219.71 68.58 0)
+			(at 223.52 69.85 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -15628,7 +15628,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 219.71 68.58 0)
+			(at 223.52 69.85 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
