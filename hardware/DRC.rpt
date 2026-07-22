@@ -1,0 +1,1125 @@
+** Drc report for jardim.kicad_pcb **
+** Created on 2026-07-22T11:10:52 **
+** Report includes: Errors, Warnings, Exclusions **
+
+** Found 328 DRC violations **
+[annular_width]: Largura anular (configuração das restrições da placa largura anular mín 0,3500 mm; atual 0,1500 mm)
+    Rule: configuração das restrições da placa; error
+    @(190.5492 mm, 110.8410 mm): Via [/IO11] on F.Cu - B.Cu
+[annular_width]: Largura anular (configuração das restrições da placa largura anular mín 0,3500 mm; atual 0,1500 mm)
+    Rule: configuração das restrições da placa; error
+    @(147.8517 mm, 105.2067 mm): Via [/IO9] on F.Cu - B.Cu
+[annular_width]: Largura anular (configuração das restrições da placa largura anular mín 0,3500 mm; atual 0,1500 mm)
+    Rule: configuração das restrições da placa; error
+    @(156.8628 mm, 102.9902 mm): Via [/IO5] on F.Cu - B.Cu
+[annular_width]: Largura anular (configuração das restrições da placa largura anular mín 0,3500 mm; atual 0,1500 mm)
+    Rule: configuração das restrições da placa; error
+    @(134.6042 mm, 84.0647 mm): Via [/IO12] on F.Cu - B.Cu
+[annular_width]: Largura anular (configuração das restrições da placa largura anular mín 0,3500 mm; atual 0,1500 mm)
+    Rule: configuração das restrições da placa; error
+    @(154.3695 mm, 42.3142 mm): Via [+24V] on F.Cu - B.Cu
+[clearance]: Violação do isolamento (placa mínima isolamento 0,2500 mm; atual 0,2042 mm)
+    Local override; error
+    @(155.5750 mm, 105.1150 mm): PTH pad 3 [GND] of Q7
+    @(154.1381 mm, 104.7271 mm): Track [Net-(Q7-G)] on B.Cu, length 1.3217 mm
+[clearance]: Violação do isolamento (placa mínima isolamento 0,2500 mm; atual 0,2111 mm)
+    Local override; error
+    @(158.6270 mm, 103.7925 mm): Track [Net-(Q7-G)] on B.Cu, length 1.0943 mm
+    @(158.1150 mm, 105.1150 mm): PTH pad 2 [Net-(BZ1--)] of Q7
+[clearance]: Violação do isolamento (placa mínima isolamento 0,2500 mm; atual 0,2111 mm)
+    Local override; error
+    @(133.3500 mm, 88.6460 mm): PTH pad 3 [GND] of Q4
+    @(134.6358 mm, 89.1947 mm): Track [Net-(D7-K)] on F.Cu, length 2.0184 mm
+[clearance]: Violação do isolamento (placa mínima isolamento 0,2500 mm; atual 0,2333 mm)
+    Local override; error
+    @(160.6550 mm, 105.1150 mm): Track [Net-(Q7-G)] on B.Cu, length 1.2542 mm
+    @(158.1150 mm, 105.1150 mm): PTH pad 2 [Net-(BZ1--)] of Q7
+[clearance]: Violação do isolamento (placa mínima isolamento 0,2500 mm; atual 0,2199 mm)
+    Local override; error
+    @(171.6001 mm, 48.2699 mm): Track [+12V] on B.Cu, length 6.5142 mm
+    @(172.7200 mm, 52.1500 mm): PTH pad 2 [Net-(D3-A)] of C5
+[clearance]: Violação do isolamento (placa mínima isolamento 0,2500 mm; atual 0,2422 mm)
+    Local override; error
+    @(169.1440 mm, 85.2100 mm): Track [+12V] on B.Cu, length 2.7683 mm
+    @(169.5600 mm, 86.4800 mm): PTH pad 3 [/IO44_RX] of PH_2
+[clearance]: Violação do isolamento (placa mínima isolamento 0,2500 mm; atual 0,2393 mm)
+    Local override; error
+    @(170.8150 mm, 62.3500 mm): PTH pad 1 [+5V] of R19
+    @(171.9543 mm, 55.1383 mm): Track [+12V] on B.Cu, length 28.0445 mm
+[clearance]: Violação do isolamento (placa mínima isolamento 0,2500 mm; atual 0,2076 mm)
+    Local override; error
+    @(171.9543 mm, 83.1828 mm): Track [+12V] on B.Cu, length 2.8669 mm
+    @(169.5600 mm, 83.9400 mm): PTH pad 2 [/IO43_TX] of PH_2
+[clearance]: Violação do isolamento (placa mínima isolamento 0,2500 mm; atual 0,2333 mm)
+    Local override; error
+    @(158.1150 mm, 105.1150 mm): Track [Net-(BZ1--)] on B.Cu, length 1.2542 mm
+    @(155.5750 mm, 105.1150 mm): PTH pad 3 [GND] of Q7
+[clearance]: Violação do isolamento (placa mínima isolamento 0,2500 mm; atual 0,2333 mm)
+    Local override; error
+    @(159.4008 mm, 104.5663 mm): Track [Net-(Q7-G)] on B.Cu, length 0.5487 mm
+    @(158.1150 mm, 105.1150 mm): PTH pad 2 [Net-(BZ1--)] of Q7
+[clearance]: Violação do isolamento (placa mínima isolamento 0,2500 mm; atual 0,2017 mm)
+    Local override; error
+    @(126.6933 mm, 67.7767 mm): Track [+12V] on F.Cu, length 4.5731 mm
+    @(130.8100 mm, 66.6750 mm): PTH pad 1 [GND] of R2
+[clearance]: Violação do isolamento (placa mínima isolamento 0,2500 mm; atual 0,2128 mm)
+    Local override; error
+    @(146.3256 mm, 97.9100 mm): Track [/IO18] on F.Cu, length 1.1305 mm
+    @(146.7000 mm, 96.6400 mm): PTH pad 7 [/IO7] of PH_1
+[clearance]: Violação do isolamento (placa mínima isolamento 0,2500 mm; atual 0,2031 mm)
+    Local override; error
+    @(154.1381 mm, 111.2919 mm): Track [Net-(Q7-G)] on B.Cu, length 6.5648 mm
+    @(153.0350 mm, 109.2200 mm): PTH pad 2 [/IO16] of R20
+[clearance]: Violação do isolamento (placa mínima isolamento 0,2500 mm; atual 0,2017 mm)
+    Local override; error
+    @(131.2664 mm, 67.7767 mm): Track [+12V] on F.Cu, length 29.1706 mm
+    @(130.8100 mm, 66.6750 mm): PTH pad 1 [GND] of R2
+[clearance]: Violação do isolamento (placa mínima isolamento 0,2500 mm; atual 0,2289 mm)
+    Local override; error
+    @(114.3000 mm, 70.6511 mm): Track [+12V] on F.Cu, length 12.9186 mm
+    @(109.2200 mm, 71.8800 mm): PTH pad 2 [Net-(D4-A)] of D4
+[clearance]: Violação do isolamento (placa mínima isolamento 0,2500 mm; atual 0,2397 mm)
+    Local override; error
+    @(132.0578 mm, 112.4778 mm): Track [/IO13] on B.Cu, length 25.7590 mm
+    @(133.3500 mm, 102.6750 mm): PTH pad 3 [GND] of Q6
+[clearance]: Violação do isolamento (placa mínima isolamento 0,2500 mm; atual 0,2049 mm)
+    Local override; error
+    @(98.5526 mm, 70.2701 mm): Track [+12V] on B.Cu, length 8.2202 mm
+    @(100.1575 mm, 65.5250 mm): PTH pad 2 [Net-(D1-A)] of J2
+[clearance]: Violação do isolamento (placa mínima isolamento 0,2500 mm; atual 0,2017 mm)
+    Local override; error
+    @(114.3000 mm, 74.9300 mm): PTH pad 2 [Net-(D4-A)] of R4
+    @(115.4017 mm, 83.9883 mm): Track [+12V] on B.Cu, length 10.4966 mm
+[clearance]: Violação do isolamento (placa mínima isolamento 0,2500 mm; atual 0,2333 mm)
+    Local override; error
+    @(130.8258 mm, 71.1200 mm): Track [Net-(D1-A)] on F.Cu, length 0.5487 mm
+    @(129.5400 mm, 71.1200 mm): PTH pad 3 [GND] of Q1
+[clearance]: Violação do isolamento (placa mínima isolamento 0,2500 mm; atual 0,2333 mm)
+    Local override; error
+    @(132.0800 mm, 71.1200 mm): Track [Net-(D1-A)] on F.Cu, length 1.2542 mm
+    @(129.5400 mm, 71.1200 mm): PTH pad 3 [GND] of Q1
+[clearance]: Violação do isolamento (placa mínima isolamento 0,2500 mm; atual 0,2111 mm)
+    Local override; error
+    @(130.8258 mm, 71.6687 mm): Track [Net-(D1-A)] on F.Cu, length 4.7253 mm
+    @(129.5400 mm, 71.1200 mm): PTH pad 3 [GND] of Q1
+[clearance]: Violação do isolamento (placa mínima isolamento 0,2500 mm; atual 0,2450 mm)
+    Local override; error
+    @(189.9400 mm, 114.5900 mm): PTH pad 1 [/IO47] of SW1
+    @(188.5950 mm, 109.2600 mm): Track [GND] on B.Cu, length 8.4850 mm
+[clearance]: Violação do isolamento (placa mínima isolamento 0,2500 mm; atual 0,2488 mm)
+    Local override; error
+    @(180.4188 mm, 94.1412 mm): Track [GND] on B.Cu, length 13.5102 mm
+    @(179.0700 mm, 81.5200 mm): PTH pad 1 [/IO38] of J14
+[clearance]: Violação do isolamento (placa mínima isolamento 0,2500 mm; atual 0,2225 mm)
+    Local override; error
+    @(155.0727 mm, 103.7925 mm): Track [Net-(Q7-G)] on B.Cu, length 3.5543 mm
+    @(158.1150 mm, 105.1150 mm): PTH pad 2 [Net-(BZ1--)] of Q7
+[clearance]: Violação do isolamento (placa mínima isolamento 0,2500 mm; atual 0,2017 mm)
+    Local override; error
+    @(187.3183 mm, 71.1533 mm): Track [GND] on B.Cu, length 8.8766 mm
+    @(188.5950 mm, 69.9300 mm): PTH pad 2 [/IO18] of J10
+[clearance]: Violação do isolamento (placa mínima isolamento 0,2500 mm; atual 0,2333 mm)
+    Local override; error
+    @(178.4192 mm, 47.7450 mm): Track [GND] on B.Cu, length 1.2542 mm
+    @(179.7050 mm, 47.7450 mm): PTH pad 2 [Net-(D3-A)] of Q2
+[clearance]: Violação do isolamento (placa mínima isolamento 0,2500 mm; atual 0,2294 mm)
+    Local override; error
+    @(180.3744 mm, 50.9544 mm): Track [GND] on B.Cu, length 8.8212 mm
+    @(179.0700 mm, 58.5800 mm): PTH pad 2 [/IO35] of J9
+[clearance]: Violação do isolamento (placa mínima isolamento 0,2500 mm; atual 0,2333 mm)
+    Local override; error
+    @(177.1650 mm, 47.7450 mm): Track [GND] on B.Cu, length 1.2542 mm
+    @(179.7050 mm, 47.7450 mm): PTH pad 2 [Net-(D3-A)] of Q2
+[clearance]: Violação do isolamento (placa mínima isolamento 0,2500 mm; atual 0,2216 mm)
+    Local override; error
+    @(130.7742 mm, 87.3244 mm): Track [GND] on F.Cu, length 8.8026 mm
+    @(125.7300 mm, 88.6460 mm): PTH pad 1 [Net-(Q3-G)] of Q3
+[clearance]: Violação do isolamento (placa mínima isolamento 0,2500 mm; atual 0,2337 mm)
+    Local override; error
+    @(140.9700 mm, 66.6750 mm): PTH pad 2 [Net-(Q1-G)] of R2
+    @(136.3207 mm, 69.7210 mm): Track [GND] on F.Cu, length 6.4235 mm
+[clearance]: Violação do isolamento (placa mínima isolamento 0,2500 mm; atual 0,2361 mm)
+    Local override; error
+    @(126.3650 mm, 64.0480 mm): PTH pad 1 [+12V] of C3
+    @(127.5011 mm, 63.2851 mm): Track [GND] on F.Cu, length 2.1268 mm
+[clearance]: Violação do isolamento (placa mínima isolamento 0,2500 mm; atual 0,2150 mm)
+    Local override; error
+    @(126.3650 mm, 64.0480 mm): PTH pad 1 [+12V] of C3
+    @(122.1210 mm, 57.9050 mm): Track [GND] on F.Cu, length 7.6086 mm
+[clearance]: Violação do isolamento (placa mínima isolamento 0,2500 mm; atual 0,2333 mm)
+    Local override; error
+    @(179.7050 mm, 47.7450 mm): PTH pad 2 [Net-(D3-A)] of Q2
+    @(178.4192 mm, 47.7450 mm): Track [GND] on B.Cu, length 2.3442 mm
+[clearance]: Violação do isolamento (placa mínima isolamento 0,2500 mm; atual 0,2433 mm)
+    Local override; error
+    @(189.9400 mm, 122.2100 mm): PTH pad 1 [/IO48] of SW2
+    @(191.2833 mm, 120.4333 mm): Track [GND] on B.Cu, length 4.9334 mm
+[clearance]: Violação do isolamento (placa mínima isolamento 0,2500 mm; atual 0,2433 mm)
+    Local override; error
+    @(191.2833 mm, 128.0533 mm): Track [GND] on B.Cu, length 4.9334 mm
+    @(189.9400 mm, 129.8300 mm): PTH pad 1 [/IO1] of SW3
+[clearance]: Violação do isolamento (placa mínima isolamento 0,2500 mm; atual 0,2027 mm)
+    Local override; error
+    @(162.0923 mm, 59.7661 mm): Track [GND] on B.Cu, length 8.2192 mm
+    @(163.1950 mm, 62.3500 mm): PTH pad 2 [/IO17] of R19
+[clearance]: Violação do isolamento (placa mínima isolamento 0,2500 mm; atual 0,2023 mm)
+    Local override; error
+    @(167.9899 mm, 109.4772 mm): Track [/IO1] on B.Cu, length 18.8871 mm
+    @(169.5600 mm, 109.3400 mm): Track [/IO36] on B.Cu, length 1.6515 mm
+[clearance]: Violação do isolamento (placa mínima isolamento 0,2500 mm; atual 0,2023 mm)
+    Local override; error
+    @(167.9899 mm, 109.4772 mm): Track [/IO1] on B.Cu, length 18.8871 mm
+    @(168.3922 mm, 108.1722 mm): Track [/IO36] on B.Cu, length 4.3780 mm
+[clearance]: Violação do isolamento (placa mínima isolamento 0,2500 mm; atual 0,2023 mm)
+    Local override; error
+    @(167.9899 mm, 109.4772 mm): Track [/IO1] on B.Cu, length 18.8871 mm
+    @(168.3922 mm, 103.7942 mm): Track [/IO36] on B.Cu, length 1.1373 mm
+[clearance]: Violação do isolamento (placa mínima isolamento 0,2500 mm; atual 0,2333 mm)
+    Local override; error
+    @(155.5750 mm, 105.1150 mm): Track [GND] on F.Cu, length 1.2542 mm
+    @(158.1150 mm, 105.1150 mm): PTH pad 2 [Net-(BZ1--)] of Q7
+[clearance]: Violação do isolamento (placa mínima isolamento 0,2500 mm; atual 0,2333 mm)
+    Local override; error
+    @(156.8292 mm, 105.1150 mm): Track [GND] on F.Cu, length 0.9142 mm
+    @(158.1150 mm, 105.1150 mm): PTH pad 2 [Net-(BZ1--)] of Q7
+[clearance]: Violação do isolamento (placa mínima isolamento 0,2500 mm; atual 0,2017 mm)
+    Local override; error
+    @(177.3668 mm, 78.9444 mm): Track [/IO36] on B.Cu, length 8.9713 mm
+    @(179.0700 mm, 79.0200 mm): PTH pad 2 [GND] of J14
+[clearance]: Violação do isolamento (placa mínima isolamento 0,2500 mm; atual 0,2175 mm)
+    Local override; error
+    @(180.9750 mm, 56.0000 mm): Track [+5V] on F.Cu, length 8.8599 mm
+    @(182.2450 mm, 47.7450 mm): PTH pad 1 [Net-(Q2-G)] of Q2
+[clearance]: Violação do isolamento (placa mínima isolamento 0,2500 mm; atual 0,2264 mm)
+    Local override; error
+    @(183.7105 mm, 63.7444 mm): Track [/IO36] on B.Cu, length 5.7880 mm
+    @(188.5950 mm, 61.0000 mm): PTH pad 1 [GND] of J8
+[clearance]: Violação do isolamento (placa mínima isolamento 0,2500 mm; atual 0,2017 mm)
+    Local override; error
+    @(177.7685 mm, 96.0515 mm): Track [/IO38] on B.Cu, length 13.2300 mm
+    @(170.0035 mm, 102.9900 mm): Track [/IO36] on B.Cu, length 10.4133 mm
+[clearance]: Violação do isolamento (placa mínima isolamento 0,2500 mm; atual 0,2175 mm)
+    Local override; error
+    @(182.2450 mm, 47.7450 mm): PTH pad 1 [Net-(Q2-G)] of Q2
+    @(180.9750 mm, 47.1401 mm): Track [+5V] on F.Cu, length 1.5419 mm
+[clearance]: Violação do isolamento (placa mínima isolamento 0,2500 mm; atual 0,2017 mm)
+    Local override; error
+    @(177.7685 mm, 82.8215 mm): Track [/IO38] on B.Cu, length 1.8406 mm
+    @(177.3668 mm, 95.6267 mm): Track [/IO36] on B.Cu, length 16.6823 mm
+[clearance]: Violação do isolamento (placa mínima isolamento 0,2500 mm; atual 0,2200 mm)
+    Local override; error
+    @(169.5600 mm, 101.7200 mm): PTH pad 9 [/IO39] of PH_2
+    @(178.9317 mm, 100.5500 mm): Track [+5V] on F.Cu, length 20.6947 mm
+[clearance]: Violação do isolamento (placa mínima isolamento 0,2500 mm; atual 0,2493 mm)
+    Local override; error
+    @(140.5400 mm, 111.0400 mm): PTH pad S2 [unconnected-(U2-PadS2)] of U2
+    @(142.4690 mm, 112.8893 mm): Track [+5V] on F.Cu, length 8.4831 mm
+[clearance]: Violação do isolamento (placa mínima isolamento 0,2500 mm; atual 0,2058 mm)
+    Local override; error
+    @(132.0800 mm, 110.1755 mm): Track [+5V] on F.Cu, length 1.1762 mm
+    @(130.8100 mm, 110.5400 mm): PTH pad 3 [/IO9] of U2
+[clearance]: Violação do isolamento (placa mínima isolamento 0,2500 mm; atual 0,2462 mm)
+    Local override; error
+    @(130.8100 mm, 110.5400 mm): PTH pad 3 [/IO9] of U2
+    @(131.2483 mm, 109.3438 mm): Track [+5V] on F.Cu, length 1.7821 mm
+[clearance]: Violação do isolamento (placa mínima isolamento 0,2500 mm; atual 0,2344 mm)
+    Local override; error
+    @(189.8887 mm, 57.9937 mm): Track [+5V] on B.Cu, length 1.1908 mm
+    @(188.5950 mm, 58.5000 mm): PTH pad 2 [/IO36] of J8
+[clearance]: Violação do isolamento (placa mínima isolamento 0,2500 mm; atual 0,2344 mm)
+    Local override; error
+    @(189.9448 mm, 69.4798 mm): Track [+5V] on B.Cu, length 1.2701 mm
+    @(188.5950 mm, 69.9300 mm): PTH pad 2 [/IO18] of J10
+[clearance]: Violação do isolamento (placa mínima isolamento 0,2500 mm; atual 0,2187 mm)
+    Local override; error
+    @(188.5950 mm, 58.5000 mm): PTH pad 2 [/IO36] of J8
+    @(189.8887 mm, 64.9846 mm): Track [+5V] on B.Cu, length 6.9909 mm
+[clearance]: Violação do isolamento (placa mínima isolamento 0,2500 mm; atual 0,2204 mm)
+    Local override; error
+    @(188.5950 mm, 90.1700 mm): PTH pad 3 [/IO9] of J11
+    @(189.0269 mm, 88.8217 mm): Track [+5V] on B.Cu, length 1.2070 mm
+[clearance]: Violação do isolamento (placa mínima isolamento 0,2500 mm; atual 0,2104 mm)
+    Local override; error
+    @(188.5950 mm, 95.1700 mm): PTH pad 1 [GND] of J11
+    @(189.8804 mm, 89.6752 mm): Track [+5V] on B.Cu, length 9.6477 mm
+[clearance]: Violação do isolamento (placa mínima isolamento 0,2500 mm; atual 0,2433 mm)
+    Local override; error
+    @(150.3310 mm, 64.6952 mm): Track [+5V] on F.Cu, length 1.2468 mm
+    @(149.8600 mm, 63.6200 mm): PTH pad 2 [/IO17] of U1
+[clearance]: Violação do isolamento (placa mínima isolamento 0,2500 mm; atual 0,2252 mm)
+    Local override; error
+    @(149.4469 mm, 64.6952 mm): Track [+5V] on F.Cu, length 0.8841 mm
+    @(149.8600 mm, 63.6200 mm): PTH pad 2 [/IO17] of U1
+[clearance]: Violação do isolamento (placa mínima isolamento 0,2500 mm; atual 0,2226 mm)
+    Local override; error
+    @(151.2126 mm, 63.2647 mm): Track [+5V] on F.Cu, length 1.0510 mm
+    @(151.3811 mm, 62.0989 mm): Track [/IO17] on F.Cu, length 11.5628 mm
+[clearance]: Violação do isolamento (placa mínima isolamento 0,2500 mm; atual 0,2226 mm)
+    Local override; error
+    @(151.3811 mm, 62.0989 mm): Track [/IO17] on F.Cu, length 11.5628 mm
+    @(151.9558 mm, 62.5215 mm): Track [+5V] on F.Cu, length 8.5138 mm
+[clearance]: Violação do isolamento (placa mínima isolamento 0,2500 mm; atual 0,2226 mm)
+    Local override; error
+    @(151.3811 mm, 62.0989 mm): Track [/IO17] on F.Cu, length 11.5628 mm
+    @(160.4696 mm, 62.5215 mm): Track [+5V] on F.Cu, length 3.8543 mm
+[clearance]: Violação do isolamento (placa mínima isolamento 0,2500 mm; atual 0,2265 mm)
+    Local override; error
+    @(169.5600 mm, 104.2600 mm): Track [/IO38] on B.Cu, length 11.6086 mm
+    @(179.0700 mm, 95.4900 mm): PTH pad 1 [GND] of J12
+[clearance]: Violação do isolamento (placa mínima isolamento 0,2500 mm; atual 0,2265 mm)
+    Local override; error
+    @(177.7685 mm, 96.0515 mm): Track [/IO38] on B.Cu, length 13.2300 mm
+    @(179.0700 mm, 95.4900 mm): PTH pad 1 [GND] of J12
+[clearance]: Violação do isolamento (placa mínima isolamento 0,2500 mm; atual 0,2017 mm)
+    Local override; error
+    @(169.8306 mm, 110.4917 mm): Track [/IO1] on B.Cu, length 0.8262 mm
+    @(169.5600 mm, 109.3400 mm): PTH pad 12 [/IO36] of PH_2
+[clearance]: Violação do isolamento (placa mínima isolamento 0,2500 mm; atual 0,2331 mm)
+    Local override; error
+    @(169.5600 mm, 109.3400 mm): PTH pad 12 [/IO36] of PH_2
+    @(180.5744 mm, 121.2355 mm): Track [/IO1] on B.Cu, length 15.1940 mm
+[clearance]: Violação do isolamento (placa mínima isolamento 0,2500 mm; atual 0,2091 mm)
+    Local override; error
+    @(179.0700 mm, 61.0800 mm): PTH pad 1 [GND] of J9
+    @(178.3026 mm, 59.7317 mm): Track [/IO35] on B.Cu, length 2.8874 mm
+[clearance]: Violação do isolamento (placa mínima isolamento 0,2500 mm; atual 0,2026 mm)
+    Local override; error
+    @(169.8665 mm, 106.8000 mm): Track [/IO37] on B.Cu, length 24.5786 mm
+    @(179.0700 mm, 95.4900 mm): PTH pad 1 [GND] of J12
+[clearance]: Violação do isolamento (placa mínima isolamento 0,2500 mm; atual 0,2181 mm)
+    Local override; error
+    @(176.2609 mm, 81.4311 mm): Track [/IO35] on B.Cu, length 8.9363 mm
+    @(169.5600 mm, 86.4800 mm): PTH pad 3 [/IO44_RX] of PH_2
+[clearance]: Violação do isolamento (placa mínima isolamento 0,2500 mm; atual 0,2191 mm)
+    Local override; error
+    @(169.5600 mm, 89.0200 mm): PTH pad 4 [/IO1] of PH_2
+    @(169.1766 mm, 87.7500 mm): Track [/IO35] on B.Cu, length 2.2463 mm
+[clearance]: Violação do isolamento (placa mínima isolamento 0,2500 mm; atual 0,2017 mm)
+    Local override; error
+    @(167.5882 mm, 109.9082 mm): Track [/IO35] on B.Cu, length 2.7885 mm
+    @(167.1865 mm, 87.1675 mm): Track [+12V] on B.Cu, length 27.6643 mm
+[clearance]: Violação do isolamento (placa mínima isolamento 0,2500 mm; atual 0,2024 mm)
+    Local override; error
+    @(148.3717 mm, 63.6200 mm): Track [+5V] on F.Cu, length 1.5206 mm
+    @(149.8600 mm, 63.6200 mm): PTH pad 2 [/IO17] of U1
+[clearance]: Violação do isolamento (placa mínima isolamento 0,2500 mm; atual 0,2256 mm)
+    Local override; error
+    @(169.5600 mm, 119.5000 mm): PTH pad 16 [/IO48] of PH_2
+    @(169.1674 mm, 118.2300 mm): Track [/IO47] on F.Cu, length 1.0742 mm
+[clearance]: Violação do isolamento (placa mínima isolamento 0,2500 mm; atual 0,2022 mm)
+    Local override; error
+    @(168.4078 mm, 118.9896 mm): Track [/IO47] on F.Cu, length 1.8982 mm
+    @(169.5600 mm, 119.5000 mm): PTH pad 16 [/IO48] of PH_2
+[clearance]: Violação do isolamento (placa mínima isolamento 0,2500 mm; atual 0,2350 mm)
+    Local override; error
+    @(98.8700 mm, 40.4302 mm): Track [+24V] on F.Cu, length 1.8866 mm
+    @(100.1575 mm, 42.0700 mm): PTH pad 1 [Net-(J1-Pin_1)] of J1
+[clearance]: Violação do isolamento (placa mínima isolamento 0,2500 mm; atual 0,2398 mm)
+    Local override; error
+    @(100.1575 mm, 42.0700 mm): PTH pad 1 [Net-(J1-Pin_1)] of J1
+    @(114.7085 mm, 40.4302 mm): Track [+24V] on F.Cu, length 15.8385 mm
+[clearance]: Violação do isolamento (placa mínima isolamento 0,2500 mm; atual 0,2265 mm)
+    Local override; error
+    @(100.1575 mm, 111.2450 mm): PTH pad 2 [Net-(D8-K)] of J6
+    @(98.5310 mm, 107.7915 mm): Track [+24V] on B.Cu, length 8.1770 mm
+[clearance]: Violação do isolamento (placa mínima isolamento 0,2500 mm; atual 0,2017 mm)
+    Local override; error
+    @(98.5558 mm, 93.1333 mm): Track [+24V] on B.Cu, length 8.2266 mm
+    @(100.1575 mm, 88.3850 mm): PTH pad 2 [Net-(D6-K)] of J4
+[clearance]: Violação do isolamento (placa mínima isolamento 0,2500 mm; atual 0,2039 mm)
+    Local override; error
+    @(115.4039 mm, 98.8939 mm): Track [+24V] on B.Cu, length 10.4922 mm
+    @(114.3000 mm, 100.3300 mm): PTH pad 2 [Net-(D7-A)] of R10
+[clearance]: Violação do isolamento (placa mínima isolamento 0,2500 mm; atual 0,2437 mm)
+    Local override; error
+    @(114.3000 mm, 123.1900 mm): PTH pad 2 [Net-(D8-A)] of R13
+    @(115.4437 mm, 124.5863 mm): Track [+24V] on B.Cu, length 10.4126 mm
+[clearance]: Violação do isolamento (placa mínima isolamento 0,2500 mm; atual 0,2287 mm)
+    Local override; error
+    @(112.0604 mm, 76.0587 mm): Track [Net-(D3-A)] on F.Cu, length 3.0117 mm
+    @(114.3000 mm, 74.9300 mm): PTH pad 2 [Net-(D4-A)] of R4
+[clearance]: Violação do isolamento (placa mínima isolamento 0,2500 mm; atual 0,2190 mm)
+    Local override; error
+    @(100.1575 mm, 99.8150 mm): PTH pad 2 [Net-(D7-K)] of J5
+    @(98.5385 mm, 96.3540 mm): Track [+24V] on B.Cu, length 8.1920 mm
+[clearance]: Violação do isolamento (placa mínima isolamento 0,2500 mm; atual 0,2333 mm)
+    Local override; error
+    @(177.1650 mm, 47.7450 mm): PTH pad 3 [GND] of Q2
+    @(178.4508 mm, 47.7450 mm): Track [Net-(D3-A)] on F.Cu, length 0.5487 mm
+[clearance]: Violação do isolamento (placa mínima isolamento 0,2500 mm; atual 0,2333 mm)
+    Local override; error
+    @(177.1650 mm, 47.7450 mm): PTH pad 3 [GND] of Q2
+    @(179.7050 mm, 47.7450 mm): Track [Net-(D3-A)] on F.Cu, length 1.2542 mm
+[clearance]: Violação do isolamento (placa mínima isolamento 0,2500 mm; atual 0,2111 mm)
+    Local override; error
+    @(178.4508 mm, 48.2937 mm): Track [Net-(D3-A)] on F.Cu, length 5.4536 mm
+    @(177.1650 mm, 47.7450 mm): PTH pad 3 [GND] of Q2
+[clearance]: Violação do isolamento (placa mínima isolamento 0,2500 mm; atual 0,2017 mm)
+    Local override; error
+    @(167.9899 mm, 90.5901 mm): Track [/IO1] on B.Cu, length 2.2205 mm
+    @(167.5882 mm, 89.3384 mm): Track [/IO35] on B.Cu, length 20.5698 mm
+[clearance]: Violação do isolamento (placa mínima isolamento 0,2500 mm; atual 0,2333 mm)
+    Local override; error
+    @(135.8900 mm, 102.6750 mm): PTH pad 2 [Net-(D9-K)] of Q6
+    @(134.6042 mm, 112.4842 mm): Track [/IO12] on B.Cu, length 28.4195 mm
+[clearance]: Violação do isolamento (placa mínima isolamento 0,2500 mm; atual 0,2333 mm)
+    Local override; error
+    @(134.6358 mm, 102.6750 mm): Track [Net-(D9-K)] on F.Cu, length 0.5487 mm
+    @(133.3500 mm, 102.6750 mm): PTH pad 3 [GND] of Q6
+[clearance]: Violação do isolamento (placa mínima isolamento 0,2500 mm; atual 0,2111 mm)
+    Local override; error
+    @(134.6358 mm, 103.2237 mm): Track [Net-(D9-K)] on F.Cu, length 6.1677 mm
+    @(133.3500 mm, 102.6750 mm): PTH pad 3 [GND] of Q6
+[clearance]: Violação do isolamento (placa mínima isolamento 0,2500 mm; atual 0,2333 mm)
+    Local override; error
+    @(135.8900 mm, 102.6750 mm): Track [Net-(D9-K)] on F.Cu, length 1.2542 mm
+    @(133.3500 mm, 102.6750 mm): PTH pad 3 [GND] of Q6
+[clearance]: Violação do isolamento (placa mínima isolamento 0,2500 mm; atual 0,2296 mm)
+    Local override; error
+    @(125.7300 mm, 110.5400 mm): PTH pad 1 [GND] of U2
+    @(126.5190 mm, 107.5849 mm): Track [Net-(D9-K)] on F.Cu, length 17.7485 mm
+[clearance]: Violação do isolamento (placa mínima isolamento 0,2500 mm; atual 0,2204 mm)
+    Local override; error
+    @(189.0269 mm, 103.1083 mm): Track [/IO4] on F.Cu, length 1.2008 mm
+    @(188.5950 mm, 101.7600 mm): PTH pad 4 [+5V] of J15
+[clearance]: Violação do isolamento (placa mínima isolamento 0,2500 mm; atual 0,2060 mm)
+    Local override; error
+    @(188.5950 mm, 90.1700 mm): PTH pad 3 [/IO9] of J11
+    @(189.8760 mm, 102.2592 mm): Track [/IO4] on F.Cu, length 12.5979 mm
+[clearance]: Violação do isolamento (placa mínima isolamento 0,2500 mm; atual 0,2271 mm)
+    Local override; error
+    @(188.5950 mm, 90.1700 mm): PTH pad 3 [/IO9] of J11
+    @(189.8760 mm, 89.6613 mm): Track [/IO4] on F.Cu, length 0.9211 mm
+[clearance]: Violação do isolamento (placa mínima isolamento 0,2500 mm; atual 0,2100 mm)
+    Local override; error
+    @(188.5950 mm, 90.1700 mm): PTH pad 3 [/IO9] of J11
+    @(189.2247 mm, 89.0100 mm): Track [/IO4] on F.Cu, length 5.1220 mm
+[clearance]: Violação do isolamento (placa mínima isolamento 0,2500 mm; atual 0,2256 mm)
+    Local override; error
+    @(147.0926 mm, 102.9900 mm): Track [/IO18] on F.Cu, length 1.1240 mm
+    @(146.7000 mm, 101.7200 mm): PTH pad 9 [/IO16] of PH_1
+[clearance]: Violação do isolamento (placa mínima isolamento 0,2500 mm; atual 0,2238 mm)
+    Local override; error
+    @(145.5262 mm, 97.1106 mm): Track [/IO18] on F.Cu, length 8.5465 mm
+    @(146.7000 mm, 89.0200 mm): PTH pad 4 [/IO4] of PH_1
+[clearance]: Violação do isolamento (placa mínima isolamento 0,2500 mm; atual 0,2188 mm)
+    Local override; error
+    @(145.5191 mm, 103.7879 mm): Track [/IO18] on F.Cu, length 1.1284 mm
+    @(146.7000 mm, 104.2600 mm): PTH pad 10 [/IO17] of PH_1
+[clearance]: Violação do isolamento (placa mínima isolamento 0,2500 mm; atual 0,2374 mm)
+    Local override; error
+    @(146.7000 mm, 99.1800 mm): PTH pad 8 [/IO15] of PH_1
+    @(147.8874 mm, 102.1952 mm): Track [/IO18] on F.Cu, length 3.4992 mm
+[clearance]: Violação do isolamento (placa mínima isolamento 0,2500 mm; atual 0,2309 mm)
+    Local override; error
+    @(146.7000 mm, 104.2600 mm): PTH pad 10 [/IO17] of PH_1
+    @(145.5191 mm, 105.6191 mm): Track [/IO18] on F.Cu, length 1.8312 mm
+[clearance]: Violação do isolamento (placa mínima isolamento 0,2500 mm; atual 0,2024 mm)
+    Local override; error
+    @(146.7000 mm, 89.0200 mm): PTH pad 4 [/IO4] of PH_1
+    @(145.5262 mm, 88.5641 mm): Track [/IO18] on F.Cu, length 1.1513 mm
+[clearance]: Violação do isolamento (placa mínima isolamento 0,2500 mm; atual 0,2319 mm)
+    Local override; error
+    @(147.8874 mm, 98.6960 mm): Track [/IO18] on F.Cu, length 1.1116 mm
+    @(146.7000 mm, 99.1800 mm): PTH pad 8 [/IO15] of PH_1
+[clearance]: Violação do isolamento (placa mínima isolamento 0,2500 mm; atual 0,2111 mm)
+    Local override; error
+    @(121.9358 mm, 103.2237 mm): Track [Net-(D8-K)] on F.Cu, length 7.7588 mm
+    @(120.6500 mm, 102.6750 mm): PTH pad 3 [GND] of Q5
+[clearance]: Violação do isolamento (placa mínima isolamento 0,2500 mm; atual 0,2193 mm)
+    Local override; error
+    @(146.7000 mm, 86.4800 mm): PTH pad 3 [/EN] of PH_1
+    @(145.5307 mm, 103.0907 mm): Track [/IO17] on B.Cu, length 35.1414 mm
+[clearance]: Violação do isolamento (placa mínima isolamento 0,2500 mm; atual 0,2333 mm)
+    Local override; error
+    @(120.6500 mm, 102.6750 mm): PTH pad 3 [GND] of Q5
+    @(123.1900 mm, 102.6750 mm): Track [Net-(D8-K)] on F.Cu, length 1.2542 mm
+[clearance]: Violação do isolamento (placa mínima isolamento 0,2500 mm; atual 0,2292 mm)
+    Local override; error
+    @(131.9392 mm, 100.3092 mm): Track [/IO15] on F.Cu, length 13.6316 mm
+    @(140.9700 mm, 99.1800 mm): PTH pad 2 [Net-(Q6-G)] of R18
+[clearance]: Violação do isolamento (placa mínima isolamento 0,2500 mm; atual 0,2333 mm)
+    Local override; error
+    @(120.6500 mm, 102.6750 mm): PTH pad 3 [GND] of Q5
+    @(121.9358 mm, 102.6750 mm): Track [Net-(D8-K)] on F.Cu, length 0.5487 mm
+[clearance]: Violação do isolamento (placa mínima isolamento 0,2500 mm; atual 0,2446 mm)
+    Local override; error
+    @(130.8100 mm, 96.0050 mm): PTH pad 2 [Net-(Q5-G)] of R15
+    @(129.4146 mm, 94.8604 mm): Track [Net-(Q6-G)] on F.Cu, length 7.2358 mm
+[clearance]: Violação do isolamento (placa mínima isolamento 0,2500 mm; atual 0,2017 mm)
+    Local override; error
+    @(146.7000 mm, 111.8800 mm): PTH pad 13 [/IO3] of PH_1
+    @(147.8517 mm, 115.8083 mm): Track [/IO9] on B.Cu, length 10.6016 mm
+[clearance]: Violação do isolamento (placa mínima isolamento 0,2500 mm; atual 0,2111 mm)
+    Local override; error
+    @(120.6500 mm, 88.6460 mm): PTH pad 3 [GND] of Q3
+    @(121.9358 mm, 89.1947 mm): Track [Net-(D6-K)] on F.Cu, length 1.0858 mm
+[clearance]: Violação do isolamento (placa mínima isolamento 0,2500 mm; atual 0,2333 mm)
+    Local override; error
+    @(120.6500 mm, 88.6460 mm): PTH pad 3 [GND] of Q3
+    @(123.1900 mm, 88.6460 mm): Track [Net-(D6-K)] on F.Cu, length 1.2542 mm
+[clearance]: Violação do isolamento (placa mínima isolamento 0,2500 mm; atual 0,2333 mm)
+    Local override; error
+    @(120.6500 mm, 88.6460 mm): PTH pad 3 [GND] of Q3
+    @(121.9358 mm, 88.6460 mm): Track [Net-(D6-K)] on F.Cu, length 0.5487 mm
+[clearance]: Violação do isolamento (placa mínima isolamento 0,2500 mm; atual 0,2165 mm)
+    Local override; error
+    @(120.6500 mm, 88.6460 mm): PTH pad 3 [GND] of Q3
+    @(121.1680 mm, 89.9625 mm): Track [Net-(D6-K)] on F.Cu, length 6.6338 mm
+[clearance]: Violação do isolamento (placa mínima isolamento 0,2500 mm; atual 0,2026 mm)
+    Local override; error
+    @(146.7000 mm, 122.0400 mm): PTH pad 17 [/IO11] of PH_1
+    @(147.8526 mm, 128.5074 mm): Track [/IO14] on B.Cu, length 9.5658 mm
+[clearance]: Violação do isolamento (placa mínima isolamento 0,2500 mm; atual 0,2017 mm)
+    Local override; error
+    @(109.2200 mm, 120.1350 mm): PTH pad 1 [Net-(D9-K)] of D9
+    @(110.4217 mm, 132.0117 mm): Track [Net-(D9-A)] on B.Cu, length 13.2150 mm
+[clearance]: Violação do isolamento (placa mínima isolamento 0,2500 mm; atual 0,2304 mm)
+    Local override; error
+    @(146.3006 mm, 118.2300 mm): Track [/IO14] on B.Cu, length 2.3407 mm
+    @(146.7000 mm, 116.9600 mm): PTH pad 15 [/IO9] of PH_1
+[clearance]: Violação do isolamento (placa mínima isolamento 0,2500 mm; atual 0,2333 mm)
+    Local override; error
+    @(135.8900 mm, 88.6460 mm): Track [Net-(D7-K)] on F.Cu, length 1.2542 mm
+    @(133.3500 mm, 88.6460 mm): PTH pad 3 [GND] of Q4
+[clearance]: Violação do isolamento (placa mínima isolamento 0,2500 mm; atual 0,2333 mm)
+    Local override; error
+    @(134.6358 mm, 88.6460 mm): Track [Net-(D7-K)] on F.Cu, length 0.5487 mm
+    @(133.3500 mm, 88.6460 mm): PTH pad 3 [GND] of Q4
+[clearance]: Violação do isolamento (placa mínima isolamento 0,2500 mm; atual 0,2433 mm)
+    Local override; error
+    @(118.1100 mm, 99.1800 mm): PTH pad 1 [GND] of R14
+    @(125.0512 mm, 90.6219 mm): Track [Net-(D7-K)] on F.Cu, length 11.6972 mm
+[clearance]: Violação do isolamento (placa mínima isolamento 0,2500 mm; atual 0,2031 mm)
+    Local override; error
+    @(116.7800 mm, 98.8931 mm): Track [Net-(D7-K)] on F.Cu, length 4.7452 mm
+    @(114.3000 mm, 97.7900 mm): PTH pad 1 [+24V] of R7
+[clearance]: Violação do isolamento (placa mínima isolamento 0,2500 mm; atual 0,2449 mm)
+    Local override; error
+    @(137.1600 mm, 93.8141 mm): Track [/IO10] on B.Cu, length 5.3435 mm
+    @(140.9700 mm, 96.0050 mm): PTH pad 1 [/IO14] of R15
+[clearance]: Violação do isolamento (placa mínima isolamento 0,2500 mm; atual 0,2175 mm)
+    Local override; error
+    @(137.1600 mm, 67.3100 mm): Track [/IO10] on B.Cu, length 26.5041 mm
+    @(138.4300 mm, 88.6460 mm): PTH pad 1 [Net-(Q4-G)] of Q4
+[clearance]: Violação do isolamento (placa mínima isolamento 0,2500 mm; atual 0,2333 mm)
+    Local override; error
+    @(156.8608 mm, 105.1150 mm): Track [Net-(BZ1--)] on B.Cu, length 13.7442 mm
+    @(155.5750 mm, 105.1150 mm): PTH pad 3 [GND] of Q7
+[clearance]: Violação do isolamento (placa mínima isolamento 0,2500 mm; atual 0,2392 mm)
+    Local override; error
+    @(189.4100 mm, 44.5700 mm): PTH pad 2 [Net-(Q2-G)] of R5
+    @(190.5492 mm, 42.5342 mm): Track [/IO11] on B.Cu, length 68.3068 mm
+[lib_footprint_mismatch]: O footprint 'MODULE_DM-OLED096-636' não corresponde à cópia na biblioteca 'oled'
+    Local override; error
+    @(129.5400 mm, 122.0400 mm): Footprint U2
+[track_width]: Largura da trilha (configuração das restrições da placa largura mín 0,2500 mm; atual 0,2000 mm)
+    Rule: classe da rede 'Default'; error
+    @(161.9092 mm, 107.9342 mm): Track [Net-(Q7-G)] on B.Cu, length 1.8184 mm
+[track_width]: Largura da trilha (configuração das restrições da placa largura mín 0,2500 mm; atual 0,2000 mm)
+    Rule: classe da rede 'Default'; error
+    @(161.9092 mm, 105.1150 mm): Track [Net-(Q7-G)] on B.Cu, length 2.8192 mm
+[track_width]: Largura da trilha (configuração das restrições da placa largura mín 0,2500 mm; atual 0,2000 mm)
+    Rule: classe da rede 'Default'; error
+    @(160.6550 mm, 105.1150 mm): Track [Net-(Q7-G)] on B.Cu, length 1.2542 mm
+[track_width]: Largura da trilha (configuração das restrições da placa largura mín 0,2500 mm; atual 0,2000 mm)
+    Rule: classe da rede 'Default'; error
+    @(159.4008 mm, 104.5663 mm): Track [Net-(Q7-G)] on B.Cu, length 0.5487 mm
+[track_width]: Largura da trilha (configuração das restrições da placa largura mín 0,2500 mm; atual 0,2000 mm)
+    Rule: classe da rede 'Default'; error
+    @(158.6270 mm, 103.7925 mm): Track [Net-(Q7-G)] on B.Cu, length 1.0943 mm
+[track_width]: Largura da trilha (configuração das restrições da placa largura mín 0,2500 mm; atual 0,2000 mm)
+    Rule: classe da rede 'Default'; error
+    @(155.0727 mm, 103.7925 mm): Track [Net-(Q7-G)] on B.Cu, length 3.5543 mm
+[track_width]: Largura da trilha (configuração das restrições da placa largura mín 0,2500 mm; atual 0,2000 mm)
+    Rule: classe da rede 'Default'; error
+    @(154.1381 mm, 104.7271 mm): Track [Net-(Q7-G)] on B.Cu, length 1.3217 mm
+[track_width]: Largura da trilha (configuração das restrições da placa largura mín 0,2500 mm; atual 0,2000 mm)
+    Rule: classe da rede 'Default'; error
+    @(154.1381 mm, 111.2919 mm): Track [Net-(Q7-G)] on B.Cu, length 6.5648 mm
+[track_width]: Largura da trilha (configuração das restrições da placa largura mín 0,2500 mm; atual 0,2000 mm)
+    Rule: classe da rede 'Default'; error
+    @(153.0350 mm, 112.3950 mm): Track [Net-(Q7-G)] on B.Cu, length 1.5600 mm
+[track_width]: Largura da trilha (configuração das restrições da placa largura mín 0,2500 mm; atual 0,2000 mm)
+    Rule: classe da rede 'Default'; error
+    @(160.6550 mm, 105.1150 mm): Track [Net-(Q7-G)] on B.Cu, length 1.2542 mm
+[track_width]: Largura da trilha (configuração das restrições da placa largura mín 0,2500 mm; atual 0,2000 mm)
+    Rule: classe da rede 'Default'; error
+    @(156.8608 mm, 118.8592 mm): Track [Net-(BZ1--)] on B.Cu, length 2.7023 mm
+[track_width]: Largura da trilha (configuração das restrições da placa largura mín 0,2500 mm; atual 0,2000 mm)
+    Rule: classe da rede 'Default'; error
+    @(156.8608 mm, 105.1150 mm): Track [Net-(BZ1--)] on B.Cu, length 13.7442 mm
+[track_width]: Largura da trilha (configuração das restrições da placa largura mín 0,2500 mm; atual 0,2000 mm)
+    Rule: classe da rede 'Default'; error
+    @(158.1150 mm, 105.1150 mm): Track [Net-(BZ1--)] on B.Cu, length 1.2542 mm
+[track_width]: Largura da trilha (configuração das restrições da placa largura mín 0,2500 mm; atual 0,2000 mm)
+    Rule: classe da rede 'Default'; error
+    @(154.9500 mm, 126.3550 mm): Track [Net-(BZ1--)] on B.Cu, length 5.5850 mm
+[track_width]: Largura da trilha (configuração das restrições da placa largura mín 0,2500 mm; atual 0,2000 mm)
+    Rule: classe da rede 'Default'; error
+    @(150.4950 mm, 130.8100 mm): Track [Net-(BZ1--)] on B.Cu, length 6.3003 mm
+[track_width]: Largura da trilha (configuração das restrições da placa largura mín 0,2500 mm; atual 0,2000 mm)
+    Rule: classe da rede 'Default'; error
+    @(143.2096 mm, 116.0096 mm): Track [/IO10] on B.Cu, length 4.9362 mm
+[track_width]: Largura da trilha (configuração das restrições da placa largura mín 0,2500 mm; atual 0,2000 mm)
+    Rule: classe da rede 'Default'; error
+    @(143.2096 mm, 99.7532 mm): Track [/IO10] on B.Cu, length 16.2564 mm
+[track_width]: Largura da trilha (configuração das restrições da placa largura mín 0,2500 mm; atual 0,2000 mm)
+    Rule: classe da rede 'Default'; error
+    @(141.0489 mm, 97.5925 mm): Track [/IO10] on B.Cu, length 3.0557 mm
+[track_width]: Largura da trilha (configuração das restrições da placa largura mín 0,2500 mm; atual 0,2000 mm)
+    Rule: classe da rede 'Default'; error
+    @(140.9384 mm, 97.5925 mm): Track [/IO10] on B.Cu, length 0.1105 mm
+[track_width]: Largura da trilha (configuração das restrições da placa largura mín 0,2500 mm; atual 0,2000 mm)
+    Rule: classe da rede 'Default'; error
+    @(137.1600 mm, 93.8141 mm): Track [/IO10] on B.Cu, length 5.3435 mm
+[track_width]: Largura da trilha (configuração das restrições da placa largura mín 0,2500 mm; atual 0,2000 mm)
+    Rule: classe da rede 'Default'; error
+    @(137.1600 mm, 67.3100 mm): Track [/IO10] on B.Cu, length 26.5041 mm
+[track_width]: Largura da trilha (configuração das restrições da placa largura mín 0,2500 mm; atual 0,2000 mm)
+    Rule: classe da rede 'Default'; error
+    @(140.9700 mm, 63.5000 mm): Track [/IO10] on B.Cu, length 5.3882 mm
+[track_width]: Largura da trilha (configuração das restrições da placa largura mín 0,2500 mm; atual 0,2000 mm)
+    Rule: classe da rede 'Default'; error
+    @(153.0350 mm, 108.0550 mm): Track [/IO16] on B.Cu, length 1.1650 mm
+[track_width]: Largura da trilha (configuração das restrições da placa largura mín 0,2500 mm; atual 0,2000 mm)
+    Rule: classe da rede 'Default'; error
+    @(146.7000 mm, 101.7200 mm): Track [/IO16] on B.Cu, length 8.9590 mm
+[track_width]: Largura da trilha (configuração das restrições da placa largura mín 0,2500 mm; atual 0,2000 mm)
+    Rule: classe da rede 'Default'; error
+    @(146.7000 mm, 83.9400 mm): Track [+3.3V] on B.Cu, length 2.5400 mm
+[track_width]: Largura da trilha (configuração das restrições da placa largura mín 0,2500 mm; atual 0,2000 mm)
+    Rule: classe da rede 'Default'; error
+    @(132.0578 mm, 86.7188 mm): Track [/IO13] on B.Cu, length 1.7647 mm
+[track_width]: Largura da trilha (configuração das restrições da placa largura mín 0,2500 mm; atual 0,2000 mm)
+    Rule: classe da rede 'Default'; error
+    @(132.0578 mm, 112.4778 mm): Track [/IO13] on B.Cu, length 25.7590 mm
+[track_width]: Largura da trilha (configuração das restrições da placa largura mín 0,2500 mm; atual 0,2000 mm)
+    Rule: classe da rede 'Default'; error
+    @(146.7000 mm, 127.1200 mm): Track [/IO13] on B.Cu, length 20.7072 mm
+[track_width]: Largura da trilha (configuração das restrições da placa largura mín 0,2500 mm; atual 0,2000 mm)
+    Rule: classe da rede 'Default'; error
+    @(190.5492 mm, 42.5342 mm): Track [/IO11] on B.Cu, length 68.3068 mm
+[track_width]: Largura da trilha (configuração das restrições da placa largura mín 0,2500 mm; atual 0,2000 mm)
+    Rule: classe da rede 'Default'; error
+    @(189.4100 mm, 41.3950 mm): Track [/IO11] on B.Cu, length 1.6111 mm
+[track_width]: Largura da trilha (configuração das restrições da placa largura mín 0,2500 mm; atual 0,2000 mm)
+    Rule: classe da rede 'Default'; error
+    @(188.2402 mm, 113.1500 mm): Track [/IO11] on F.Cu, length 3.2654 mm
+[track_width]: Largura da trilha (configuração das restrições da placa largura mín 0,2500 mm; atual 0,2000 mm)
+    Rule: classe da rede 'Default'; error
+    @(165.1636 mm, 113.1500 mm): Track [/IO11] on F.Cu, length 23.0766 mm
+[track_width]: Largura da trilha (configuração das restrições da placa largura mín 0,2500 mm; atual 0,2000 mm)
+    Rule: classe da rede 'Default'; error
+    @(159.7525 mm, 118.5611 mm): Track [/IO11] on F.Cu, length 7.6525 mm
+[track_width]: Largura da trilha (configuração das restrições da placa largura mín 0,2500 mm; atual 0,2000 mm)
+    Rule: classe da rede 'Default'; error
+    @(150.1789 mm, 118.5611 mm): Track [/IO11] on F.Cu, length 9.5736 mm
+[track_width]: Largura da trilha (configuração das restrições da placa largura mín 0,2500 mm; atual 0,2000 mm)
+    Rule: classe da rede 'Default'; error
+    @(146.7000 mm, 122.0400 mm): Track [/IO11] on F.Cu, length 4.9199 mm
+[track_width]: Largura da trilha (configuração das restrições da placa largura mín 0,2500 mm; atual 0,2000 mm)
+    Rule: classe da rede 'Default'; error
+    @(102.6925 mm, 97.2800 mm): Track [Net-(D7-K)] on F.Cu, length 3.5850 mm
+[track_width]: Largura da trilha (configuração das restrições da placa largura mín 0,2500 mm; atual 0,2000 mm)
+    Rule: classe da rede 'Default'; error
+    @(109.2200 mm, 97.2800 mm): Track [Net-(D7-K)] on F.Cu, length 6.5275 mm
+[track_width]: Largura da trilha (configuração das restrições da placa largura mín 0,2500 mm; atual 0,2000 mm)
+    Rule: classe da rede 'Default'; error
+    @(112.0348 mm, 98.8931 mm): Track [Net-(D7-K)] on F.Cu, length 2.2813 mm
+[track_width]: Largura da trilha (configuração das restrições da placa largura mín 0,2500 mm; atual 0,2000 mm)
+    Rule: classe da rede 'Default'; error
+    @(116.7800 mm, 98.8931 mm): Track [Net-(D7-K)] on F.Cu, length 4.7452 mm
+[track_width]: Largura da trilha (configuração das restrições da placa largura mín 0,2500 mm; atual 0,2000 mm)
+    Rule: classe da rede 'Default'; error
+    @(125.0512 mm, 90.6219 mm): Track [Net-(D7-K)] on F.Cu, length 11.6972 mm
+[track_width]: Largura da trilha (configuração das restrições da placa largura mín 0,2500 mm; atual 0,2000 mm)
+    Rule: classe da rede 'Default'; error
+    @(133.2086 mm, 90.6219 mm): Track [Net-(D7-K)] on F.Cu, length 8.1574 mm
+[track_width]: Largura da trilha (configuração das restrições da placa largura mín 0,2500 mm; atual 0,2000 mm)
+    Rule: classe da rede 'Default'; error
+    @(134.6358 mm, 89.1947 mm): Track [Net-(D7-K)] on F.Cu, length 2.0184 mm
+[track_width]: Largura da trilha (configuração das restrições da placa largura mín 0,2500 mm; atual 0,2000 mm)
+    Rule: classe da rede 'Default'; error
+    @(134.6358 mm, 88.6460 mm): Track [Net-(D7-K)] on F.Cu, length 0.5487 mm
+[track_width]: Largura da trilha (configuração das restrições da placa largura mín 0,2500 mm; atual 0,2000 mm)
+    Rule: classe da rede 'Default'; error
+    @(135.8900 mm, 88.6460 mm): Track [Net-(D7-K)] on F.Cu, length 1.2542 mm
+[track_width]: Largura da trilha (configuração das restrições da placa largura mín 0,2500 mm; atual 0,2000 mm)
+    Rule: classe da rede 'Default'; error
+    @(109.2200 mm, 97.2800 mm): Track [Net-(D7-K)] on F.Cu, length 1.2017 mm
+[track_width]: Largura da trilha (configuração das restrições da placa largura mín 0,2500 mm; atual 0,2000 mm)
+    Rule: classe da rede 'Default'; error
+    @(102.6160 mm, 48.0840 mm): Track [Net-(SW4-B)] on B.Cu, length 7.8333 mm
+[track_width]: Largura da trilha (configuração das restrições da placa largura mín 0,2500 mm; atual 0,2000 mm)
+    Rule: classe da rede 'Default'; error
+    @(102.6160 mm, 53.3400 mm): Track [Net-(SW4-B)] on B.Cu, length 5.2560 mm
+[track_width]: Largura da trilha (configuração das restrições da placa largura mín 0,2500 mm; atual 0,2000 mm)
+    Rule: classe da rede 'Default'; error
+    @(108.1550 mm, 42.5450 mm): Track [Net-(SW4-B)] on F.Cu, length 3.4000 mm
+[track_width]: Largura da trilha (configuração das restrições da placa largura mín 0,2500 mm; atual 0,2000 mm)
+    Rule: classe da rede 'Default'; error
+    @(111.2500 mm, 71.8800 mm): Track [Net-(D4-A)] on F.Cu, length 4.3134 mm
+[track_width]: Largura da trilha (configuração das restrições da placa largura mín 0,2500 mm; atual 0,2000 mm)
+    Rule: classe da rede 'Default'; error
+    @(109.2200 mm, 71.8800 mm): Track [Net-(D4-A)] on F.Cu, length 2.0300 mm
+[track_width]: Largura da trilha (configuração das restrições da placa largura mín 0,2500 mm; atual 0,2000 mm)
+    Rule: classe da rede 'Default'; error
+    @(113.5400 mm, 87.6300 mm): Track [Net-(D6-A)] on F.Cu, length 0.7600 mm
+[track_width]: Largura da trilha (configuração das restrições da placa largura mín 0,2500 mm; atual 0,2000 mm)
+    Rule: classe da rede 'Default'; error
+    @(109.2200 mm, 83.3100 mm): Track [Net-(D6-A)] on F.Cu, length 6.1094 mm
+[track_width]: Largura da trilha (configuração das restrições da placa largura mín 0,2500 mm; atual 0,2000 mm)
+    Rule: classe da rede 'Default'; error
+    @(111.2469 mm, 108.1969 mm): Track [Net-(D8-A)] on B.Cu, length 2.8665 mm
+[track_width]: Largura da trilha (configuração das restrições da placa largura mín 0,2500 mm; atual 0,2000 mm)
+    Rule: classe da rede 'Default'; error
+    @(111.2469 mm, 120.1369 mm): Track [Net-(D8-A)] on B.Cu, length 11.9400 mm
+[track_width]: Largura da trilha (configuração das restrições da placa largura mín 0,2500 mm; atual 0,2000 mm)
+    Rule: classe da rede 'Default'; error
+    @(114.3000 mm, 123.1900 mm): Track [Net-(D8-A)] on B.Cu, length 4.3177 mm
+[track_width]: Largura da trilha (configuração das restrições da placa largura mín 0,2500 mm; atual 0,2000 mm)
+    Rule: classe da rede 'Default'; error
+    @(126.9842 mm, 100.4658 mm): Track [Net-(Q5-G)] on B.Cu, length 1.8184 mm
+[track_width]: Largura da trilha (configuração das restrições da placa largura mín 0,2500 mm; atual 0,2000 mm)
+    Rule: classe da rede 'Default'; error
+    @(126.9842 mm, 102.6750 mm): Track [Net-(Q5-G)] on B.Cu, length 2.2092 mm
+[track_width]: Largura da trilha (configuração das restrições da placa largura mín 0,2500 mm; atual 0,2000 mm)
+    Rule: classe da rede 'Default'; error
+    @(125.7300 mm, 102.6750 mm): Track [Net-(Q5-G)] on B.Cu, length 1.2542 mm
+[track_width]: Largura da trilha (configuração das restrições da placa largura mín 0,2500 mm; atual 0,2000 mm)
+    Rule: classe da rede 'Default'; error
+    @(128.2700 mm, 98.5450 mm): Track [Net-(Q5-G)] on F.Cu, length 0.6350 mm
+[track_width]: Largura da trilha (configuração das restrições da placa largura mín 0,2500 mm; atual 0,2000 mm)
+    Rule: classe da rede 'Default'; error
+    @(130.8100 mm, 96.0050 mm): Track [Net-(Q5-G)] on F.Cu, length 3.5921 mm
+[track_width]: Largura da trilha (configuração das restrições da placa largura mín 0,2500 mm; atual 0,2000 mm)
+    Rule: classe da rede 'Default'; error
+    @(144.6454 mm, 99.6804 mm): Track [/IO14] on B.Cu, length 5.1978 mm
+[track_width]: Largura da trilha (configuração das restrições da placa largura mín 0,2500 mm; atual 0,2000 mm)
+    Rule: classe da rede 'Default'; error
+    @(144.6455 mm, 99.6804 mm): Track [/IO14] on B.Cu, length 0.0001 mm
+[track_width]: Largura da trilha (configuração das restrições da placa largura mín 0,2500 mm; atual 0,2000 mm)
+    Rule: classe da rede 'Default'; error
+    @(144.6455 mm, 116.5749 mm): Track [/IO14] on B.Cu, length 16.8945 mm
+[track_width]: Largura da trilha (configuração das restrições da placa largura mín 0,2500 mm; atual 0,2000 mm)
+    Rule: classe da rede 'Default'; error
+    @(146.3006 mm, 118.2300 mm): Track [/IO14] on B.Cu, length 2.3407 mm
+[track_width]: Largura da trilha (configuração das restrições da placa largura mín 0,2500 mm; atual 0,2000 mm)
+    Rule: classe da rede 'Default'; error
+    @(147.1410 mm, 118.2300 mm): Track [/IO14] on B.Cu, length 0.8404 mm
+[track_width]: Largura da trilha (configuração das restrições da placa largura mín 0,2500 mm; atual 0,2000 mm)
+    Rule: classe da rede 'Default'; error
+    @(147.8526 mm, 118.9416 mm): Track [/IO14] on B.Cu, length 1.0064 mm
+[track_width]: Largura da trilha (configuração das restrições da placa largura mín 0,2500 mm; atual 0,2000 mm)
+    Rule: classe da rede 'Default'; error
+    @(147.8526 mm, 128.5074 mm): Track [/IO14] on B.Cu, length 9.5658 mm
+[track_width]: Largura da trilha (configuração das restrições da placa largura mín 0,2500 mm; atual 0,2000 mm)
+    Rule: classe da rede 'Default'; error
+    @(146.7000 mm, 129.6600 mm): Track [/IO14] on B.Cu, length 1.6300 mm
+[track_width]: Largura da trilha (configuração das restrições da placa largura mín 0,2500 mm; atual 0,2000 mm)
+    Rule: classe da rede 'Default'; error
+    @(110.4217 mm, 118.7967 mm): Track [Net-(D9-A)] on B.Cu, length 1.6995 mm
+[track_width]: Largura da trilha (configuração das restrições da placa largura mín 0,2500 mm; atual 0,2000 mm)
+    Rule: classe da rede 'Default'; error
+    @(110.4217 mm, 132.0117 mm): Track [Net-(D9-A)] on B.Cu, length 13.2150 mm
+[track_width]: Largura da trilha (configuração das restrições da placa largura mín 0,2500 mm; atual 0,2000 mm)
+    Rule: classe da rede 'Default'; error
+    @(114.3000 mm, 135.8900 mm): Track [Net-(D9-A)] on B.Cu, length 5.4847 mm
+[track_width]: Largura da trilha (configuração das restrições da placa largura mín 0,2500 mm; atual 0,2000 mm)
+    Rule: classe da rede 'Default'; error
+    @(112.5200 mm, 60.4500 mm): Track [Net-(D2-A)] on F.Cu, length 2.5173 mm
+[track_width]: Largura da trilha (configuração das restrições da placa largura mín 0,2500 mm; atual 0,2000 mm)
+    Rule: classe da rede 'Default'; error
+    @(109.2200 mm, 60.4500 mm): Track [Net-(D2-A)] on F.Cu, length 3.3000 mm
+[track_width]: Largura da trilha (configuração das restrições da placa largura mín 0,2500 mm; atual 0,2000 mm)
+    Rule: classe da rede 'Default'; error
+    @(114.3000 mm, 99.8200 mm): Track [Net-(D7-A)] on B.Cu, length 0.5100 mm
+[track_width]: Largura da trilha (configuração das restrições da placa largura mín 0,2500 mm; atual 0,2000 mm)
+    Rule: classe da rede 'Default'; error
+    @(109.2200 mm, 94.7400 mm): Track [Net-(D7-A)] on B.Cu, length 7.1842 mm
+[track_width]: Largura da trilha (configuração das restrições da placa largura mín 0,2500 mm; atual 0,2000 mm)
+    Rule: classe da rede 'Default'; error
+    @(102.6925 mm, 85.8500 mm): Track [Net-(D6-K)] on F.Cu, length 3.5850 mm
+[track_width]: Largura da trilha (configuração das restrições da placa largura mín 0,2500 mm; atual 0,2000 mm)
+    Rule: classe da rede 'Default'; error
+    @(109.2200 mm, 85.8500 mm): Track [Net-(D6-K)] on F.Cu, length 6.5275 mm
+[track_width]: Largura da trilha (configuração das restrições da placa largura mín 0,2500 mm; atual 0,2000 mm)
+    Rule: classe da rede 'Default'; error
+    @(114.5342 mm, 89.9625 mm): Track [Net-(D6-K)] on F.Cu, length 5.8160 mm
+[track_width]: Largura da trilha (configuração das restrições da placa largura mín 0,2500 mm; atual 0,2000 mm)
+    Rule: classe da rede 'Default'; error
+    @(121.1680 mm, 89.9625 mm): Track [Net-(D6-K)] on F.Cu, length 6.6338 mm
+[track_width]: Largura da trilha (configuração das restrições da placa largura mín 0,2500 mm; atual 0,2000 mm)
+    Rule: classe da rede 'Default'; error
+    @(121.9358 mm, 89.1947 mm): Track [Net-(D6-K)] on F.Cu, length 1.0858 mm
+[track_width]: Largura da trilha (configuração das restrições da placa largura mín 0,2500 mm; atual 0,2000 mm)
+    Rule: classe da rede 'Default'; error
+    @(121.9358 mm, 88.6460 mm): Track [Net-(D6-K)] on F.Cu, length 0.5487 mm
+[track_width]: Largura da trilha (configuração das restrições da placa largura mín 0,2500 mm; atual 0,2000 mm)
+    Rule: classe da rede 'Default'; error
+    @(123.1900 mm, 88.6460 mm): Track [Net-(D6-K)] on F.Cu, length 1.2542 mm
+[track_width]: Largura da trilha (configuração das restrições da placa largura mín 0,2500 mm; atual 0,2000 mm)
+    Rule: classe da rede 'Default'; error
+    @(109.2200 mm, 85.8500 mm): Track [Net-(D6-K)] on F.Cu, length 1.2017 mm
+[track_width]: Largura da trilha (configuração das restrições da placa largura mín 0,2500 mm; atual 0,2000 mm)
+    Rule: classe da rede 'Default'; error
+    @(186.9983 mm, 92.9900 mm): Track [/IO8] on F.Cu, length 0.4525 mm
+[track_width]: Largura da trilha (configuração das restrições da placa largura mín 0,2500 mm; atual 0,2000 mm)
+    Rule: classe da rede 'Default'; error
+    @(179.0700 mm, 92.9900 mm): Track [/IO8] on F.Cu, length 7.9283 mm
+[track_width]: Largura da trilha (configuração das restrições da placa largura mín 0,2500 mm; atual 0,2000 mm)
+    Rule: classe da rede 'Default'; error
+    @(188.5950 mm, 92.6700 mm): Track [/IO8] on F.Cu, length 1.2767 mm
+[track_width]: Largura da trilha (configuração das restrições da placa largura mín 0,2500 mm; atual 0,2000 mm)
+    Rule: classe da rede 'Default'; error
+    @(179.0700 mm, 92.9900 mm): Track [/IO8] on F.Cu, length 1.1517 mm
+[track_width]: Largura da trilha (configuração das restrições da placa largura mín 0,2500 mm; atual 0,2000 mm)
+    Rule: classe da rede 'Default'; error
+    @(146.5426 mm, 109.1826 mm): Track [/IO8] on F.Cu, length 0.2226 mm
+[track_width]: Largura da trilha (configuração das restrições da placa largura mín 0,2500 mm; atual 0,2000 mm)
+    Rule: classe da rede 'Default'; error
+    @(134.7074 mm, 109.1826 mm): Track [/IO8] on F.Cu, length 11.8352 mm
+[track_width]: Largura da trilha (configuração das restrições da placa largura mín 0,2500 mm; atual 0,2000 mm)
+    Rule: classe da rede 'Default'; error
+    @(133.3500 mm, 110.5400 mm): Track [/IO8] on F.Cu, length 1.9197 mm
+[track_width]: Largura da trilha (configuração das restrições da placa largura mín 0,2500 mm; atual 0,2000 mm)
+    Rule: classe da rede 'Default'; error
+    @(158.1300 mm, 97.9100 mm): Track [/IO8] on F.Cu, length 16.1645 mm
+[track_width]: Largura da trilha (configuração das restrições da placa largura mín 0,2500 mm; atual 0,2000 mm)
+    Rule: classe da rede 'Default'; error
+    @(174.1500 mm, 97.9100 mm): Track [/IO8] on F.Cu, length 16.0200 mm
+[track_width]: Largura da trilha (configuração das restrições da placa largura mín 0,2500 mm; atual 0,2000 mm)
+    Rule: classe da rede 'Default'; error
+    @(177.9183 mm, 94.1417 mm): Track [/IO8] on F.Cu, length 5.3292 mm
+[track_width]: Largura da trilha (configuração das restrições da placa largura mín 0,2500 mm; atual 0,2000 mm)
+    Rule: classe da rede 'Default'; error
+    @(179.0700 mm, 94.1417 mm): Track [/IO8] on F.Cu, length 1.1517 mm
+[track_width]: Largura da trilha (configuração das restrições da placa largura mín 0,2500 mm; atual 0,2000 mm)
+    Rule: classe da rede 'Default'; error
+    @(186.9983 mm, 90.4900 mm): Track [/IO9] on F.Cu, length 0.4525 mm
+[track_width]: Largura da trilha (configuração das restrições da placa largura mín 0,2500 mm; atual 0,2000 mm)
+    Rule: classe da rede 'Default'; error
+    @(179.0700 mm, 90.4900 mm): Track [/IO9] on F.Cu, length 7.9283 mm
+[track_width]: Largura da trilha (configuração das restrições da placa largura mín 0,2500 mm; atual 0,2000 mm)
+    Rule: classe da rede 'Default'; error
+    @(188.5950 mm, 90.1700 mm): Track [/IO9] on F.Cu, length 1.2767 mm
+[track_width]: Largura da trilha (configuração das restrições da placa largura mín 0,2500 mm; atual 0,2000 mm)
+    Rule: classe da rede 'Default'; error
+    @(137.2300 mm, 116.9600 mm): Track [/IO9] on F.Cu, length 9.4700 mm
+[track_width]: Largura da trilha (configuração das restrições da placa largura mín 0,2500 mm; atual 0,2000 mm)
+    Rule: classe da rede 'Default'; error
+    @(130.8100 mm, 110.5400 mm): Track [/IO9] on F.Cu, length 9.0793 mm
+[track_width]: Largura da trilha (configuração das restrições da placa largura mín 0,2500 mm; atual 0,2000 mm)
+    Rule: classe da rede 'Default'; error
+    @(179.0700 mm, 90.4900 mm): Track [/IO9] on F.Cu, length 1.1517 mm
+[track_width]: Largura da trilha (configuração das restrições da placa largura mín 0,2500 mm; atual 0,2000 mm)
+    Rule: classe da rede 'Default'; error
+    @(147.8517 mm, 115.8083 mm): Track [/IO9] on B.Cu, length 10.6016 mm
+[track_width]: Largura da trilha (configuração das restrições da placa largura mín 0,2500 mm; atual 0,2000 mm)
+    Rule: classe da rede 'Default'; error
+    @(146.7000 mm, 116.9600 mm): Track [/IO9] on B.Cu, length 1.6287 mm
+[track_width]: Largura da trilha (configuração das restrições da placa largura mín 0,2500 mm; atual 0,2000 mm)
+    Rule: classe da rede 'Default'; error
+    @(160.1684 mm, 92.8900 mm): Track [/IO9] on F.Cu, length 17.4184 mm
+[track_width]: Largura da trilha (configuração das restrições da placa largura mín 0,2500 mm; atual 0,2000 mm)
+    Rule: classe da rede 'Default'; error
+    @(176.6700 mm, 92.8900 mm): Track [/IO9] on F.Cu, length 16.5016 mm
+[track_width]: Largura da trilha (configuração das restrições da placa largura mín 0,2500 mm; atual 0,2000 mm)
+    Rule: classe da rede 'Default'; error
+    @(177.9183 mm, 91.6417 mm): Track [/IO9] on F.Cu, length 1.7654 mm
+[track_width]: Largura da trilha (configuração das restrições da placa largura mín 0,2500 mm; atual 0,2000 mm)
+    Rule: classe da rede 'Default'; error
+    @(179.0700 mm, 91.6417 mm): Track [/IO9] on F.Cu, length 1.1517 mm
+[track_width]: Largura da trilha (configuração das restrições da placa largura mín 0,2500 mm; atual 0,2000 mm)
+    Rule: classe da rede 'Default'; error
+    @(139.6842 mm, 100.4658 mm): Track [Net-(Q6-G)] on B.Cu, length 1.8184 mm
+[track_width]: Largura da trilha (configuração das restrições da placa largura mín 0,2500 mm; atual 0,2000 mm)
+    Rule: classe da rede 'Default'; error
+    @(139.6842 mm, 102.6750 mm): Track [Net-(Q6-G)] on B.Cu, length 2.2092 mm
+[track_width]: Largura da trilha (configuração das restrições da placa largura mín 0,2500 mm; atual 0,2000 mm)
+    Rule: classe da rede 'Default'; error
+    @(138.4300 mm, 102.6750 mm): Track [Net-(Q6-G)] on B.Cu, length 1.2542 mm
+[track_width]: Largura da trilha (configuração das restrições da placa largura mín 0,2500 mm; atual 0,2000 mm)
+    Rule: classe da rede 'Default'; error
+    @(136.6504 mm, 94.8604 mm): Track [Net-(Q6-G)] on F.Cu, length 6.1088 mm
+[track_width]: Largura da trilha (configuração das restrições da placa largura mín 0,2500 mm; atual 0,2000 mm)
+    Rule: classe da rede 'Default'; error
+    @(129.4146 mm, 94.8604 mm): Track [Net-(Q6-G)] on F.Cu, length 7.2358 mm
+[track_width]: Largura da trilha (configuração das restrições da placa largura mín 0,2500 mm; atual 0,2000 mm)
+    Rule: classe da rede 'Default'; error
+    @(128.2700 mm, 96.0050 mm): Track [Net-(Q6-G)] on F.Cu, length 1.6187 mm
+[track_width]: Largura da trilha (configuração das restrições da placa largura mín 0,2500 mm; atual 0,2000 mm)
+    Rule: classe da rede 'Default'; error
+    @(145.5708 mm, 100.3092 mm): Track [/IO15] on F.Cu, length 1.5969 mm
+[track_width]: Largura da trilha (configuração das restrições da placa largura mín 0,2500 mm; atual 0,2000 mm)
+    Rule: classe da rede 'Default'; error
+    @(131.9392 mm, 100.3092 mm): Track [/IO15] on F.Cu, length 13.6316 mm
+[track_width]: Largura da trilha (configuração das restrições da placa largura mín 0,2500 mm; atual 0,2000 mm)
+    Rule: classe da rede 'Default'; error
+    @(130.8100 mm, 99.1800 mm): Track [/IO15] on F.Cu, length 1.5969 mm
+[track_width]: Largura da trilha (configuração das restrições da placa largura mín 0,2500 mm; atual 0,2000 mm)
+    Rule: classe da rede 'Default'; error
+    @(162.9439 mm, 62.0989 mm): Track [/IO17] on F.Cu, length 0.3551 mm
+[track_width]: Largura da trilha (configuração das restrições da placa largura mín 0,2500 mm; atual 0,2000 mm)
+    Rule: classe da rede 'Default'; error
+    @(151.3811 mm, 62.0989 mm): Track [/IO17] on F.Cu, length 11.5628 mm
+[track_width]: Largura da trilha (configuração das restrições da placa largura mín 0,2500 mm; atual 0,2000 mm)
+    Rule: classe da rede 'Default'; error
+    @(149.8600 mm, 63.6200 mm): Track [/IO17] on F.Cu, length 2.1512 mm
+[track_width]: Largura da trilha (configuração das restrições da placa largura mín 0,2500 mm; atual 0,2000 mm)
+    Rule: classe da rede 'Default'; error
+    @(145.5307 mm, 67.9493 mm): Track [/IO17] on B.Cu, length 6.1226 mm
+[track_width]: Largura da trilha (configuração das restrições da placa largura mín 0,2500 mm; atual 0,2000 mm)
+    Rule: classe da rede 'Default'; error
+    @(145.5307 mm, 103.0907 mm): Track [/IO17] on B.Cu, length 35.1414 mm
+[track_width]: Largura da trilha (configuração das restrições da placa largura mín 0,2500 mm; atual 0,2000 mm)
+    Rule: classe da rede 'Default'; error
+    @(146.7000 mm, 104.2600 mm): Track [/IO17] on B.Cu, length 1.6536 mm
+[track_width]: Largura da trilha (configuração das restrições da placa largura mín 0,2500 mm; atual 0,2000 mm)
+    Rule: classe da rede 'Default'; error
+    @(102.6925 mm, 108.7100 mm): Track [Net-(D8-K)] on F.Cu, length 3.5850 mm
+[track_width]: Largura da trilha (configuração das restrições da placa largura mín 0,2500 mm; atual 0,2000 mm)
+    Rule: classe da rede 'Default'; error
+    @(109.2200 mm, 108.7100 mm): Track [Net-(D8-K)] on F.Cu, length 6.5275 mm
+[track_width]: Largura da trilha (configuração das restrições da placa largura mín 0,2500 mm; atual 0,2000 mm)
+    Rule: classe da rede 'Default'; error
+    @(116.4495 mm, 108.7100 mm): Track [Net-(D8-K)] on F.Cu, length 7.2295 mm
+[track_width]: Largura da trilha (configuração das restrições da placa largura mín 0,2500 mm; atual 0,2000 mm)
+    Rule: classe da rede 'Default'; error
+    @(121.9358 mm, 103.2237 mm): Track [Net-(D8-K)] on F.Cu, length 7.7588 mm
+[track_width]: Largura da trilha (configuração das restrições da placa largura mín 0,2500 mm; atual 0,2000 mm)
+    Rule: classe da rede 'Default'; error
+    @(121.9358 mm, 102.6750 mm): Track [Net-(D8-K)] on F.Cu, length 0.5487 mm
+[track_width]: Largura da trilha (configuração das restrições da placa largura mín 0,2500 mm; atual 0,2000 mm)
+    Rule: classe da rede 'Default'; error
+    @(123.1900 mm, 102.6750 mm): Track [Net-(D8-K)] on F.Cu, length 1.2542 mm
+[track_width]: Largura da trilha (configuração das restrições da placa largura mín 0,2500 mm; atual 0,2000 mm)
+    Rule: classe da rede 'Default'; error
+    @(187.4433 mm, 71.0817 mm): Track [/IO18] on F.Cu, length 1.1517 mm
+[track_width]: Largura da trilha (configuração das restrições da placa largura mín 0,2500 mm; atual 0,2000 mm)
+    Rule: classe da rede 'Default'; error
+    @(183.1766 mm, 75.3484 mm): Track [/IO18] on F.Cu, length 6.0340 mm
+[track_width]: Largura da trilha (configuração das restrições da placa largura mín 0,2500 mm; atual 0,2000 mm)
+    Rule: classe da rede 'Default'; error
+    @(172.3633 mm, 75.3484 mm): Track [/IO18] on F.Cu, length 10.8133 mm
+[track_width]: Largura da trilha (configuração das restrições da placa largura mín 0,2500 mm; atual 0,2000 mm)
+    Rule: classe da rede 'Default'; error
+    @(167.9402 mm, 79.7715 mm): Track [/IO18] on F.Cu, length 6.2552 mm
+[track_width]: Largura da trilha (configuração das restrições da placa largura mín 0,2500 mm; atual 0,2000 mm)
+    Rule: classe da rede 'Default'; error
+    @(160.6213 mm, 79.7715 mm): Track [/IO18] on F.Cu, length 7.3189 mm
+[track_width]: Largura da trilha (configuração das restrições da placa largura mín 0,2500 mm; atual 0,2000 mm)
+    Rule: classe da rede 'Default'; error
+    @(152.6428 mm, 87.7500 mm): Track [/IO18] on F.Cu, length 11.2833 mm
+[track_width]: Largura da trilha (configuração das restrições da placa largura mín 0,2500 mm; atual 0,2000 mm)
+    Rule: classe da rede 'Default'; error
+    @(146.3403 mm, 87.7500 mm): Track [/IO18] on F.Cu, length 6.3025 mm
+[track_width]: Largura da trilha (configuração das restrições da placa largura mín 0,2500 mm; atual 0,2000 mm)
+    Rule: classe da rede 'Default'; error
+    @(145.5262 mm, 88.5641 mm): Track [/IO18] on F.Cu, length 1.1513 mm
+[track_width]: Largura da trilha (configuração das restrições da placa largura mín 0,2500 mm; atual 0,2000 mm)
+    Rule: classe da rede 'Default'; error
+    @(145.5262 mm, 97.1106 mm): Track [/IO18] on F.Cu, length 8.5465 mm
+[track_width]: Largura da trilha (configuração das restrições da placa largura mín 0,2500 mm; atual 0,2000 mm)
+    Rule: classe da rede 'Default'; error
+    @(146.3256 mm, 97.9100 mm): Track [/IO18] on F.Cu, length 1.1305 mm
+[track_width]: Largura da trilha (configuração das restrições da placa largura mín 0,2500 mm; atual 0,2000 mm)
+    Rule: classe da rede 'Default'; error
+    @(147.1014 mm, 97.9100 mm): Track [/IO18] on F.Cu, length 0.7758 mm
+[track_width]: Largura da trilha (configuração das restrições da placa largura mín 0,2500 mm; atual 0,2000 mm)
+    Rule: classe da rede 'Default'; error
+    @(147.8874 mm, 98.6960 mm): Track [/IO18] on F.Cu, length 1.1116 mm
+[track_width]: Largura da trilha (configuração das restrições da placa largura mín 0,2500 mm; atual 0,2000 mm)
+    Rule: classe da rede 'Default'; error
+    @(147.8874 mm, 102.1952 mm): Track [/IO18] on F.Cu, length 3.4992 mm
+[track_width]: Largura da trilha (configuração das restrições da placa largura mín 0,2500 mm; atual 0,2000 mm)
+    Rule: classe da rede 'Default'; error
+    @(147.0926 mm, 102.9900 mm): Track [/IO18] on F.Cu, length 1.1240 mm
+[track_width]: Largura da trilha (configuração das restrições da placa largura mín 0,2500 mm; atual 0,2000 mm)
+    Rule: classe da rede 'Default'; error
+    @(146.3170 mm, 102.9900 mm): Track [/IO18] on F.Cu, length 0.7756 mm
+[track_width]: Largura da trilha (configuração das restrições da placa largura mín 0,2500 mm; atual 0,2000 mm)
+    Rule: classe da rede 'Default'; error
+    @(145.5191 mm, 103.7879 mm): Track [/IO18] on F.Cu, length 1.1284 mm
+[track_width]: Largura da trilha (configuração das restrições da placa largura mín 0,2500 mm; atual 0,2000 mm)
+    Rule: classe da rede 'Default'; error
+    @(145.5191 mm, 105.6191 mm): Track [/IO18] on F.Cu, length 1.8312 mm
+[track_width]: Largura da trilha (configuração das restrições da placa largura mín 0,2500 mm; atual 0,2000 mm)
+    Rule: classe da rede 'Default'; error
+    @(146.7000 mm, 106.8000 mm): Track [/IO18] on F.Cu, length 1.6700 mm
+[track_width]: Largura da trilha (configuração das restrições da placa largura mín 0,2500 mm; atual 0,2000 mm)
+    Rule: classe da rede 'Default'; error
+    @(188.5950 mm, 69.9300 mm): Track [/IO18] on F.Cu, length 1.1517 mm
+[track_width]: Largura da trilha (configuração das restrições da placa largura mín 0,2500 mm; atual 0,2000 mm)
+    Rule: classe da rede 'Default'; error
+    @(139.6842 mm, 86.7568 mm): Track [Net-(Q4-G)] on B.Cu, length 1.8184 mm
+[track_width]: Largura da trilha (configuração das restrições da placa largura mín 0,2500 mm; atual 0,2000 mm)
+    Rule: classe da rede 'Default'; error
+    @(139.6842 mm, 88.6460 mm): Track [Net-(Q4-G)] on B.Cu, length 1.8892 mm
+[track_width]: Largura da trilha (configuração das restrições da placa largura mín 0,2500 mm; atual 0,2000 mm)
+    Rule: classe da rede 'Default'; error
+    @(138.4300 mm, 88.6460 mm): Track [Net-(Q4-G)] on B.Cu, length 1.2542 mm
+[track_width]: Largura da trilha (configuração das restrições da placa largura mín 0,2500 mm; atual 0,2000 mm)
+    Rule: classe da rede 'Default'; error
+    @(140.9700 mm, 85.4710 mm): Track [Net-(Q4-G)] on B.Cu, length 3.1750 mm
+[track_width]: Largura da trilha (configuração das restrições da placa largura mín 0,2500 mm; atual 0,2000 mm)
+    Rule: classe da rede 'Default'; error
+    @(140.3192 mm, 66.6750 mm): Track [Net-(Q1-G)] on F.Cu, length 0.6508 mm
+[track_width]: Largura da trilha (configuração das restrições da placa largura mín 0,2500 mm; atual 0,2000 mm)
+    Rule: classe da rede 'Default'; error
+    @(135.8742 mm, 71.1200 mm): Track [Net-(Q1-G)] on F.Cu, length 6.2862 mm
+[track_width]: Largura da trilha (configuração das restrições da placa largura mín 0,2500 mm; atual 0,2000 mm)
+    Rule: classe da rede 'Default'; error
+    @(134.6200 mm, 71.1200 mm): Track [Net-(Q1-G)] on F.Cu, length 1.2542 mm
+[track_width]: Largura da trilha (configuração das restrições da placa largura mín 0,2500 mm; atual 0,2000 mm)
+    Rule: classe da rede 'Default'; error
+    @(134.6200 mm, 67.3100 mm): Track [Net-(Q1-G)] on B.Cu, length 3.8100 mm
+[track_width]: Largura da trilha (configuração das restrições da placa largura mín 0,2500 mm; atual 0,2000 mm)
+    Rule: classe da rede 'Default'; error
+    @(130.8100 mm, 63.5000 mm): Track [Net-(Q1-G)] on B.Cu, length 5.3882 mm
+[track_width]: Largura da trilha (configuração das restrições da placa largura mín 0,2500 mm; atual 0,2000 mm)
+    Rule: classe da rede 'Default'; error
+    @(148.5200 mm, 90.8400 mm): Track [/IO4] on F.Cu, length 2.5739 mm
+[track_width]: Largura da trilha (configuração das restrições da placa largura mín 0,2500 mm; atual 0,2000 mm)
+    Rule: classe da rede 'Default'; error
+    @(159.4626 mm, 90.8400 mm): Track [/IO4] on F.Cu, length 10.9426 mm
+[track_width]: Largura da trilha (configuração das restrições da placa largura mín 0,2500 mm; atual 0,2000 mm)
+    Rule: classe da rede 'Default'; error
+    @(160.0126 mm, 90.2900 mm): Track [/IO4] on F.Cu, length 0.7778 mm
+[track_width]: Largura da trilha (configuração das restrições da placa largura mín 0,2500 mm; atual 0,2000 mm)
+    Rule: classe da rede 'Default'; error
+    @(173.8703 mm, 90.2900 mm): Track [/IO4] on F.Cu, length 13.8577 mm
+[track_width]: Largura da trilha (configuração das restrições da placa largura mín 0,2500 mm; atual 0,2000 mm)
+    Rule: classe da rede 'Default'; error
+    @(174.9204 mm, 89.2399 mm): Track [/IO4] on F.Cu, length 1.4851 mm
+[track_width]: Largura da trilha (configuração das restrições da placa largura mín 0,2500 mm; atual 0,2000 mm)
+    Rule: classe da rede 'Default'; error
+    @(183.8728 mm, 89.2399 mm): Track [/IO4] on F.Cu, length 8.9524 mm
+[track_width]: Largura da trilha (configuração das restrições da placa largura mín 0,2500 mm; atual 0,2000 mm)
+    Rule: classe da rede 'Default'; error
+    @(184.1027 mm, 89.0100 mm): Track [/IO4] on F.Cu, length 0.3251 mm
+[track_width]: Largura da trilha (configuração das restrições da placa largura mín 0,2500 mm; atual 0,2000 mm)
+    Rule: classe da rede 'Default'; error
+    @(189.2247 mm, 89.0100 mm): Track [/IO4] on F.Cu, length 5.1220 mm
+[track_width]: Largura da trilha (configuração das restrições da placa largura mín 0,2500 mm; atual 0,2000 mm)
+    Rule: classe da rede 'Default'; error
+    @(189.8760 mm, 89.6613 mm): Track [/IO4] on F.Cu, length 0.9211 mm
+[track_width]: Largura da trilha (configuração das restrições da placa largura mín 0,2500 mm; atual 0,2000 mm)
+    Rule: classe da rede 'Default'; error
+    @(189.8760 mm, 102.2592 mm): Track [/IO4] on F.Cu, length 12.5979 mm
+[track_width]: Largura da trilha (configuração das restrições da placa largura mín 0,2500 mm; atual 0,2000 mm)
+    Rule: classe da rede 'Default'; error
+    @(189.0269 mm, 103.1083 mm): Track [/IO4] on F.Cu, length 1.2008 mm
+[track_width]: Largura da trilha (configuração das restrições da placa largura mín 0,2500 mm; atual 0,2000 mm)
+    Rule: classe da rede 'Default'; error
+    @(188.5950 mm, 103.1083 mm): Track [/IO4] on F.Cu, length 0.4319 mm
+[track_width]: Largura da trilha (configuração das restrições da placa largura mín 0,2500 mm; atual 0,2000 mm)
+    Rule: classe da rede 'Default'; error
+    @(188.5950 mm, 104.2600 mm): Track [/IO4] on F.Cu, length 1.1517 mm
+[track_width]: Largura da trilha (configuração das restrições da placa largura mín 0,2500 mm; atual 0,2000 mm)
+    Rule: classe da rede 'Default'; error
+    @(188.5950 mm, 106.7600 mm): Track [/IO5] on F.Cu, length 1.1517 mm
+[track_width]: Largura da trilha (configuração das restrições da placa largura mín 0,2500 mm; atual 0,2000 mm)
+    Rule: classe da rede 'Default'; error
+    @(156.8628 mm, 101.7228 mm): Track [/IO5] on B.Cu, length 1.2674 mm
+[track_width]: Largura da trilha (configuração das restrições da placa largura mín 0,2500 mm; atual 0,2000 mm)
+    Rule: classe da rede 'Default'; error
+    @(146.7000 mm, 91.5600 mm): Track [/IO5] on B.Cu, length 14.3724 mm
+[track_width]: Largura da trilha (configuração das restrições da placa largura mín 0,2500 mm; atual 0,2000 mm)
+    Rule: classe da rede 'Default'; error
+    @(174.5622 mm, 105.6083 mm): Track [/IO5] on F.Cu, length 14.0328 mm
+[track_width]: Largura da trilha (configuração das restrições da placa largura mín 0,2500 mm; atual 0,2000 mm)
+    Rule: classe da rede 'Default'; error
+    @(171.9441 mm, 102.9902 mm): Track [/IO5] on F.Cu, length 3.7026 mm
+[track_width]: Largura da trilha (configuração das restrições da placa largura mín 0,2500 mm; atual 0,2000 mm)
+    Rule: classe da rede 'Default'; error
+    @(156.8628 mm, 102.9902 mm): Track [/IO5] on F.Cu, length 15.0813 mm
+[track_width]: Largura da trilha (configuração das restrições da placa largura mín 0,2500 mm; atual 0,2000 mm)
+    Rule: classe da rede 'Default'; error
+    @(102.6975 mm, 120.1350 mm): Track [Net-(D9-K)] on F.Cu, length 3.5921 mm
+[track_width]: Largura da trilha (configuração das restrições da placa largura mín 0,2500 mm; atual 0,2000 mm)
+    Rule: classe da rede 'Default'; error
+    @(109.2200 mm, 120.1350 mm): Track [Net-(D9-K)] on F.Cu, length 6.5225 mm
+[track_width]: Largura da trilha (configuração das restrições da placa largura mín 0,2500 mm; atual 0,2000 mm)
+    Rule: classe da rede 'Default'; error
+    @(113.9689 mm, 120.1350 mm): Track [Net-(D9-K)] on F.Cu, length 4.7489 mm
+[track_width]: Largura da trilha (configuração das restrições da placa largura mín 0,2500 mm; atual 0,2000 mm)
+    Rule: classe da rede 'Default'; error
+    @(126.5190 mm, 107.5849 mm): Track [Net-(D9-K)] on F.Cu, length 17.7485 mm
+[track_width]: Largura da trilha (configuração das restrições da placa largura mín 0,2500 mm; atual 0,2000 mm)
+    Rule: classe da rede 'Default'; error
+    @(130.2746 mm, 107.5849 mm): Track [Net-(D9-K)] on F.Cu, length 3.7556 mm
+[track_width]: Largura da trilha (configuração das restrições da placa largura mín 0,2500 mm; atual 0,2000 mm)
+    Rule: classe da rede 'Default'; error
+    @(134.6358 mm, 103.2237 mm): Track [Net-(D9-K)] on F.Cu, length 6.1677 mm
+[track_width]: Largura da trilha (configuração das restrições da placa largura mín 0,2500 mm; atual 0,2000 mm)
+    Rule: classe da rede 'Default'; error
+    @(134.6358 mm, 102.6750 mm): Track [Net-(D9-K)] on F.Cu, length 0.5487 mm
+[track_width]: Largura da trilha (configuração das restrições da placa largura mín 0,2500 mm; atual 0,2000 mm)
+    Rule: classe da rede 'Default'; error
+    @(135.8900 mm, 102.6750 mm): Track [Net-(D9-K)] on F.Cu, length 1.2542 mm
+[track_width]: Largura da trilha (configuração das restrições da placa largura mín 0,2500 mm; atual 0,2000 mm)
+    Rule: classe da rede 'Default'; error
+    @(126.9842 mm, 86.7568 mm): Track [Net-(Q3-G)] on B.Cu, length 1.8184 mm
+[track_width]: Largura da trilha (configuração das restrições da placa largura mín 0,2500 mm; atual 0,2000 mm)
+    Rule: classe da rede 'Default'; error
+    @(126.9842 mm, 88.6460 mm): Track [Net-(Q3-G)] on B.Cu, length 1.8892 mm
+[track_width]: Largura da trilha (configuração das restrições da placa largura mín 0,2500 mm; atual 0,2000 mm)
+    Rule: classe da rede 'Default'; error
+    @(125.7300 mm, 88.6460 mm): Track [Net-(Q3-G)] on B.Cu, length 1.2542 mm
+[track_width]: Largura da trilha (configuração das restrições da placa largura mín 0,2500 mm; atual 0,2000 mm)
+    Rule: classe da rede 'Default'; error
+    @(125.0950 mm, 82.2960 mm): Track [Net-(Q3-G)] on F.Cu, length 4.4901 mm
+[track_width]: Largura da trilha (configuração das restrições da placa largura mín 0,2500 mm; atual 0,2000 mm)
+    Rule: classe da rede 'Default'; error
+    @(118.1100 mm, 82.2960 mm): Track [Net-(Q3-G)] on F.Cu, length 6.9850 mm
+[track_width]: Largura da trilha (configuração das restrições da placa largura mín 0,2500 mm; atual 0,2000 mm)
+    Rule: classe da rede 'Default'; error
+    @(134.6042 mm, 112.4842 mm): Track [/IO12] on B.Cu, length 28.4195 mm
+[track_width]: Largura da trilha (configuração das restrições da placa largura mín 0,2500 mm; atual 0,2000 mm)
+    Rule: classe da rede 'Default'; error
+    @(146.7000 mm, 124.5800 mm): Track [/IO12] on B.Cu, length 17.1060 mm
+[track_width]: Largura da trilha (configuração das restrições da placa largura mín 0,2500 mm; atual 0,2000 mm)
+    Rule: classe da rede 'Default'; error
+    @(130.0387 mm, 84.0647 mm): Track [/IO12] on F.Cu, length 4.5655 mm
+[track_width]: Largura da trilha (configuração das restrições da placa largura mín 0,2500 mm; atual 0,2000 mm)
+    Rule: classe da rede 'Default'; error
+    @(128.2700 mm, 82.2960 mm): Track [/IO12] on F.Cu, length 2.5013 mm
+[track_width]: Largura da trilha (configuração das restrições da placa largura mín 0,2500 mm; atual 0,2000 mm)
+    Rule: classe da rede 'Default'; error
+    @(108.1550 mm, 52.4650 mm): Track [Net-(J1-Pin_1)] on F.Cu, length 3.4000 mm
+[track_width]: Largura da trilha (configuração das restrições da placa largura mín 0,2500 mm; atual 0,2000 mm)
+    Rule: classe da rede 'Default'; error
+    @(100.1575 mm, 44.4675 mm): Track [Net-(J1-Pin_1)] on F.Cu, length 2.3975 mm
+[track_width]: Largura da trilha (configuração das restrições da placa largura mín 0,2500 mm; atual 0,2000 mm)
+    Rule: classe da rede 'Default'; error
+    @(108.1550 mm, 52.4650 mm): Track [Net-(J1-Pin_1)] on F.Cu, length 11.3102 mm
+[track_width]: Largura da trilha (configuração das restrições da placa largura mín 0,2500 mm; atual 0,2000 mm)
+    Rule: classe da rede 'Default'; error
+    @(172.3050 mm, 52.1500 mm): Track [Net-(D3-A)] on F.Cu, length 6.3427 mm
+[track_width]: Largura da trilha (configuração das restrições da placa largura mín 0,2500 mm; atual 0,2000 mm)
+    Rule: classe da rede 'Default'; error
+    @(172.7200 mm, 52.1500 mm): Track [Net-(D3-A)] on F.Cu, length 0.4150 mm
+[track_width]: Largura da trilha (configuração das restrições da placa largura mín 0,2500 mm; atual 0,2000 mm)
+    Rule: classe da rede 'Default'; error
+    @(174.5945 mm, 52.1500 mm): Track [Net-(D3-A)] on F.Cu, length 1.8745 mm
+[track_width]: Largura da trilha (configuração das restrições da placa largura mín 0,2500 mm; atual 0,2000 mm)
+    Rule: classe da rede 'Default'; error
+    @(178.4508 mm, 48.2937 mm): Track [Net-(D3-A)] on F.Cu, length 5.4536 mm
+[track_width]: Largura da trilha (configuração das restrições da placa largura mín 0,2500 mm; atual 0,2000 mm)
+    Rule: classe da rede 'Default'; error
+    @(178.4508 mm, 47.7450 mm): Track [Net-(D3-A)] on F.Cu, length 0.5487 mm
+
+** Found 0 unconnected pads **
+
+** Found 0 Footprint errors **
+
+** Ignored checks **
+    - Footprint has no courtyard defined
+    - Track endpoint not centered on via
+    - Tuning profile track geometries
+    - Footprint doesn't match symbol's footprint filters
+    - Footprint component type doesn't match footprint pads
+
+** End of Report **
