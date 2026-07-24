@@ -1234,346 +1234,6 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "Connector:USB_A"
-			(pin_names
-				(offset 1.016)
-			)
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(in_pos_files yes)
-			(duplicate_pin_numbers_are_jumpers no)
-			(property "Reference" "J"
-				(at -5.08 11.43 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left)
-				)
-			)
-			(property "Value" "USB_A"
-				(at -5.08 8.89 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left)
-				)
-			)
-			(property "Footprint" ""
-				(at 3.81 -1.27 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Datasheet" ""
-				(at 3.81 -1.27 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Description" "USB Type A connector"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "ki_keywords" "connector USB"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "ki_fp_filters" "USB*"
-				(at 0 0 0)
-				(show_name no)
-				(do_not_autoplace no)
-				(hide yes)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(symbol "USB_A_0_1"
-				(rectangle
-					(start -5.08 -7.62)
-					(end 5.08 7.62)
-					(stroke
-						(width 0.254)
-						(type default)
-					)
-					(fill
-						(type background)
-					)
-				)
-				(circle
-					(center -3.81 2.159)
-					(radius 0.635)
-					(stroke
-						(width 0.254)
-						(type default)
-					)
-					(fill
-						(type outline)
-					)
-				)
-				(polyline
-					(pts
-						(xy -3.175 2.159) (xy -2.54 2.159) (xy -1.27 3.429) (xy -0.635 3.429)
-					)
-					(stroke
-						(width 0.254)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -2.54 2.159) (xy -1.905 2.159) (xy -1.27 0.889) (xy 0 0.889)
-					)
-					(stroke
-						(width 0.254)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(rectangle
-					(start -1.524 4.826)
-					(end -4.318 5.334)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type outline)
-					)
-				)
-				(rectangle
-					(start -1.27 4.572)
-					(end -4.572 5.842)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(circle
-					(center -0.635 3.429)
-					(radius 0.381)
-					(stroke
-						(width 0.254)
-						(type default)
-					)
-					(fill
-						(type outline)
-					)
-				)
-				(rectangle
-					(start -0.127 -7.62)
-					(end 0.127 -6.858)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(rectangle
-					(start 0.254 1.27)
-					(end -0.508 0.508)
-					(stroke
-						(width 0.254)
-						(type default)
-					)
-					(fill
-						(type outline)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0.635 2.794) (xy 0.635 1.524) (xy 1.905 2.159) (xy 0.635 2.794)
-					)
-					(stroke
-						(width 0.254)
-						(type default)
-					)
-					(fill
-						(type outline)
-					)
-				)
-				(rectangle
-					(start 5.08 4.953)
-					(end 4.318 5.207)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(rectangle
-					(start 5.08 -0.127)
-					(end 4.318 0.127)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(rectangle
-					(start 5.08 -2.667)
-					(end 4.318 -2.413)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-			)
-			(symbol "USB_A_1_1"
-				(polyline
-					(pts
-						(xy -1.905 2.159) (xy 0.635 2.159)
-					)
-					(stroke
-						(width 0.254)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(pin power_in line
-					(at 7.62 5.08 180)
-					(length 2.54)
-					(name "VBUS"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin bidirectional line
-					(at 7.62 -2.54 180)
-					(length 2.54)
-					(name "D-"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin bidirectional line
-					(at 7.62 0 180)
-					(length 2.54)
-					(name "D+"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "3"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin power_in line
-					(at 0 -10.16 90)
-					(length 2.54)
-					(name "GND"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "4"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at -2.54 -10.16 90)
-					(length 2.54)
-					(name "Shield"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "SH"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-			)
-			(embedded_fonts no)
-		)
 		(symbol "Connector:USB_C_Receptacle_PowerOnly_6P"
 			(pin_names
 				(offset 1.016)
@@ -6584,6 +6244,12 @@
 		(uuid "d898c82f-7e8e-474c-99db-7f082899a722")
 	)
 	(junction
+		(at 190.5 140.97)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "dbbc4ef5-f1e9-4860-9268-277db0c3d8ce")
+	)
+	(junction
 		(at 118.11 44.45)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -6699,6 +6365,16 @@
 	)
 	(wire
 		(pts
+			(xy 187.96 158.75) (xy 189.23 158.75)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "0bc8f5d9-df14-46f6-8a5a-4af7326b9fc1")
+	)
+	(wire
+		(pts
 			(xy 52.07 114.3) (xy 52.07 96.52)
 		)
 		(stroke
@@ -6706,6 +6382,26 @@
 			(type default)
 		)
 		(uuid "0ca55be6-fc45-4f0d-ba46-d7c99adb2967")
+	)
+	(wire
+		(pts
+			(xy 215.9 157.48) (xy 224.79 157.48)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "0d22eacf-d6fa-4aaa-8640-2c0064224a0e")
+	)
+	(wire
+		(pts
+			(xy 203.2 158.75) (xy 203.2 156.21)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "0ec0a94b-73cc-439e-887b-766e17e4c453")
 	)
 	(wire
 		(pts
@@ -6836,6 +6532,16 @@
 			(type default)
 		)
 		(uuid "1b538622-540b-479b-a835-606f7d6291fa")
+	)
+	(wire
+		(pts
+			(xy 200.66 158.75) (xy 200.66 156.21)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "1e174e90-390a-4d96-bea1-41285d2082e3")
 	)
 	(wire
 		(pts
@@ -7209,6 +6915,16 @@
 	)
 	(wire
 		(pts
+			(xy 215.9 156.21) (xy 215.9 157.48)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "4a24b2a3-97a5-4409-be4a-2c336edf475f")
+	)
+	(wire
+		(pts
 			(xy 118.11 96.52) (xy 119.38 96.52)
 		)
 		(stroke
@@ -7216,6 +6932,16 @@
 			(type default)
 		)
 		(uuid "4e3ea435-dbe0-4fde-9846-8c4962f18a60")
+	)
+	(wire
+		(pts
+			(xy 196.85 158.75) (xy 200.66 158.75)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "4ed1ede4-bb0c-4a76-93ea-6c5e91866442")
 	)
 	(wire
 		(pts
@@ -7536,6 +7262,16 @@
 			(type default)
 		)
 		(uuid "7257ad32-bc61-44a5-b817-d39b8d608daf")
+	)
+	(wire
+		(pts
+			(xy 205.74 158.75) (xy 203.2 158.75)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "73833bf9-74fa-4c06-b753-61ca02b4e38f")
 	)
 	(wire
 		(pts
@@ -7876,6 +7612,16 @@
 			(type default)
 		)
 		(uuid "98ef0ca8-2b23-4e4a-a1a3-d9103876a937")
+	)
+	(wire
+		(pts
+			(xy 214.63 158.75) (xy 213.36 158.75)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "99075904-dbf5-49dc-a5ba-4da638138ac0")
 	)
 	(wire
 		(pts
@@ -8646,6 +8392,16 @@
 			(type default)
 		)
 		(uuid "f5d6b613-cfa4-4e6f-b077-a4ece3a49371")
+	)
+	(wire
+		(pts
+			(xy 190.5 133.35) (xy 190.5 140.97)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "f817a452-6c8e-4163-97e0-841e41e0d4e9")
 	)
 	(wire
 		(pts
@@ -9641,97 +9397,6 @@
 			(project "jardim"
 				(path "/be2a7050-4dcf-40a5-a221-48a7948dc32a"
 					(reference "Q5")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Connector:USB_A")
-		(at 238.76 140.97 270)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "03053c3b-d1c8-4852-9c0a-f294ed45434b")
-		(property "Reference" "J17"
-			(at 247.65 139.6999 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "USB_A"
-			(at 247.65 142.2399 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" ""
-			(at 237.49 144.78 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 237.49 144.78 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "USB Type A connector"
-			(at 238.76 140.97 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "a8e939da-4441-4493-b64b-5a9cedd87981")
-		)
-		(pin "2"
-			(uuid "7e194b86-58bb-416d-ba86-926058a1caed")
-		)
-		(pin "3"
-			(uuid "a2f7dbc0-7d42-4e65-9ad9-f07f7dbb3afc")
-		)
-		(pin "4"
-			(uuid "8d806bc0-1e46-4f23-a887-c9949b06e1ae")
-		)
-		(pin "SH"
-			(uuid "3660a0d6-456c-464a-8560-2d65735053e5")
-		)
-		(instances
-			(project "jardim"
-				(path "/be2a7050-4dcf-40a5-a221-48a7948dc32a"
-					(reference "J17")
 					(unit 1)
 				)
 			)
@@ -13182,6 +12847,84 @@
 		)
 	)
 	(symbol
+		(lib_id "power:+5V")
+		(at 224.79 157.48 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "483f99a6-618d-49a1-b446-586a820540c3")
+		(property "Reference" "#PWR020"
+			(at 224.79 161.29 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "+5V"
+			(at 224.79 152.4 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 224.79 157.48 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 224.79 157.48 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"+5V\""
+			(at 224.79 157.48 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "569998e6-8646-4fed-807f-1acf99a73508")
+		)
+		(instances
+			(project "jardim"
+				(path "/be2a7050-4dcf-40a5-a221-48a7948dc32a"
+					(reference "#PWR020")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "power:GND")
 		(at 278.13 144.78 0)
 		(unit 1)
@@ -13694,7 +13437,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Connector_USB:USB_C_Receptacle_GCT_USB4125-xx-x_6P_TopMnt_Horizontal"
 			(at 210.82 144.78 0)
 			(hide yes)
 			(show_name no)
@@ -16137,6 +15880,84 @@
 		)
 	)
 	(symbol
+		(lib_id "power:GND")
+		(at 214.63 158.75 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "84f44ecb-05e9-4cbe-8d6f-d79cdf71902b")
+		(property "Reference" "#PWR016"
+			(at 214.63 165.1 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "GND"
+			(at 214.63 163.83 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 214.63 158.75 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 214.63 158.75 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 214.63 158.75 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "239e402a-38a5-471b-9ce4-dff7b83631ad")
+		)
+		(instances
+			(project "jardim"
+				(path "/be2a7050-4dcf-40a5-a221-48a7948dc32a"
+					(reference "#PWR016")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Device:C_Polarized")
 		(at 125.73 182.88 0)
 		(unit 1)
@@ -18354,6 +18175,86 @@
 	)
 	(symbol
 		(lib_id "Device:R")
+		(at 209.55 158.75 270)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "bd00d499-8c64-4f4f-81f2-5daaf410d037")
+		(property "Reference" "R22"
+			(at 209.55 152.4 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "5.1k"
+			(at 209.55 154.94 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal"
+			(at 209.55 156.972 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 209.55 158.75 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Resistor"
+			(at 209.55 158.75 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "2"
+			(uuid "54e36b30-c3c2-4c5a-84f2-455f472a81ae")
+		)
+		(pin "1"
+			(uuid "07db0b5d-7b9e-4780-9a78-fefc29639334")
+		)
+		(instances
+			(project "jardim"
+				(path "/be2a7050-4dcf-40a5-a221-48a7948dc32a"
+					(reference "R22")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R")
 		(at 41.91 128.27 0)
 		(unit 1)
 		(body_style 1)
@@ -18591,6 +18492,86 @@
 		)
 	)
 	(symbol
+		(lib_id "Device:R")
+		(at 193.04 158.75 270)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "bdcc7dab-4c22-4e5b-affb-1fdc512c5aa5")
+		(property "Reference" "R23"
+			(at 193.04 152.4 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "5.1k"
+			(at 193.04 154.94 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal"
+			(at 193.04 156.972 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 193.04 158.75 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Resistor"
+			(at 193.04 158.75 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "2"
+			(uuid "c313b92b-5d6a-488c-baf5-9b7f7c62d2bd")
+		)
+		(pin "1"
+			(uuid "69d30397-20d2-44f8-a4b3-8bd17321f8dd")
+		)
+		(instances
+			(project "jardim"
+				(path "/be2a7050-4dcf-40a5-a221-48a7948dc32a"
+					(reference "R23")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Connector_Generic:Conn_01x04")
 		(at 250.19 90.17 0)
 		(mirror x)
@@ -18749,6 +18730,84 @@
 			(project "jardim"
 				(path "/be2a7050-4dcf-40a5-a221-48a7948dc32a"
 					(reference "#PWR065")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 190.5 140.97 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "c3089e29-3383-41c9-8d48-76c935496232")
+		(property "Reference" "#PWR025"
+			(at 190.5 147.32 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "GND"
+			(at 190.5 146.05 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 190.5 140.97 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 190.5 140.97 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 190.5 140.97 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "1b344b4c-3e8a-4710-92a0-2b32f54cabe2")
+		)
+		(instances
+			(project "jardim"
+				(path "/be2a7050-4dcf-40a5-a221-48a7948dc32a"
+					(reference "#PWR025")
 					(unit 1)
 				)
 			)
@@ -19781,6 +19840,84 @@
 			(project "jardim"
 				(path "/be2a7050-4dcf-40a5-a221-48a7948dc32a"
 					(reference "#PWR061")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 187.96 158.75 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "dacf84a4-6ada-40b8-adaf-7eea22639eb5")
+		(property "Reference" "#PWR015"
+			(at 187.96 165.1 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "GND"
+			(at 187.96 163.83 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 187.96 158.75 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 187.96 158.75 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 187.96 158.75 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "55510e06-19e3-4204-8625-4a85c4b2b22d")
+		)
+		(instances
+			(project "jardim"
+				(path "/be2a7050-4dcf-40a5-a221-48a7948dc32a"
+					(reference "#PWR015")
 					(unit 1)
 				)
 			)
