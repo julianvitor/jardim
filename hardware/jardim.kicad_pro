@@ -520,7 +520,7 @@
         "microvia_drill": 0.1,
         "name": "Power_12V",
         "pcb_color": "rgba(0, 0, 0, 0.000)",
-        "priority": 1,
+        "priority": 2,
         "schematic_color": "rgba(0, 0, 0, 0.000)",
         "track_width": 0.7,
         "tuning_profile": "",
@@ -535,7 +535,7 @@
         "microvia_drill": 0.1,
         "name": "Power_24V",
         "pcb_color": "rgba(0, 0, 0, 0.000)",
-        "priority": 0,
+        "priority": 1,
         "schematic_color": "rgba(0, 0, 0, 0.000)",
         "track_width": 2.0,
         "tuning_profile": "",
@@ -550,12 +550,27 @@
         "microvia_drill": 0.8,
         "name": "Power_5V",
         "pcb_color": "rgba(0, 0, 0, 0.000)",
-        "priority": 2,
+        "priority": 3,
         "schematic_color": "rgba(0, 0, 0, 0.000)",
         "track_width": 0.4,
         "tuning_profile": "",
         "via_diameter": 0.8,
         "via_drill": 0.8
+      },
+      {
+        "clearance": 0.3,
+        "diff_pair_gap": 0.2,
+        "diff_pair_width": 0.2,
+        "microvia_diameter": 0.3,
+        "microvia_drill": 0.1,
+        "name": "VIN_RAW",
+        "pcb_color": "rgba(0, 0, 0, 0.000)",
+        "priority": 0,
+        "schematic_color": "rgba(0, 0, 0, 0.000)",
+        "track_width": 2.0,
+        "tuning_profile": "",
+        "via_diameter": 1.2,
+        "via_drill": 0.6
       }
     ],
     "meta": {
@@ -575,6 +590,10 @@
       {
         "netclass": "Power_24V",
         "pattern": "+24V"
+      },
+      {
+        "netclass": "VIN_RAW",
+        "pattern": "VIN_RAW"
       }
     ]
   },
