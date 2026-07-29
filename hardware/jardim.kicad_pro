@@ -513,49 +513,169 @@
         "wire_width": 6
       },
       {
-        "clearance": 0.25,
+        "clearance": 0.2,
         "diff_pair_gap": 0.2,
         "diff_pair_width": 0.2,
         "microvia_diameter": 0.3,
         "microvia_drill": 0.1,
-        "name": "Power_12V",
-        "pcb_color": "rgba(0, 0, 0, 0.000)",
+        "name": "HEATER_1_SW_NEG",
+        "pcb_color": "rgb(30, 154, 255)",
         "priority": 1,
         "schematic_color": "rgba(0, 0, 0, 0.000)",
-        "track_width": 0.7,
+        "track_width": 0.75,
         "tuning_profile": "",
         "via_diameter": 0.8,
         "via_drill": 0.4
       },
       {
-        "clearance": 0.3,
+        "clearance": 0.2,
+        "diff_pair_gap": 0.2,
+        "diff_pair_width": 0.2,
+        "microvia_diameter": 0.3,
+        "microvia_drill": 0.1,
+        "name": "HEATER_2_SW_NEG",
+        "pcb_color": "rgb(30, 154, 255)",
+        "priority": 0,
+        "schematic_color": "rgba(0, 0, 0, 0.000)",
+        "track_width": 0.75,
+        "tuning_profile": "",
+        "via_diameter": 0.8,
+        "via_drill": 0.4
+      },
+      {
+        "clearance": 0.2,
+        "diff_pair_gap": 0.2,
+        "diff_pair_width": 0.2,
+        "microvia_diameter": 0.3,
+        "microvia_drill": 0.1,
+        "name": "LIGHT_1_SW_NEG",
+        "pcb_color": "rgb(133, 206, 255)",
+        "priority": 3,
+        "schematic_color": "rgba(0, 0, 0, 0.000)",
+        "track_width": 0.75,
+        "tuning_profile": "",
+        "via_diameter": 0.8,
+        "via_drill": 0.4
+      },
+      {
+        "clearance": 0.2,
+        "diff_pair_gap": 0.2,
+        "diff_pair_width": 0.2,
+        "microvia_diameter": 0.3,
+        "microvia_drill": 0.1,
+        "name": "LIGHT_2_SW_NEG",
+        "pcb_color": "rgb(133, 206, 255)",
+        "priority": 2,
+        "schematic_color": "rgba(0, 0, 0, 0.000)",
+        "track_width": 0.75,
+        "tuning_profile": "",
+        "via_diameter": 0.8,
+        "via_drill": 0.4
+      },
+      {
+        "clearance": 0.2,
+        "diff_pair_gap": 0.2,
+        "diff_pair_width": 0.2,
+        "microvia_diameter": 0.3,
+        "microvia_drill": 0.1,
+        "name": "PUMP_1_SW_NEG",
+        "pcb_color": "rgb(0, 0, 255)",
+        "priority": 5,
+        "schematic_color": "rgba(0, 0, 0, 0.000)",
+        "track_width": 0.75,
+        "tuning_profile": "",
+        "via_diameter": 0.8,
+        "via_drill": 0.4
+      },
+      {
+        "clearance": 0.2,
+        "diff_pair_gap": 0.2,
+        "diff_pair_width": 0.2,
+        "microvia_diameter": 0.3,
+        "microvia_drill": 0.1,
+        "name": "PUMP_2_SW_NEG",
+        "pcb_color": "rgb(0, 0, 255)",
+        "priority": 4,
+        "schematic_color": "rgba(0, 0, 0, 0.000)",
+        "track_width": 0.75,
+        "tuning_profile": "",
+        "via_diameter": 0.8,
+        "via_drill": 0.4
+      },
+      {
+        "clearance": 0.2,
+        "diff_pair_gap": 0.2,
+        "diff_pair_width": 0.2,
+        "microvia_diameter": 0.3,
+        "microvia_drill": 0.1,
+        "name": "Power_12V",
+        "pcb_color": "rgb(255, 215, 0)",
+        "priority": 9,
+        "schematic_color": "rgba(0, 0, 0, 0.000)",
+        "track_width": 1.5,
+        "tuning_profile": "",
+        "via_diameter": 0.8,
+        "via_drill": 0.4
+      },
+      {
+        "clearance": 0.2,
         "diff_pair_gap": 0.2,
         "diff_pair_width": 0.2,
         "microvia_diameter": 0.3,
         "microvia_drill": 0.1,
         "name": "Power_24V",
-        "pcb_color": "rgba(0, 0, 0, 0.000)",
-        "priority": 0,
+        "pcb_color": "rgb(255, 140, 0)",
+        "priority": 8,
         "schematic_color": "rgba(0, 0, 0, 0.000)",
         "track_width": 2.0,
         "tuning_profile": "",
-        "via_diameter": 1.2,
-        "via_drill": 0.6
+        "via_diameter": 0.8,
+        "via_drill": 0.4
       },
       {
         "clearance": 0.2,
-        "diff_pair_gap": 0.8,
-        "diff_pair_width": 0.8,
-        "microvia_diameter": 0.8,
-        "microvia_drill": 0.8,
+        "diff_pair_gap": 0.2,
+        "diff_pair_width": 0.2,
+        "microvia_diameter": 0.3,
+        "microvia_drill": 0.1,
         "name": "Power_5V",
-        "pcb_color": "rgba(0, 0, 0, 0.000)",
-        "priority": 2,
+        "pcb_color": "rgb(255, 0, 0)",
+        "priority": 10,
         "schematic_color": "rgba(0, 0, 0, 0.000)",
-        "track_width": 0.4,
+        "track_width": 0.5,
         "tuning_profile": "",
         "via_diameter": 0.8,
-        "via_drill": 0.8
+        "via_drill": 0.4
+      },
+      {
+        "clearance": 0.2,
+        "diff_pair_gap": 0.2,
+        "diff_pair_width": 0.2,
+        "microvia_diameter": 0.3,
+        "microvia_drill": 0.1,
+        "name": "VIN_AFTER_FUSE",
+        "pcb_color": "rgb(255, 140, 0)",
+        "priority": 6,
+        "schematic_color": "rgba(0, 0, 0, 0.000)",
+        "track_width": 2.0,
+        "tuning_profile": "",
+        "via_diameter": 0.8,
+        "via_drill": 0.4
+      },
+      {
+        "clearance": 0.2,
+        "diff_pair_gap": 0.2,
+        "diff_pair_width": 0.2,
+        "microvia_diameter": 0.3,
+        "microvia_drill": 0.1,
+        "name": "VIN_RAW",
+        "pcb_color": "rgb(255, 140, 0)",
+        "priority": 7,
+        "schematic_color": "rgba(0, 0, 0, 0.000)",
+        "track_width": 2.0,
+        "tuning_profile": "",
+        "via_diameter": 0.8,
+        "via_drill": 0.4
       }
     ],
     "meta": {
@@ -575,6 +695,38 @@
       {
         "netclass": "Power_24V",
         "pattern": "+24V"
+      },
+      {
+        "netclass": "VIN_RAW",
+        "pattern": "*VIN_RAW*"
+      },
+      {
+        "netclass": "VIN_AFTER_FUSE",
+        "pattern": "*VIN_AFTER_FUSE*"
+      },
+      {
+        "netclass": "PUMP_1_SW_NEG",
+        "pattern": "*PUMP_1_SW_NEG*"
+      },
+      {
+        "netclass": "PUMP_2_SW_NEG",
+        "pattern": "*PUMP_2_SW_NEG*"
+      },
+      {
+        "netclass": "LIGHT_1_SW_NEG",
+        "pattern": "*LIGHT_1_SW_NEG*"
+      },
+      {
+        "netclass": "LIGHT_2_SW_NEG",
+        "pattern": "*LIGHT_2_SW_NEG*"
+      },
+      {
+        "netclass": "HEATER_1_SW_NEG",
+        "pattern": "*HEATER_1_SW_NEG*"
+      },
+      {
+        "netclass": "HEATER_2_SW_NEG",
+        "pattern": "*HEATER_2_SW_NEG*"
       }
     ]
   },
