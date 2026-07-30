@@ -686,7 +686,9 @@
     "meta": {
       "version": 5
     },
-    "net_colors": null,
+    "net_colors": {
+      "+12V": "rgb(255, 248, 35)"
+    },
     "netclass_assignments": null,
     "netclass_patterns": [
       {
